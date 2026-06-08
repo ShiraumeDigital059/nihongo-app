@@ -23,15 +23,5 @@
       "src": "/",
       "dest": "/NihonGo_App.html"
     }
-  ],
-  "env": {
-    "STRIPE_SECRET_KEY": "@stripe_secret_key",
-    "STRIPE_WEBHOOK_SECRET": "@stripe_webhook_secret",
-    "STRIPE_PRICE_MONTHLY": "@stripe_price_monthly",
-    "STRIPE_PRICE_YEARLY": "@stripe_price_yearly",
-    "FIREBASE_PROJECT_ID": "@firebase_project_id",
-    "FIREBASE_CLIENT_EMAIL": "@firebase_client_email",
-    "FIREBASE_PRIVATE_KEY": "@firebase_private_key",
-    "SITE_URL": "@site_url"
-  }
+  ]
 }
