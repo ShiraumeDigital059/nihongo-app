@@ -1,0 +1,13 @@
+{
+  "name": "nihongo-app",
+  "version": "1.0.0",
+  "description": "NihonGo! - Japanese learning app for Vietnamese",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "stripe": "^14.0.0",
+    "firebase-admin": "^12.0.0"
+  }
+}
