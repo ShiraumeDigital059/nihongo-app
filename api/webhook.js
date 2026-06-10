@@ -1,7 +1,6 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
  
 module.exports = async (req, res) => {
-  // CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, stripe-signature');
@@ -22,17 +21,27 @@ module.exports = async (req, res) => {
   }
  
   try {
-    // Firebase Admin を毎回初期化
     const admin = require('firebase-admin');
     
     if (!admin.apps.length) {
+      // 改行文字を複数パターンで処理
+      let privateKey = process.env.FIREBASE_PRIVATE_KEY || '';
+      
+      // パターン1: \\n → \n
+      privateKey = privateKey.replace(/\\n/g, '\n');
+      
+      // パターン2: まだ改行がなければ強制変換
+      if (!privateKey.includes('\n')) {
+        privateKey = privateKey
+          .replace('-----BEGIN PRIVATE KEY-----', '-----BEGIN PRIVATE KEY-----\n')
+          .replace('-----END PRIVATE KEY-----', '\n-----END PRIVATE KEY-----\n');
+      }
+ 
       admin.initializeApp({
         credential: admin.credential.cert({
           projectId: process.env.FIREBASE_PROJECT_ID,
           clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-          privateKey: process.env.FIREBASE_PRIVATE_KEY
-            ? process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
-            : undefined,
+          privateKey: privateKey,
         }),
       });
     }
@@ -45,7 +54,7 @@ module.exports = async (req, res) => {
  
       case 'checkout.session.completed': {
         const session = event.data.object;
-        const userId = session.metadata?.userId || session.subscription_data?.metadata?.userId;
+        const userId = session.metadata?.userId;
         console.log('checkout completed, userId:', userId);
  
         if (userId) {
