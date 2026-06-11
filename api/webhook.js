@@ -54,8 +54,11 @@ module.exports = async (req, res) => {
  
       case 'checkout.session.completed': {
         const session = event.data.object;
-        const userId = session.metadata?.userId;
-        console.log('checkout completed, userId:', userId);
+        // Try multiple places where userId might be stored
+        const userId = session.metadata?.userId
+                    || session.subscription_data?.metadata?.userId
+                    || session.client_reference_id;
+        console.log('checkout completed, userId:', userId, 'session:', session.id);
  
         if (userId) {
           await db.collection('users').doc(userId).set({
