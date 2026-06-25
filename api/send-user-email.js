@@ -37,12 +37,12 @@ module.exports = async (req, res) => {
           </div>
         </div>
         <div style="text-align:center;margin:20px 0">
-          <a href="https://nihongo-app-orcin.vercel.app/NihonGo_App.html" style="display:inline-block;background:#C1121F;color:#fff;text-decoration:none;font-weight:800;font-size:14px;padding:13px 32px;border-radius:24px">
+          <a href="https://nihongoreal.com" style="display:inline-block;background:#C1121F;color:#fff;text-decoration:none;font-weight:800;font-size:14px;padding:13px 32px;border-radius:24px">
             🚀 Bắt đầu học ngay
           </a>
         </div>
         <p style="font-size:11px;color:#999;text-align:center;margin-top:20px">
-          ご登録ありがとうございます！日本語学習を楽しんでください 🌸<br>
+          Chúc bạn học tiếng Nhật thật vui mỗi ngày nhé 🌸 <span style="color:#bbb">(がんばって！)</span><br>
           Có câu hỏi gì, liên hệ: nihongoapp.contact@gmail.com
         </p>
       </div>
@@ -70,12 +70,12 @@ module.exports = async (req, res) => {
           </div>
         </div>
         <div style="text-align:center;margin:20px 0">
-          <a href="https://nihongo-app-orcin.vercel.app/NihonGo_App.html" style="display:inline-block;background:linear-gradient(135deg,#FFD27A,#F4A261);color:#1D3557;text-decoration:none;font-weight:800;font-size:14px;padding:13px 32px;border-radius:24px">
+          <a href="https://nihongoreal.com" style="display:inline-block;background:linear-gradient(135deg,#FFD27A,#F4A261);color:#1D3557;text-decoration:none;font-weight:800;font-size:14px;padding:13px 32px;border-radius:24px">
             ⭐ Khám phá Premium Hub
           </a>
         </div>
         <p style="font-size:11px;color:#999;text-align:center;margin-top:20px">
-          ご購入ありがとうございます！プレミアム機能をお楽しみください ⭐<br>
+          Cảm ơn bạn đã đồng hành cùng NihonGo! ⭐ <span style="color:#bbb">(ありがとう！)</span><br>
           Có câu hỏi gì, liên hệ: nihongoapp.contact@gmail.com
         </p>
       </div>
@@ -86,7 +86,7 @@ module.exports = async (req, res) => {
 
   try {
     await resend.emails.send({
-      from: 'NihonGo! <onboarding@resend.dev>',
+      from: 'NihonGo! <support@nihongoreal.com>',
       to: userEmail,
       subject: subject,
       html: html,
