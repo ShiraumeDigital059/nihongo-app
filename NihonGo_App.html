@@ -11606,421 +11606,292 @@ function showLearnCategory2(){
    ════════════════════════════════════════════════════════════ */
 
 const LINE_MODE_DATA = {
-
-  /* ── 👫 彼女・彼氏 ── */
-  lover:{
-    id:'lover',emoji:'👫',label:'Bạn trai / Bạn gái',labelVi:'Nhắn tin người yêu',
-    jlptLevel:'N5',targetTotal:50,
-    color:'linear-gradient(135deg,#FF6B9D,#C44B8A)',
+  kokuhaku:{
+    id:"kokuhaku",emoji:"💌",label:"告白",
+    labelVi:"Tỏ tình",group:"lover",
+    groupLabel:"💑 恋人系",jlptLevel:"N5",targetTotal:50,
+    color:"linear-gradient(135deg,#FF6B9D,#C44B8A)",
     questions:[
-      {level:'Cơ bản',
-       from:{avatar:'👩',name:'Yui'},
-       msg:'おはよ～😊',msgVi:'Chào buổi sáng～😊',
-       hint:'Yui nhắn tin chào buổi sáng. Bạn trả lời thế nào?',
-       type:'reply',
-       choices:[
-         {text:'おはよう！今日も元気だよ😊',rd:'Ohayou! Kyou mo genki da yo',vi:'Chào buổi sáng! Hôm nay cũng khỏe nhé😊',correct:true,
-          comment:'「おはよう」là cách chào buổi sáng thân mật và tự nhiên nhất với người yêu！「今日も元気」thể hiện sự vui vẻ。'},
-         {text:'私は電車に乗っています',rd:'Watashi wa densha ni notteimasu',vi:'Tôi đang đi tàu',correct:false,
-          comment:'Câu này không liên quan đến lời chào😅 Người yêu sẽ thấy lạ！'},
-         {text:'ありがとうございます',rd:'Arigatou gozaimasu',vi:'Cảm ơn bạn (trang trọng)',correct:false,
-          comment:'「ありがとうございます」quá trang trọng với người yêu！ Dùng「ありがとう」hoặc「ありがと」thì tự nhiên hơn。'},
-         {text:'はじめまして',rd:'Hajimemashite',vi:'Rất vui được gặp bạn (lần đầu)',correct:false,
-          comment:'「はじめまして」là câu chào lần đầu gặp mặt😂 Không dùng với người yêu！'},
-       ]},
-      {level:'Cơ bản',
-       from:{avatar:'👩',name:'Yui'},
-       msg:'今日、一緒にランチしない？🍱',msgVi:'Hôm nay ăn trưa cùng nhau không？🍱',
-       hint:'Yui rủ ăn trưa. Bạn muốn đi. Trả lời thế nào?',
-       type:'reply',
-       choices:[
-         {text:'いいね！どこ行く？😊',rd:'Ii ne! Doko iku?',vi:'Hay đó! Đi đâu vậy?😊',correct:true,
-          comment:'「いいね！」= Hay đó！ Rất tự nhiên khi đồng ý lời mời。「どこ行く？」hỏi tiếp địa điểm。'},
-         {text:'わかりました、承知しました',rd:'Wakarimashita, shouchi shimashita',vi:'Tôi hiểu, tôi đã nắm rõ (văn phòng)',correct:false,
-          comment:'Đây là ngôn ngữ văn phòng！ Quá trang trọng với người yêu😂'},
-         {text:'ランチは食べ物です',rd:'Ranchi wa tabemono desu',vi:'Ăn trưa là thức ăn',correct:false,
-          comment:'Câu này đúng ngữ pháp nhưng... quá hiển nhiên😅'},
-         {text:'今日は無理かもしれません',rd:'Kyou wa muri kamo shiremasen',vi:'Hôm nay có thể không được',correct:false,
-          comment:'Nếu muốn đi thì đừng nói thế này！ Sẽ làm người yêu buồn。'},
-       ]},
-      {level:'Trung cấp',
-       from:{avatar:'👩',name:'Yui'},
-       msg:'なんか元気なさそう…どうしたの？😟',msgVi:'Trông có vẻ không được vui...Có chuyện gì vậy？😟',
-       hint:'Yui lo lắng hỏi thăm. Bạn thật sự đang mệt. Trả lời thế nào?',
-       type:'reply',
-       choices:[
-         {text:'ちょっと疲れてた。心配してくれてありがとう💕',rd:'Chotto tsukareta. Shinpai shite kurete arigatou',vi:'Hơi mệt thôi. Cảm ơn em đã lo lắng💕',correct:true,
-          comment:'Trả lời thật thà và cảm ơn sự quan tâm。「心配してくれてありがとう」= Cảm ơn vì đã lo cho anh/em。'},
-         {text:'大丈夫です、問題ありません',rd:'Daijoubu desu, mondai arimasen',vi:'Không sao, không vấn đề gì',correct:false,
-          comment:'Quá lạnh lùng và trang trọng！ Với người yêu nên nói thật hơn。'},
-         {text:'私は猫が好きです',rd:'Watashi wa neko ga suki desu',vi:'Tôi thích mèo',correct:false,
-          comment:'Câu này hoàn toàn không liên quan đến câu hỏi😂'},
-         {text:'うるさい！',rd:'Urusai!',vi:'Ồn ào！/ Im đi！',correct:false,
-          comment:'「うるさい！」= Im đi！ Cực kỳ thô lỗ！ Người yêu sẽ buồn ngay lập tức😱'},
-       ]},
-      {level:'Trung cấp',
-       from:{avatar:'👩',name:'Yui'},
-       msg:'今週の土曜日、映画見に行かない？🎬',msgVi:'Thứ 7 tuần này đi xem phim không？🎬',
-       hint:'Yui rủ xem phim. Bạn muốn đi nhưng chưa biết lịch. Trả lời thế nào?',
-       type:'reply',
-       choices:[
-         {text:'行きたい！何の映画？🎬',rd:'Ikitai! Nan no eiga?',vi:'Muốn đi！ Phim gì vậy？🎬',correct:true,
-          comment:'「行きたい！」= Muốn đi！ Thể hiện sự hào hứng。「何の映画？」hỏi thêm thông tin。'},
-         {text:'映画館はどこですか？',rd:'Eigakan wa doko desu ka?',vi:'Rạp chiếu phim ở đâu ạ？',correct:false,
-          comment:'Hỏi địa điểm trước khi đồng ý nghe có vẻ thiếu nhiệt tình！'},
-         {text:'映画は2時間です',rd:'Eiga wa nijikan desu',vi:'Phim dài 2 tiếng',correct:false,
-          comment:'Không liên quan đến câu trả lời cần thiết😅'},
-         {text:'忙しいかもしれない',rd:'Isogashii kamo shirenai',vi:'Có thể bận',correct:false,
-          comment:'Câu này mơ hồ và thiếu nhiệt tình。 Nếu muốn đi hãy nói thẳng！'},
-       ]},
-      {level:'Nâng cao',
-       from:{avatar:'👩',name:'Yui'},
-       msg:'最近、あまり連絡くれないね…😔',msgVi:'Dạo này anh/em ít nhắn tin nhỉ...😔',
-       hint:'Yui đang buồn vì ít liên lạc. Làm thế nào để xin lỗi và giải thích?',
-       type:'reply',
-       choices:[
-         {text:'ごめん、仕事が忙しくて。でも、ちゃんと気にしてるよ💕',rd:'Gomen, shigoto ga isogashikute. Demo, chanto ki ni shiteru yo',vi:'Xin lỗi, công việc bận quá. Nhưng anh/em luôn nghĩ đến em/anh đó💕',correct:true,
-          comment:'Xin lỗi + giải thích + khẳng định tình cảm。「ちゃんと気にしてる」= luôn nghĩ đến em/anh。 Rất tình cảm！'},
-         {text:'そうですか？知りませんでした',rd:'Sou desu ka? Shirimasen deshita',vi:'Vậy ư? Tôi không biết',correct:false,
-          comment:'Nghe như không quan tâm！ Câu này sẽ làm người yêu càng buồn hơn😔'},
-         {text:'連絡は電話でもできます',rd:'Renraku wa denwa demo dekimasu',vi:'Liên lạc bằng điện thoại cũng được',correct:false,
-          comment:'Câu này đúng nhưng hoàn toàn không đáp ứng cảm xúc của đối phương😅'},
-         {text:'私は忙しい人間です',rd:'Watashi wa isogashii ningen desu',vi:'Tôi là người bận rộn',correct:false,
-          comment:'Nghe rất lạnh lùng và ích kỷ！ Sẽ gây ra cãi nhau ngay😱'},
-       ]},
-    ]},
-
-  /* ── 👥 友達 ── */
-  friends:{
-    id:'friends',emoji:'👥',label:'Bạn bè',labelVi:'Nhắn tin với bạn bè',
-    jlptLevel:'N5',targetTotal:50,
-    color:'linear-gradient(135deg,#10B981,#059669)',
+      {level:"N5",from:{avatar:"🧑",name:"Takeshi"},msg:"好きです…付き合ってください！💌",msgVi:"Tôi thích em... Em có thể hẹn hò với anh không？💌",hint:"Takeshi tỏ tình！ Bạn thích anh ấy. Trả lời thế nào？",type:"reply",choices:[{text:"わたしも好きです！嬉しい💕",rd:"Watashi mo suki desu! Ureshii",vi:"Em cũng thích anh！Hạnh phúc quá💕",correct:true,"comment":"「わたしも好き」= Em cũng thích. Câu trả lời tỏ tình hoàn hảo！💕"},{text:"はじめまして",rd:"Hajimemashite",vi:"Rất vui được gặp bạn",correct:false,"comment":"「はじめまして」là câu chào lần đầu😂"},{text:"ありがとうございます",rd:"Arigatou gozaimasu",vi:"Cảm ơn bạn",correct:false,"comment":"Quá lịch sự！ Nghe như từ chối hay cảm ơn bạn bình thường😅"},{text:"わかりました",rd:"Wakarimashita",vi:"Tôi hiểu rồi",correct:false,"comment":"「わかりました」nghe như đồng ý công việc😂"}]},
+      {level:"N5",from:{avatar:"🧑",name:"Takeshi"},msg:"ずっと前から好きだった…",msgVi:"Anh đã thích em từ lâu rồi...",hint:"Takeshi thú nhận đã thích bạn từ lâu. Bạn cũng có tình cảm. Trả lời thế nào？",type:"reply",choices:[{text:"えっ…わたしも気になってた！",rd:"E... watashi mo ki ni natteta!",vi:"Ồ... Em cũng đã để ý anh đấy！",correct:true,"comment":"「気になってた」= Đã để ý, có tình cảm. Câu trả lời tự nhiên và dễ thương！"},{text:"そうですか",rd:"Sou desu ka",vi:"Vậy à",correct:false,"comment":"「そうですか」lạnh lùng quá😢"},{text:"電話番号を教えてください",rd:"Denwa bangou wo oshiete kudasai",vi:"Hãy cho tôi số điện thoại",correct:false,"comment":"Lạc đề！"},{text:"仕事は何ですか",rd:"Shigoto wa nan desu ka",vi:"Bạn làm nghề gì vậy",correct:false,"comment":"Câu hỏi công việc ở đây hoàn toàn không phù hợp😂"}]},
+      {level:"N4",from:{avatar:"🧑",name:"Takeshi"},msg:"返事を聞かせて…ドキドキしてる💓",msgVi:"Cho anh nghe câu trả lời...Anh hồi hộp lắm💓",hint:"Takeshi đang chờ câu trả lời và nói anh ấy hồi hộp。Bạn đồng ý hẹn hò",type:"reply",choices:[{text:"うん、よろしくね💕",rd:"Un, yoroshiku ne",vi:"Ừ, mình hẹn hò nhé💕",correct:true,"comment":"「うん、よろしくね」= Ừ, bắt đầu hẹn hò nhé. Tự nhiên và dễ thương！"},{text:"考えます",rd:"Kangaemasu",vi:"Tôi sẽ suy nghĩ",correct:false,"comment":"Nếu bạn đồng ý thì không cần「考えます」nữa！"},{text:"どこに住んでいますか",rd:"Doko ni sunde imasu ka",vi:"Bạn sống ở đâu",correct:false,"comment":"Lạc đề hoàn toàn😂"},{text:"天気がいいですね",rd:"Tenki ga ii desu ne",vi:"Thời tiết đẹp nhỉ",correct:false,"comment":"Nói chuyện thời tiết trong lúc tỏ tình 😅"}]},
+      {level:"N4",from:{avatar:"👩",name:"Yui"},msg:"もし付き合ったらどんな感じかな？",msgVi:"Nếu chúng ta hẹn hò thì sẽ như thế nào nhỉ？",hint:"Yui đang gợi ý. Đây là dấu hiệu cô ấy thích bạn！",type:"reply",choices:[{text:"楽しそう！試してみよう？😊",rd:"Tanoshisou! Tameshite miyou?",vi:"Chắc vui lắm！Thử xem sao？😊",correct:true,"comment":"「楽しそう！試してみよう？」là câu trả lời duyên dáng！"},{text:"わかりません",rd:"Wakarimasen",vi:"Tôi không biết",correct:false,"comment":"「わかりません」nghe như không quan tâm😢"},{text:"忙しいです",rd:"Isogashii desu",vi:"Tôi bận",correct:false,"comment":"Trả lời bận khi người ta đang gợi ý hẹn hò😅"},{text:"日本語が難しいです",rd:"Nihongo ga muzukashii desu",vi:"Tiếng Nhật khó quá",correct:false,"comment":"Câu trả lời ngẫu nhiên hoàn toàn😂"}]},
+      {level:"N4",from:{avatar:"🧑",name:"Ken"},msg:"今日、告白しようと思ってた…勇気がなくて",msgVi:"Hôm nay anh định tỏ tình... nhưng không có can đảm",hint:"Ken tâm sự muốn tỏ tình nhưng thiếu tự tin. Bạn khuyến khích。",type:"reply",choices:[{text:"勇気出して！応援してるよ😊",rd:"Yuuki dashite! Ouen shiteru yo",vi:"Lấy can đảm lên！Tôi cổ vũ cho anh😊",correct:true,"comment":"「勇気出して！応援してる」= Lấy can đảm！Tôi cổ vũ. Ấm lòng！"},{text:"電車は何時ですか",rd:"Densha wa nanji desu ka",vi:"Tàu điện mấy giờ",correct:false,"comment":"Hoàn toàn lạc đề😂"},{text:"すみません",rd:"Sumimasen",vi:"Xin lỗi",correct:false,"comment":"「すみません」không phù hợp😅"},{text:"わかりました、報告します",rd:"Wakarimashita, houkoku shimasu",vi:"Tôi hiểu, tôi sẽ báo cáo",correct:false,"comment":"Nghe như báo cáo công việc😂"}]}
+    ]
+  },
+  firstdate:{
+    id:"firstdate",emoji:"😳",label:"初デート",
+    labelVi:"Hẹn hò lần đầu",group:"lover",
+    groupLabel:"💑 恋人系",jlptLevel:"N5",targetTotal:50,
+    color:"linear-gradient(135deg,#FF8C69,#FF6B9D)",
     questions:[
-      {level:'Cơ bản',
-       from:{avatar:'👦',name:'Kenji'},
-       msg:'今日の夜、飲みに行かない？🍺',msgVi:'Tối nay đi uống không？🍺',
-       hint:'Kenji rủ đi uống. Bạn muốn đi. Trả lời thế nào?',
-       type:'reply',
-       choices:[
-         {text:'いいね！何時に？😄',rd:'Ii ne! Nanji ni?',vi:'Hay đó！Mấy giờ？😄',correct:true,
-          comment:'「いいね！」= Hay đó！ Cách đồng ý tự nhiên nhất với bạn bè。「何時に？」hỏi thêm giờ giấc。'},
-         {text:'お酒は体に悪いです',rd:'Osake wa karada ni warui desu',vi:'Rượu không tốt cho sức khỏe',correct:false,
-          comment:'Đúng là vậy😂 Nhưng nếu muốn đi thì đừng nói thế này！'},
-         {text:'飲み物をください',rd:'Nomimono wo kudasai',vi:'Cho tôi đồ uống',correct:false,
-          comment:'Câu này dùng ở nhà hàng, không phải để trả lời lời mời😅'},
-         {text:'私はお酒が飲めません',rd:'Watashi wa osake ga nomemasen',vi:'Tôi không uống được rượu',correct:false,
-          comment:'Nếu không uống được rượu thì câu này đúng！ Nhưng đề bài nói bạn muốn đi。'},
-       ]},
-      {level:'Cơ bản',
-       from:{avatar:'👦',name:'Kenji'},
-       msg:'やばい！財布忘れた😱',msgVi:'Nguy rồi！Quên ví rồi😱',
-       hint:'Kenji quên ví. Bạn muốn giúp. Trả lời thế nào?',
-       type:'reply',
-       choices:[
-         {text:'大丈夫！今日は俺が払うよ💪',rd:'Daijoubu! Kyou wa ore ga harau yo',vi:'Không sao！Hôm nay tao trả cho😪',correct:true,
-          comment:'「俺が払う」= Tao trả cho！ Thể hiện tình bạn tốt。「大丈夫！」trấn an bạn ngay lập tức。'},
-         {text:'財布は大切です',rd:'Saifu wa taisetsu desu',vi:'Ví tiền rất quan trọng',correct:false,
-          comment:'Đúng nhưng... không giúp ích gì cho tình huống này😂'},
-         {text:'警察に電話してください',rd:'Keisatsu ni denwa shite kudasai',vi:'Hãy gọi cảnh sát',correct:false,
-          comment:'Quên ví thì không cần gọi cảnh sát😅 Phản ứng thái quá！'},
-         {text:'次から気をつけてね',rd:'Tsugi kara ki wo tsukete ne',vi:'Lần sau cẩn thận nhé',correct:false,
-          comment:'Câu này đúng nhưng không giúp ích gì cho hiện tại！ Hãy giải quyết vấn đề trước。'},
-       ]},
-      {level:'Trung cấp',
-       from:{avatar:'👦',name:'Kenji'},
-       msg:'昨日のドラマ見た？めっちゃよかった！',msgVi:'Hôm qua xem drama chưa？Hay lắm！',
-       hint:'Kenji hỏi về drama. Bạn chưa xem. Trả lời thế nào?',
-       type:'reply',
-       choices:[
-         {text:'まだ見てない！ネタバレしないで😅',rd:'Mada mitenai! Neta bare shinai de',vi:'Chưa xem！Đừng spoil nhé😅',correct:true,
-          comment:'「ネタバレ」= spoil nội dung！ Cực kỳ phổ biến trong tiếng Nhật hiện đại。「しないで」= đừng làm。'},
-         {text:'ドラマはテレビで見ます',rd:'Dorama wa terebi de mimasu',vi:'Tôi xem drama trên TV',correct:false,
-          comment:'Câu trả lời không liên quan😅'},
-         {text:'見ました、面白くなかったです',rd:'Mimashita, omoshirokunakatta desu',vi:'Xem rồi, không hay',correct:false,
-          comment:'Nói dối là đã xem khi chưa xem！ Không trung thực với bạn bè。'},
-         {text:'ドラマは何時間ですか？',rd:'Dorama wa nanjikan desu ka?',vi:'Drama dài mấy tiếng？',correct:false,
-          comment:'Hỏi độ dài trong khi Kenji muốn chia sẻ cảm xúc！ Không phải phản ứng tự nhiên。'},
-       ]},
-      {level:'Trung cấp',
-       from:{avatar:'👦',name:'Kenji'},
-       msg:'最近どう？元気してる？',msgVi:'Dạo này thế nào？Khỏe không？',
-       hint:'Bạn đang dạo này có chuyện, hơi mệt. Chia sẻ với Kenji thế nào?',
-       type:'reply',
-       choices:[
-         {text:'まあまあかな〜、ちょっと疲れ気味😮‍💨',rd:'Maa maa kana, chotto tsukare gimi',vi:'Cũng được thôi～Hơi mệt một chút😮‍💨',correct:true,
-          comment:'「まあまあ」= cũng được thôi (không tốt không xấu)。「疲れ気味」= hơi có xu hướng mệt。 Rất tự nhiên！'},
-         {text:'私は健康です',rd:'Watashi wa kenkou desu',vi:'Tôi khỏe mạnh',correct:false,
-          comment:'Quá chính thức！ Với bạn bè nên nói tự nhiên hơn。'},
-         {text:'元気の意味は何ですか？',rd:'Genki no imi wa nan desu ka?',vi:'「元気」nghĩa là gì？',correct:false,
-          comment:'Không nên hỏi nghĩa từ với bạn thân😂'},
-         {text:'どうして聞くんですか？',rd:'Doushite kiku n desu ka?',vi:'Tại sao bạn hỏi vậy？',correct:false,
-          comment:'Nghe có vẻ phòng thủ và lạnh lùng với bạn bè！'},
-       ]},
-      {level:'Nâng cao',
-       from:{avatar:'👦',name:'Kenji'},
-       msg:'実はさ、好きな人ができたんだ😳',msgVi:'Thật ra tao có người thích rồi😳',
-       hint:'Kenji tâm sự có người thích. Bạn muốn biết thêm. Phản ứng thế nào?',
-       type:'reply',
-       choices:[
-         {text:'え！誰！？詳しく教えて😆',rd:'E! Dare!? Kuwashiku oshiete',vi:'Ơ！Ai vậy！？Kể chi tiết đi😆',correct:true,
-          comment:'「え！」thể hiện sự ngạc nhiên thật sự。「詳しく教えて」= Kể chi tiết đi！ Phản ứng tự nhiên của bạn bè！'},
-         {text:'そうですか、わかりました',rd:'Sou desu ka, wakarimashita',vi:'Vậy ư, tôi hiểu rồi',correct:false,
-          comment:'Quá lạnh lùng！ Bạn thân mà phản ứng như thế này thì Kenji sẽ thất vọng😔'},
-         {text:'恋愛は複雑です',rd:'Renai wa fukuzatsu desu',vi:'Tình yêu thật phức tạp',correct:false,
-          comment:'Đúng nhưng không phải phản ứng tự nhiên lúc này！😂'},
-         {text:'好きな人の名前は何ですか？',rd:'Suki na hito no namae wa nan desu ka?',vi:'Tên người đó là gì？',correct:false,
-          comment:'Câu hỏi đúng nhưng quá thẳng thắn và trang trọng！「誰！？」tự nhiên hơn nhiều。'},
-       ]},
-    ]},
-
-  /* ── 👨‍👩‍👧 家族 ── */
-  family:{
-    id:'family',emoji:'👨‍👩‍👧',label:'Gia đình',labelVi:'Nhắn tin với gia đình',
-    jlptLevel:'N4',targetTotal:50,
-    color:'linear-gradient(135deg,#F59E0B,#D97706)',
+      {level:"N5",from:{avatar:"👩",name:"Yui"},msg:"今日のデート、どこ行きたい？😊",msgVi:"Hôm nay hẹn hò, anh muốn đi đâu？😊",hint:"Yui hỏi ý kiến về địa điểm hẹn hò đầu tiên.",type:"reply",choices:[{text:"カフェとか映画はどう？☕🎬",rd:"Kafe toka eiga wa dou?",vi:"Cà phê hay xem phim thì sao？☕🎬",correct:true,"comment":"「カフェとか映画はどう？」đề xuất địa điểm cụ thể. Lý tưởng！"},{text:"どこでもいいです",rd:"Doko demo ii desu",vi:"Ở đâu cũng được",correct:false,"comment":"Thụ động quá！"},{text:"駅はどこですか",rd:"Eki wa doko desu ka",vi:"Ga tàu ở đâu",correct:false,"comment":"Hỏi ga tàu mà không hỏi địa điểm😅"},{text:"仕事があります",rd:"Shigoto ga arimasu",vi:"Tôi có việc làm",correct:false,"comment":"Nói có việc khi đang hẹn hò😂"}]},
+      {level:"N5",from:{avatar:"👩",name:"Yui"},msg:"待った？ごめんね、少し遅れちゃった😅",msgVi:"Đợi lâu không？Xin lỗi, em đến muộn một chút😅",hint:"Yui đến muộn và xin lỗi. Bạn muốn an ủi。",type:"reply",choices:[{text:"大丈夫だよ！会えてよかった😊",rd:"Daijoubu da yo! Aete yokatta",vi:"Không sao！Vui vì được gặp em😊",correct:true,"comment":"「大丈夫だよ！会えてよかった」= Không sao！Vui được gặp nhau. Lãng mạn！💕"},{text:"遅いです",rd:"Osoi desu",vi:"Muộn rồi",correct:false,"comment":"Nói thẳng thừng quá😅"},{text:"何分待ちましたか",rd:"Nannpun machimashita ka",vi:"Tôi đã đợi mấy phút",correct:false,"comment":"Đếm giờ đợi không phù hợp😂"},{text:"電話してください",rd:"Denwa shite kudasai",vi:"Hãy gọi điện cho tôi",correct:false,"comment":"Không liên quan🙄"}]},
+      {level:"N5",from:{avatar:"👩",name:"Yui"},msg:"このカフェ、雰囲気いいね✨",msgVi:"Quán cà phê này không khí đẹp nhỉ✨",hint:"Yui khen quán cà phê bạn chọn.",type:"reply",choices:[{text:"だよね！君に似合うと思って選んだんだ💕",rd:"Da yo ne! Kimi ni niau to omotte eranda nda",vi:"Đúng không！Anh chọn vì nghĩ hợp với em💕",correct:true,"comment":"Vừa đồng ý vừa khen cô ấy！ Lãng mạn！💕"},{text:"そうですね",rd:"Sou desu ne",vi:"Đúng vậy nhỉ",correct:false,"comment":"Ngắn và khô khan quá！"},{text:"いくらですか",rd:"Ikura desu ka",vi:"Bao nhiêu tiền",correct:false,"comment":"Hỏi giá trong buổi hẹn đầu tiên😅"},{text:"わかりません",rd:"Wakarimasen",vi:"Tôi không biết",correct:false,"comment":"Không liên quan😂"}]},
+      {level:"N4",from:{avatar:"👩",name:"Yui"},msg:"次はどこ行こうか？😊",msgVi:"Tiếp theo đi đâu nhỉ？😊",hint:"Hẹn hò đang vui, Yui muốn tiếp tục.",type:"reply",choices:[{text:"夜景見に行かない？🌙",rd:"Yakei mi ni ikanai?",vi:"Đi ngắm cảnh đêm không？🌙",correct:true,"comment":"「夜景」= Cảnh đêm. Lãng mạn！💕"},{text:"もう帰ります",rd:"Mou kaerimasu",vi:"Tôi về rồi",correct:false,"comment":"Về trong khi cô ấy muốn tiếp tục😢"},{text:"トイレはどこですか",rd:"Toire wa doko desu ka",vi:"Nhà vệ sinh ở đâu",correct:false,"comment":"Hỏi nhà vệ sinh lúc này 😂"},{text:"仕事の話をしましょう",rd:"Shigoto no hanashi wo shimashou",vi:"Hãy nói chuyện công việc",correct:false,"comment":"Nói công việc trong hẹn hò😅"}]},
+      {level:"N4",from:{avatar:"👩",name:"Yui"},msg:"今日、本当に楽しかった！また会いたいな💕",msgVi:"Hôm nay vui thật！Muốn gặp lại anh nữa💕",hint:"Buổi hẹn kết thúc tốt đẹp. Yui muốn gặp lại.",type:"reply",choices:[{text:"僕も！次は週末どう？😊",rd:"Boku mo! Tsugi wa shuumatsu dou?",vi:"Anh cũng vậy！Cuối tuần tới thế nào？😊",correct:true,"comment":"Đồng ý và đề xuất lần hẹn tiếp！ Hoàn hảo💕"},{text:"はい、そうですね",rd:"Hai, sou desu ne",vi:"Vâng, đúng vậy",correct:false,"comment":"Quá khô khan！"},{text:"電車の時刻表を調べます",rd:"Densha no jikokuhyou wo shirabemasu",vi:"Tôi sẽ tra bảng giờ tàu",correct:false,"comment":"Lạc đề hoàn toàn😂"},{text:"ありがとうございます",rd:"Arigatou gozaimasu",vi:"Cảm ơn bạn",correct:false,"comment":"Quá trang trọng！😂"}]}
+    ]
+  },
+  kenka:{
+    id:"kenka",emoji:"😡",label:"ケンカ",
+    labelVi:"Cãi nhau",group:"lover",
+    groupLabel:"💑 恋人系",jlptLevel:"N4",targetTotal:50,
+    color:"linear-gradient(135deg,#FF6B35,#FF4040)",
     questions:[
-      {level:'Cơ bản',
-       from:{avatar:'👩',name:'お母さん'},
-       msg:'今日、夕飯は何が食べたい？🍚',msgVi:'Tối nay muốn ăn gì？🍚',
-       hint:'Mẹ hỏi muốn ăn gì tối nay. Bạn muốn ăn ramen. Trả lời thế nào?',
-       type:'reply',
-       choices:[
-         {text:'ラーメンが食べたい！🍜',rd:'Raamen ga tabetai!',vi:'Con muốn ăn ramen！🍜',correct:true,
-          comment:'「〜が食べたい」= muốn ăn ～。 Cách diễn đạt mong muốn tự nhiên và đơn giản！'},
-         {text:'食事は重要です',rd:'Shokuji wa juuyou desu',vi:'Bữa ăn rất quan trọng',correct:false,
-          comment:'Câu đúng nhưng không trả lời câu hỏi của mẹ😅'},
-         {text:'何でもいいです',rd:'Nandemo ii desu',vi:'Cái gì cũng được',correct:false,
-          comment:'Câu này OK nhưng mẹ hỏi muốn ăn gì cụ thể！ Hãy nói thẳng。'},
-         {text:'私は料理が好きです',rd:'Watashi wa ryouri ga suki desu',vi:'Tôi thích nấu ăn',correct:false,
-          comment:'Không trả lời câu hỏi của mẹ😅'},
-       ]},
-      {level:'Cơ bản',
-       from:{avatar:'👴',name:'お父さん'},
-       msg:'今どこにいるの？',msgVi:'Bây giờ đang ở đâu vậy？',
-       hint:'Bố hỏi bạn đang ở đâu. Bạn đang ở trường. Trả lời thế nào?',
-       type:'reply',
-       choices:[
-         {text:'学校にいるよ。もうすぐ帰る！',rd:'Gakkou ni iru yo. Mousugu kaeru!',vi:'Đang ở trường ạ. Sắp về rồi！',correct:true,
-          comment:'Trả lời rõ ràng vị trí VÀ khi nào về。「もうすぐ帰る」= sắp về。 Bố sẽ yên tâm hơn！'},
-         {text:'どこかにいます',rd:'Dokoka ni imasu',vi:'Đang ở đâu đó',correct:false,
-          comment:'Câu trả lời quá mơ hồ！ Bố sẽ lo lắng hơn。'},
-         {text:'学校は遠いです',rd:'Gakkou wa tooi desu',vi:'Trường học ở xa',correct:false,
-          comment:'Không trả lời trực tiếp câu hỏi😅'},
-         {text:'なんで聞くの？',rd:'Nande kiku no?',vi:'Sao bố hỏi vậy？',correct:false,
-          comment:'Nghe có vẻ vô lễ với bố！ Không nên nói thế này。'},
-       ]},
-      {level:'Trung cấp',
-       from:{avatar:'👩',name:'お母さん'},
-       msg:'最近、帰りが遅いね。大丈夫？',msgVi:'Dạo này về muộn nhỉ. Ổn không？',
-       hint:'Mẹ lo lắng vì bạn về muộn. Giải thích thế nào?',
-       type:'reply',
-       choices:[
-         {text:'ごめんね、仕事が忙しくて。心配かけてごめん💦',rd:'Gomen ne, shigoto ga isogashikute. Shinpai kakete gomen',vi:'Xin lỗi mẹ, công việc bận quá. Xin lỗi vì đã làm mẹ lo💦',correct:true,
-          comment:'「心配かけてごめん」= Xin lỗi vì đã làm lo lắng。 Thể hiện sự quan tâm đến cảm xúc của mẹ！'},
-         {text:'問題ありません',rd:'Mondai arimasen',vi:'Không có vấn đề gì',correct:false,
-          comment:'Quá lạnh lùng với mẹ！ Mẹ đang lo lắng mà。'},
-         {text:'遅いのは普通です',rd:'Osoi no wa futsuu desu',vi:'Về muộn là bình thường',correct:false,
-          comment:'Câu này nghe không có sự quan tâm đến cảm xúc của mẹ。'},
-         {text:'もう大人だから大丈夫',rd:'Mou otona dakara daijoubu',vi:'Đã lớn rồi nên không sao',correct:false,
-          comment:'Đúng nhưng nghe có vẻ hơi cứng đầu với mẹ😅 Hãy xin lỗi trước！'},
-       ]},
-      {level:'Trung cấp',
-       from:{avatar:'👴',name:'お父さん'},
-       msg:'今月のお小遣い、もうなくなったの？',msgVi:'Tiền tiêu vặt tháng này hết rồi ư？',
-       hint:'Bố hỏi về tiền tiêu vặt. Bạn thật sự hết tiền. Giải thích thế nào?',
-       type:'reply',
-       choices:[
-         {text:'うん、友達の誕生日プレゼント買ったから😅',rd:'Un, tomodachi no tanjoubi purezento katta kara',vi:'Ừ, mua quà sinh nhật cho bạn nên hết rồi😅',correct:true,
-          comment:'Giải thích lý do cụ thể và trung thực。「〜から」= vì ～。 Bố sẽ hiểu hơn！'},
-         {text:'お金は大切です',rd:'Okane wa taisetsu desu',vi:'Tiền bạc rất quý giá',correct:false,
-          comment:'Không trả lời câu hỏi của bố😅'},
-         {text:'もっとください',rd:'Motto kudasai',vi:'Cho thêm đi',correct:false,
-          comment:'Quá thẳng thắn và thiếu lịch sự！ Cần giải thích lý do trước。'},
-         {text:'知りません',rd:'Shirimasen',vi:'Không biết',correct:false,
-          comment:'Không trung thực với bố！ Hãy nói thật。'},
-       ]},
-      {level:'Nâng cao',
-       from:{avatar:'👩',name:'お母さん'},
-       msg:'そろそろ結婚は考えてないの？😊',msgVi:'Có nghĩ đến chuyện kết hôn chưa？😊',
-       hint:'Mẹ hỏi về hôn nhân. Bạn chưa muốn vội. Trả lời lịch sự thế nào?',
-       type:'reply',
-       choices:[
-         {text:'まだ早いかな〜。でもちゃんと考えてるよ😊',rd:'Mada hayai kana. Demo chanto kangaeteru yo',vi:'Còn sớm quá～Nhưng con có suy nghĩ đến đấy😊',correct:true,
-          comment:'「まだ早い」= còn sớm。「ちゃんと考えてる」= có suy nghĩ đến。 Vừa nhẹ nhàng vừa không làm mẹ lo！'},
-         {text:'結婚は嫌いです',rd:'Kekkon wa kirai desu',vi:'Tôi ghét kết hôn',correct:false,
-          comment:'Câu này sẽ làm mẹ lo lắng và buồn！'},
-         {text:'その質問は適切ではありません',rd:'Sono shitsumon wa tekisetsu dewa arimasen',vi:'Câu hỏi đó không thích hợp',correct:false,
-          comment:'Nghe rất vô lễ với mẹ！😱'},
-         {text:'まだ彼氏/彼女がいません',rd:'Mada kareshi/kanojo ga imasen',vi:'Vẫn chưa có bạn trai/gái',correct:false,
-          comment:'Câu này đúng nhưng nghe buồn quá！ Không nên nói thẳng như vậy với mẹ。'},
-       ]},
-    ]},
-
-  /* ── 👨‍💼 上司 ── */
-  boss:{
-    id:'boss',emoji:'👨‍💼',label:'Sếp / Đồng nghiệp',labelVi:'Nhắn tin với sếp',
-    jlptLevel:'N3',targetTotal:50,
-    color:'linear-gradient(135deg,#1565C0,#0D47A1)',
+      {level:"N4",from:{avatar:"👩",name:"Yui"},msg:"また遅刻…どういうつもり？😤",msgVi:"Lại đến muộn nữa... Anh định thế nào？😤",hint:"Yui tức vì bạn đến muộn lần nữa. Xin lỗi thế nào？",type:"reply",choices:[{text:"ごめん、本当に反省してる。次は絶対に遅れない",rd:"Gomen, hontou ni hansei shiteru. Tsugi wa zettai ni okurenai",vi:"Xin lỗi, anh thực sự hối hận. Lần sau nhất định không trễ",correct:true,"comment":"Thành thật xin lỗi và cam kết！"},{text:"電車が遅れました",rd:"Densha ga okuremashita",vi:"Tàu điện bị trễ",correct:false,"comment":"Đổ lỗi cho tàu điện！ Cần xin lỗi trước！"},{text:"うるさい",rd:"Urusai",vi:"Ồn ào quá",correct:false,"comment":"「うるさい」làm cô ấy tức hơn！"},{text:"しょうがないでしょう",rd:"Shouganai deshou",vi:"Biết làm sao được",correct:false,"comment":"Phủ nhận trách nhiệm！"}]},
+      {level:"N4",from:{avatar:"👩",name:"Yui"},msg:"なんで返事しなかったの！？",msgVi:"Tại sao anh không trả lời tin nhắn！？",hint:"Yui tức vì bạn không trả lời tin nhắn.",type:"reply",choices:[{text:"ごめん！仕事で手が離せなかった😣",rd:"Gomen! Shigoto de te ga hanasenakatta",vi:"Xin lỗi！Bận việc không rời được😣",correct:true,"comment":"Xin lỗi thành thật và giải thích lý do cụ thể！"},{text:"見ていませんでした",rd:"Mite imasen deshita",vi:"Tôi chưa xem",correct:false,"comment":"Nghe như không quan tâm😢"},{text:"なんで？",rd:"Nande?",vi:"Tại sao？",correct:false,"comment":"Hỏi lại khi cô ấy đang tức！😡"},{text:"問題ありません",rd:"Mondai arimasen",vi:"Không có vấn đề gì",correct:false,"comment":"「問題ありません」nghe như email công việc😂"}]},
+      {level:"N4",from:{avatar:"👩",name:"Yui"},msg:"もうっ！なんでわかってくれないの！",msgVi:"Thật！Sao anh không hiểu em！",hint:"Yui tức giận. Bạn trả lời thế nào？",type:"reply",choices:[{text:"ごめんね、もっとちゃんと話し合おう",rd:"Gomen ne, motto chanto hanashiaou",vi:"Xin lỗi em, mình nói chuyện kỹ hơn đi",correct:true,"comment":"「話し合おう」= Cùng nói chuyện. Thể hiện muốn giải quyết！"},{text:"うるさい！",rd:"Urusai!",vi:"Im đi！",correct:false,"comment":"Nói「うるさい」sẽ làm mọi thứ tệ hơn！"},{text:"そうですね",rd:"Sou desu ne",vi:"Đúng vậy nhỉ",correct:false,"comment":"Thụ động không giải quyết được mâu thuẫn😅"},{text:"電話します",rd:"Denwa shimasu",vi:"Tôi sẽ gọi điện",correct:false,"comment":"Không đề cập đến vấn đề😐"}]},
+      {level:"N3",from:{avatar:"👩",name:"Yui"},msg:"あなたって本当に気が利かないよね…",msgVi:"Anh thực sự không tinh tế chút nào...",hint:"Yui than phiền. Bạn phản ứng trưởng thành thế nào？",type:"reply",choices:[{text:"そうかもしれない、どうすればよかった？",rd:"Sou kamo shirenai, dou sureba yokatta?",vi:"Có thể vậy, anh nên làm gì thì đúng？",correct:true,"comment":"Chấp nhận và hỏi cách cải thiện！ Trưởng thành！"},{text:"違う！",rd:"Chigau!",vi:"Không phải thế！",correct:false,"comment":"Phủ nhận ngay sẽ tiếp tục cãi！"},{text:"そんなことない",rd:"Sonna koto nai",vi:"Không phải vậy đâu",correct:false,"comment":"Phủ nhận mà không giải thích！"},{text:"はい、すみません",rd:"Hai, sumimasen",vi:"Vâng, xin lỗi",correct:false,"comment":"Xin lỗi nhưng không tìm hiểu nguyên nhân！"}]},
+      {level:"N3",from:{avatar:"🧑",name:"Ken"},msg:"もう限界、少し冷静になろう",msgVi:"Anh đã đến giới hạn, mình bình tĩnh lại chút đi",hint:"Ken đề nghị bình tĩnh lại.",type:"reply",choices:[{text:"そうだね、お互い落ち着こう",rd:"Sou da ne, otagai ochitsuitou",vi:"Đúng rồi, mình cùng bình tĩnh lại thôi",correct:true,"comment":"Đồng ý bình tĩnh cùng nhau！「お互い」= cả hai！"},{text:"冷静？無理！",rd:"Reisei? Muri!",vi:"Bình tĩnh？Không thể！",correct:false,"comment":"Từ chối bình tĩnh！😡"},{text:"別れましょう",rd:"Wakaremasyou",vi:"Chia tay thôi",correct:false,"comment":"Đề xuất chia tay khi đang cãi！"},{text:"どうでもいい",rd:"Dou demo ii",vi:"Kệ đi",correct:false,"comment":"「どうでもいい」= không quan tâm😢"}]}
+    ]
+  },
+  nakanaori:{
+    id:"nakanaori",emoji:"🙏",label:"仲直り",
+    labelVi:"Làm lành",group:"lover",
+    groupLabel:"💑 恋人系",jlptLevel:"N4",targetTotal:50,
+    color:"linear-gradient(135deg,#FF9DB2,#A78BFA)",
     questions:[
-      {level:'Cơ bản',
-       from:{avatar:'👨‍💼',name:'田中部長'},
-       msg:'明日の会議、参加できますか？',msgVi:'Cuộc họp ngày mai, bạn có tham gia được không？',
-       hint:'Sếp hỏi về cuộc họp. Bạn có thể tham gia. Trả lời thế nào?',
-       type:'reply',
-       choices:[
-         {text:'はい、参加します。よろしくお願いします。',rd:'Hai, sanka shimasu. Yoroshiku onegaishimasu.',vi:'Vâng, tôi sẽ tham gia. Mong sếp chỉ bảo.',correct:true,
-          comment:'「はい、参加します」= Vâng tôi sẽ tham gia。「よろしくお願いします」= câu kết thúc lịch sự trong email/tin nhắn công việc。'},
-         {text:'行きたくないです',rd:'Ikitakunai desu',vi:'Tôi không muốn đi',correct:false,
-          comment:'KHÔNG BAO GIỜ nói thế này với sếp！😱'},
-         {text:'わかった、OK',rd:'Wakatta, OK',vi:'Hiểu rồi, OK',correct:false,
-          comment:'「わかった」quá thân mật！ Với sếp phải dùng「承知しました」hoặc「わかりました」。'},
-         {text:'会議は何時間ですか？',rd:'Kaigi wa nanjikan desu ka?',vi:'Cuộc họp dài mấy tiếng？',correct:false,
-          comment:'Hỏi độ dài trước khi xác nhận nghe không chuyên nghiệp！'},
-       ]},
-      {level:'Cơ bản',
-       from:{avatar:'👨‍💼',name:'田中部長'},
-       msg:'報告書、明日までに提出できますか？',msgVi:'Báo cáo, bạn có thể nộp trước ngày mai không？',
-       hint:'Sếp hỏi về deadline. Bạn có thể làm kịp. Trả lời thế nào?',
-       type:'reply',
-       choices:[
-         {text:'はい、明日までに提出いたします。',rd:'Hai, ashita made ni teishutsu itashimasu.',vi:'Vâng, tôi sẽ nộp trước ngày mai ạ.',correct:true,
-          comment:'「いたします」là kính ngữ của「します」。 Cực kỳ lịch sự và chuyên nghiệp！「〜までに」= trước ～。'},
-         {text:'頑張ります',rd:'Ganbarimasu',vi:'Tôi sẽ cố gắng',correct:false,
-          comment:'「頑張ります」không phải cam kết cụ thể！ Sếp cần biết CÓ hay KHÔNG。'},
-         {text:'難しいかもしれません',rd:'Muzukashii kamo shiremasen',vi:'Có thể khó',correct:false,
-          comment:'Nếu có thể làm được thì đừng nói mơ hồ như vậy！'},
-         {text:'報告書は長いです',rd:'Houkokusho wa nagai desu',vi:'Báo cáo dài lắm',correct:false,
-          comment:'Không liên quan và nghe như đang phàn nàn😅'},
-       ]},
-      {level:'Trung cấp',
-       from:{avatar:'👨‍💼',name:'田中部長'},
-       msg:'先ほどのメール、確認しましたか？',msgVi:'Email vừa rồi, bạn đã kiểm tra chưa？',
-       hint:'Sếp hỏi về email. Bạn chưa đọc. Trả lời thế nào?',
-       type:'reply',
-       choices:[
-         {text:'申し訳ございません、まだ確認できておりません。すぐに確認いたします。',rd:'Moushiwake gozaimasen, mada kakunin dekite orimasen. Sugu ni kakunin itashimasu.',vi:'Tôi rất xin lỗi, tôi chưa kiểm tra được. Tôi sẽ kiểm tra ngay ạ.',correct:true,
-          comment:'「申し訳ございません」= xin lỗi (trang trọng nhất)。「すぐに〜いたします」= sẽ làm ngay。 Đây là cách xin lỗi chuẩn trong môi trường công sở Nhật！'},
-         {text:'見ていません',rd:'Mite imasen',vi:'Chưa xem',correct:false,
-          comment:'Quá ngắn và thiếu lịch sự！ Cần thêm lời xin lỗi và hành động tiếp theo。'},
-         {text:'メールは難しいです',rd:'Meeru wa muzukashii desu',vi:'Email khó quá',correct:false,
-          comment:'Hoàn toàn không phù hợp！😅'},
-         {text:'後で見ます',rd:'Ato de mimasu',vi:'Lát nữa tôi xem',correct:false,
-          comment:'「後で」= lát nữa。 Không đủ khẩn cấp khi sếp đang hỏi！'},
-       ]},
-      {level:'Trung cấp',
-       from:{avatar:'👨‍💼',name:'田中部長'},
-       msg:'今日、残業できますか？急ぎの仕事があって。',msgVi:'Hôm nay bạn có thể làm thêm giờ không？Có việc gấp.',
-       hint:'Sếp nhờ làm thêm giờ. Bạn có thể. Trả lời thế nào?',
-       type:'reply',
-       choices:[
-         {text:'はい、承知しました。何時まで必要でしょうか？',rd:'Hai, shouchi shimashita. Nanji made hitsuyou deshou ka?',vi:'Vâng, tôi hiểu rồi. Cần đến mấy giờ ạ？',correct:true,
-          comment:'「承知しました」= đã hiểu/đồng ý (kính ngữ)。 Hỏi thêm giờ kết thúc thể hiện sự chuyên nghiệp！'},
-         {text:'嫌です',rd:'Iya desu',vi:'Không thích',correct:false,
-          comment:'KHÔNG BAO GIỜ nói「嫌です」với sếp！😱 Sẽ ảnh hưởng đến công việc。'},
-         {text:'残業代はいくらですか？',rd:'Zangyoudai wa ikura desu ka?',vi:'Phụ cấp làm thêm giờ bao nhiêu？',correct:false,
-          comment:'Câu hỏi hợp lý nhưng không phải lúc này！ Đồng ý trước, hỏi sau。'},
-         {text:'疲れています',rd:'Tsukarete imasu',vi:'Tôi đang mệt',correct:false,
-          comment:'Nói mệt với sếp khi được nhờ làm thêm nghe không chuyên nghiệp！'},
-       ]},
-      {level:'Nâng cao',
-       from:{avatar:'👨‍💼',name:'田中部長'},
-       msg:'例のプロジェクト、進捗はどうですか？',msgVi:'Dự án đó, tiến độ thế nào rồi？',
-       hint:'Sếp hỏi về tiến độ. Bạn đang gặp khó khăn. Báo cáo thế nào?',
-       type:'reply',
-       choices:[
-         {text:'現在70%完了しております。一部課題がございますが、期限までに完成させます。',rd:'Genzai 70% kanryou shite orimasu. Ichibu kadai ga gozaimasu ga, kigen made ni kansei sasemasu.',vi:'Hiện tại đã hoàn thành 70%. Có một số vấn đề nhưng tôi sẽ hoàn thành trước deadline.',correct:true,
-          comment:'Báo cáo tiến độ cụ thể + thừa nhận khó khăn + cam kết hoàn thành。 Đây là cách báo cáo chuyên nghiệp nhất！'},
-         {text:'頑張っています',rd:'Ganbatte imasu',vi:'Tôi đang cố gắng',correct:false,
-          comment:'Quá mơ hồ！ Sếp cần số liệu cụ thể, không chỉ「cố gắng」。'},
-         {text:'難しいです',rd:'Muzukashii desu',vi:'Khó lắm',correct:false,
-          comment:'Chỉ nói khó mà không có giải pháp nghe thiếu chuyên nghiệp！'},
-         {text:'もう少しです',rd:'Mou sukoshi desu',vi:'Còn một chút nữa',correct:false,
-          comment:'「もう少し」= còn một chút。 Quá mơ hồ！ Cần nói % cụ thể。'},
-       ]},
-    ]},
-
-  /* ── 💌 気になる人 ── */
-  crush:{
-    id:'crush',emoji:'💌',label:'Crush / Người thích',labelVi:'Nhắn tin người thích',
-    jlptLevel:'N4',targetTotal:50,
-    color:'linear-gradient(135deg,#FF6B35,#F7C59F)',
+      {level:"N4",from:{avatar:"👩",name:"Yui"},msg:"昨日はごめんね…冷静じゃなかった",msgVi:"Hôm qua xin lỗi nhé... Em không được bình tĩnh",hint:"Yui chủ động xin lỗi trước. Bạn trả lời thế nào？",type:"reply",choices:[{text:"こちらこそごめん。また仲良くしよう💕",rd:"Kochira koso gomen. Mata nakayoku shiyou",vi:"Anh cũng xin lỗi. Mình lại thân thiết như trước nhé💕",correct:true,"comment":"「こちらこそ」= Anh cũng vậy. Cách làm lành hoàn hảo！💕"},{text:"いいです、気にしません",rd:"Ii desu, ki ni shimasen",vi:"Không sao, tôi không bận tâm",correct:false,"comment":"Thụ động！ Chưa thực sự làm lành😅"},{text:"もう話したくない",rd:"Mou hanashitaku nai",vi:"Anh không muốn nói chuyện nữa",correct:false,"comment":"Từ chối khi người ta đã chủ động xin lỗi😢"},{text:"わかりました",rd:"Wakarimashita",vi:"Tôi hiểu rồi",correct:false,"comment":"Quá lạnh lùng！"}]},
+      {level:"N4",from:{avatar:"🧑",name:"Ken"},msg:"怒ってる？",msgVi:"Anh vẫn còn giận không？",hint:"Sau mâu thuẫn, Ken hỏi thăm tâm trạng của bạn.",type:"reply",choices:[{text:"もう怒ってないよ。会いたいな",rd:"Mou okottenai yo. Aitai na",vi:"Không giận nữa rồi. Muốn gặp anh",correct:true,"comment":"Tha thứ và bày tỏ muốn gặp lại. Ngọt ngào！💕"},{text:"怒っています",rd:"Okotte imasu",vi:"Tôi đang giận",correct:false,"comment":"Nếu vẫn còn giận thì không dẫn đến làm lành！"},{text:"どうでもいい",rd:"Dou demo ii",vi:"Kệ đi",correct:false,"comment":"「どうでもいい」lạnh lùng😢"},{text:"仕事中です",rd:"Shigoto chuu desu",vi:"Đang làm việc",correct:false,"comment":"Lảng tránh câu hỏi😅"}]},
+      {level:"N4",from:{avatar:"👩",name:"Yui"},msg:"これ好きだと言ってたよね、買ってきた！",msgVi:"Anh từng nói thích cái này, em mua về rồi！",hint:"Yui mua cho bạn để làm lành.",type:"reply",choices:[{text:"えっ！覚えてたんだ！ありがとう😭💕",rd:"E! Oboetetan da! Arigatou",vi:"Ồ！Em vẫn nhớ！Cảm ơn em😭💕",correct:true,"comment":"Thể hiện sự cảm động！「覚えてたんだ」= Em vẫn nhớ！"},{text:"ありがとうございます",rd:"Arigatou gozaimasu",vi:"Cảm ơn bạn",correct:false,"comment":"Quá trang trọng！"},{text:"別にいいです",rd:"Betsu ni ii desu",vi:"Không cần đâu",correct:false,"comment":"Từ chối tốt bụng của người yêu😢"},{text:"値段はいくらですか",rd:"Nedan wa ikura desu ka",vi:"Giá bao nhiêu？",correct:false,"comment":"Hỏi giá khi đang làm lành！😅"}]},
+      {level:"N3",from:{avatar:"👩",name:"Yui"},msg:"前みたいに仲良くしたい",msgVi:"Em muốn mình thân thiết như trước",hint:"Yui muốn quay về mối quan hệ tốt đẹp.",type:"reply",choices:[{text:"うん、僕も。これからもよろしくね💕",rd:"Un, boku mo. Korekara mo yoroshiku ne",vi:"Ừ, anh cũng vậy. Từ giờ cũng vui lòng nhé💕",correct:true,"comment":"Đồng ý và hướng đến tương lai！「これからも」= Từ giờ về sau！"},{text:"わかりました",rd:"Wakarimashita",vi:"Tôi hiểu rồi",correct:false,"comment":"Quá ngắn！"},{text:"考えます",rd:"Kangaemasu",vi:"Tôi sẽ suy nghĩ",correct:false,"comment":"「考えます」khi người yêu muốn làm lành😢"},{text:"もうこりごりです",rd:"Mou kori gori desu",vi:"Anh chán lắm rồi",correct:false,"comment":"Nói chán nản khi được đề nghị làm lành！"}]},
+      {level:"N3",from:{avatar:"🧑",name:"Ken"},msg:"ケンカしても、やっぱり君が好きだよ",msgVi:"Dù có cãi nhau, anh vẫn yêu em",hint:"Ken nói dù có mâu thuẫn nhưng vẫn yêu bạn.",type:"reply",choices:[{text:"私も！ケンカしても一番大切な人だよ",rd:"Watashi mo! Kenka shite mo ichiban taisetsuna hito da yo",vi:"Em cũng vậy！Dù cãi nhau thì anh vẫn là người quan trọng nhất",correct:true,"comment":"Bày tỏ tình cảm sâu sắc！💕"},{text:"そうですか",rd:"Sou desu ka",vi:"Vậy à",correct:false,"comment":"Lạnh lùng quá！"},{text:"知りません",rd:"Shirimasen",vi:"Tôi không biết",correct:false,"comment":"Hoàn toàn không phù hợp😂"},{text:"ありがとうございます",rd:"Arigatou gozaimasu",vi:"Cảm ơn bạn",correct:false,"comment":"Quá trang trọng！"}]}
+    ]
+  },
+  breakup:{
+    id:"breakup",emoji:"💔",label:"別れ話",
+    labelVi:"Chia tay",group:"lover",
+    groupLabel:"💑 恋人系",jlptLevel:"N4",targetTotal:50,
+    color:"linear-gradient(135deg,#6B7280,#374151)",
     questions:[
-      {level:'Cơ bản',
-       from:{avatar:'😊',name:'Hana'},
-       msg:'今日の授業、難しかったね😅',msgVi:'Bài học hôm nay khó nhỉ😅',
-       hint:'Hana nhắn về bài học. Đây là cơ hội để thân hơn. Trả lời thế nào?',
-       type:'reply',
-       choices:[
-         {text:'ほんとに！どこが一番難しかった？📚',rd:'Honto ni! Doko ga ichiban muzukashikatta?',vi:'Thật！Chỗ nào khó nhất？📚',correct:true,
-          comment:'Đồng ý + hỏi tiếp = duy trì cuộc trò chuyện！「ほんとに！」= Thật！ Thể hiện sự đồng cảm。'},
-         {text:'勉強は大切です',rd:'Benkyou wa taisetsu desu',vi:'Học tập rất quan trọng',correct:false,
-          comment:'Nghe như đang thuyết giảng！ Không tự nhiên với người thích😅'},
-         {text:'私は全部わかりました',rd:'Watashi wa zenbu wakarimashita',vi:'Tôi hiểu hết rồi',correct:false,
-          comment:'Nghe có vẻ khoe khoang！ Sẽ tạo khoảng cách với Hana。'},
-         {text:'難しくなかったです',rd:'Muzukashikunakatta desu',vi:'Không khó đâu',correct:false,
-          comment:'Phủ nhận cảm xúc của người thích！ Không tốt cho mối quan hệ。'},
-       ]},
-      {level:'Cơ bản',
-       from:{avatar:'😊',name:'Hana'},
-       msg:'週末、何してるの？',msgVi:'Cuối tuần làm gì vậy？',
-       hint:'Hana hỏi về cuối tuần. Đây là cơ hội！ Trả lời thế nào?',
-       type:'reply',
-       choices:[
-         {text:'特に予定ないよ。Hanaちゃんは？😊',rd:'Tokuni yotei nai yo. Hana-chan wa?',vi:'Không có kế hoạch gì đặc biệt. Còn Hana？😊',correct:true,
-          comment:'「特に予定ない」= không có kế hoạch cụ thể。 Hỏi lại「〜は？」= thể hiện sự quan tâm và mở ra cơ hội！'},
-         {text:'家にいます',rd:'Ie ni imasu',vi:'Ở nhà',correct:false,
-          comment:'Câu trả lời đúng nhưng ngắn quá！ Không tạo được cuộc trò chuyện。'},
-         {text:'週末は土曜日と日曜日です',rd:'Shuumatsu wa doyoubi to nichiyoubi desu',vi:'Cuối tuần là thứ 7 và chủ nhật',correct:false,
-          comment:'😂 Đúng nhưng quá hiển nhiên！ Không phải câu trả lời thích hợp。'},
-         {text:'忙しいです',rd:'Isogashii desu',vi:'Bận lắm',correct:false,
-          comment:'Nói bận khi đang muốn thân với người thích！ Tự cắt đứt cơ hội😢'},
-       ]},
-      {level:'Trung cấp',
-       from:{avatar:'😊',name:'Hana'},
-       msg:'このカフェ、おすすめだよ！いつか行ってみてね☕',msgVi:'Quán cafe này ngon lắm！Hôm nào đi thử nhé☕',
-       hint:'Hana giới thiệu quán cafe. Đây là cơ hội đi cùng！ Trả lời thế nào?',
-       type:'reply',
-       choices:[
-         {text:'いいね！今度一緒に行かない？😊☕',rd:'Ii ne! Kondo issho ni ikanai?',vi:'Hay đó！Hôm nào đi cùng nhau không？😊☕',correct:true,
-          comment:'Nắm bắt cơ hội ngay！「一緒に行かない？」= Đi cùng nhau không？ Cách rủ tự nhiên và không quá thẳng thắn。'},
-         {text:'カフェはコーヒーを売っています',rd:'Kafe wa koohii wo utte imasu',vi:'Quán cafe bán cà phê',correct:false,
-          comment:'Quá hiển nhiên và không tạo được cuộc trò chuyện😂'},
-         {text:'一人で行きます',rd:'Hitori de ikimasu',vi:'Tôi sẽ đi một mình',correct:false,
-          comment:'Bỏ lỡ cơ hội！ Hana đang tạo cơ hội cho bạn mà。'},
-         {text:'コーヒーは苦手です',rd:'Koohii wa nigate desu',vi:'Tôi không giỏi uống cà phê',correct:false,
-          comment:'Từ chối gián tiếp！ Dù không thích cà phê cũng có thể đi cùng và uống thứ khác。'},
-       ]},
-      {level:'Trung cấp',
-       from:{avatar:'😊',name:'Hana'},
-       msg:'昨日のライブ、すごくよかった！音楽好きなの？🎵',msgVi:'Live hôm qua hay lắm！Bạn thích âm nhạc không？🎵',
-       hint:'Hana hỏi về sở thích âm nhạc. Tìm điểm chung. Trả lời thế nào?',
-       type:'reply',
-       choices:[
-         {text:'好き好き！どんな音楽が好き？🎵',rd:'Suki suki! Donna ongaku ga suki?',vi:'Thích lắm！Bạn thích nhạc gì？🎵',correct:true,
-          comment:'「好き好き！」= thích lắm！ Lặp từ để nhấn mạnh。 Hỏi lại sở thích của Hana để tìm điểm chung！'},
-         {text:'音楽は耳で聞きます',rd:'Ongaku wa mimi de kikimasu',vi:'Âm nhạc nghe bằng tai',correct:false,
-          comment:'😂 Đúng nhưng quá hiển nhiên！'},
-         {text:'ライブは高いです',rd:'Raibu wa takai desu',vi:'Xem live tốn tiền',correct:false,
-          comment:'Không tạo được kết nối！ Hana muốn chia sẻ niềm vui，không phải nghe phàn nàn。'},
-         {text:'音楽はあまり好きじゃない',rd:'Ongaku wa amari suki janai',vi:'Không thích âm nhạc lắm',correct:false,
-          comment:'Nếu thật sự không thích thì OK，nhưng hãy hỏi thêm về sở thích của Hana để duy trì cuộc trò chuyện！'},
-       ]},
-      {level:'Nâng cao',
-       from:{avatar:'😊',name:'Hana'},
-       msg:'実は、ずっと話しかけたかったんだけど、なかなか勇気が出なくて😳',msgVi:'Thật ra, tôi đã muốn nói chuyện với bạn từ lâu, nhưng không đủ dũng cảm😳',
-       hint:'Hana thú nhận đã muốn nói chuyện từ lâu. Đây là khoảnh khắc quan trọng！',
-       type:'reply',
-       choices:[
-         {text:'えっ、本当に？実は私も！話しかけたくてずっとタイミング見てたんだ😊',rd:'E, hontou ni? Jitsu wa watashi mo! Hanashikaketakute zutto taimingu miteta n da',vi:'Ơ, thật á？Thật ra tôi cũng vậy！Tôi cũng đang chờ cơ hội để nói chuyện đó😊',correct:true,
-          comment:'Phản ứng ngạc nhiên + thú nhận cảm xúc tương tự = kết nối hoàn hảo！「タイミングを見てた」= đang chờ đúng thời điểm。'},
-         {text:'そうですか',rd:'Sou desu ka',vi:'Vậy ư',correct:false,
-          comment:'Quá lạnh lùng！ Đây là khoảnh khắc quan trọng mà phản ứng như vậy sẽ phá hỏng tất cả😔'},
-         {text:'なぜ勇気が出なかったのですか？',rd:'Naze yuuki ga denakatta no desu ka?',vi:'Tại sao bạn không đủ dũng cảm？',correct:false,
-          comment:'Hỏi lý do nghe như đang thẩm vấn！ Không lãng mạn chút nào😅'},
-         {text:'話しかけるのは簡単です',rd:'Hanashikakeru no wa kantan desu',vi:'Nói chuyện thì dễ thôi',correct:false,
-          comment:'Câu này vô tình làm Hana cảm thấy tệ về bản thân！ Không nên nói。'},
-       ]},
-    ]},
+      {level:"N4",from:{avatar:"👩",name:"Yui"},msg:"私たち…もう終わりかな",msgVi:"Chúng mình... Có lẽ đã đến lúc kết thúc rồi",hint:"Yui gợi ý chia tay. Bạn muốn giải thích thêm。",type:"reply",choices:[{text:"なんでそう思うの？話し合おう",rd:"Nande sou omou no? Hanashiaou",vi:"Sao em nghĩ vậy？Mình nói chuyện đi",correct:true,"comment":"Hỏi nguyên nhân và muốn nói chuyện. Trưởng thành！"},{text:"わかった、そうしよう",rd:"Wakatta, sou shiyou",vi:"Ừ được, cũng được",correct:false,"comment":"Đồng ý chia tay ngay😢"},{text:"うるさい",rd:"Urusai",vi:"Im đi",correct:false,"comment":"「うるさい」khi người yêu muốn nói chuyện！"},{text:"別れません",rd:"Wakare masen",vi:"Không chia tay",correct:false,"comment":"Cứng nhắc từ chối mà không nghe lý do😅"}]},
+      {level:"N4",from:{avatar:"👩",name:"Yui"},msg:"好きな人ができた…ごめんなさい",msgVi:"Em có người mới rồi... Xin lỗi anh",hint:"Yui nói cô ấy có người mới. Bạn phản ứng trưởng thành。",type:"reply",choices:[{text:"そっか…話してくれてありがとう",rd:"Sokka... hanashite kurete arigatou",vi:"Thế à... Cảm ơn em đã nói thật với anh",correct:true,"comment":"Phản ứng trưởng thành và tôn trọng！"},{text:"誰ですか",rd:"Dare desu ka",vi:"Người đó là ai？",correct:false,"comment":"Hỏi tên người mới khi chia tay😅"},{text:"嘘でしょ！",rd:"Uso desho!",vi:"Không phải thật đâu！",correct:false,"comment":"Phủ nhận thực tế😢"},{text:"絶対に許さない",rd:"Zettai ni yurusanai",vi:"Không bao giờ tha thứ",correct:false,"comment":"Câu nói tức giận！😡"}]},
+      {level:"N4",from:{avatar:"👩",name:"Yui"},msg:"遠距離、もう無理かもしれない",msgVi:"Yêu xa... Có lẽ không còn được nữa rồi",hint:"Yui nói yêu xa quá khó. Bạn thuyết phục。",type:"reply",choices:[{text:"一緒に乗り越えよう。諦めたくない",rd:"Issho ni norikoeyou. Akirametaku nai",vi:"Mình cùng vượt qua nhé. Anh không muốn bỏ cuộc",correct:true,"comment":"Thể hiện quyết tâm！「一緒に乗り越えよう」！"},{text:"そうですね",rd:"Sou desu ne",vi:"Đúng vậy nhỉ",correct:false,"comment":"Đồng ý chia tay thụ động😢"},{text:"わかりました",rd:"Wakarimashita",vi:"Tôi hiểu rồi",correct:false,"comment":"Chấp nhận ngay😅"},{text:"じゃあ、また",rd:"Jaa, mata",vi:"Vậy thì, tạm biệt nhé",correct:false,"comment":"Từ biệt ngay！💔"}]},
+      {level:"N3",from:{avatar:"🧑",name:"Ken"},msg:"君のことが大切だから、正直に言う。僕たち合ってないと思う",msgVi:"Vì anh quý em, nên anh thành thật. Anh nghĩ chúng mình không hợp",hint:"Ken nói thẳng không hợp. Bạn hỏi lý do。",type:"reply",choices:[{text:"どういうところが合わないと思う？",rd:"Doiuu tokoro ga awanai to omou?",vi:"Anh thấy điểm nào chúng mình không hợp？",correct:true,"comment":"Hỏi cụ thể để hiểu rõ！ Trưởng thành！"},{text:"違う！私たちは合っている！",rd:"Chigau! Watashitachi wa atte iru!",vi:"Không phải！Chúng mình hợp nhau mà！",correct:false,"comment":"Phủ nhận ngay😢"},{text:"わかりました、別れます",rd:"Wakarimashita, wakaremasu",vi:"Tôi hiểu, chúng mình chia tay thôi",correct:false,"comment":"Chấp nhận ngay不 cần hỏi lý do😢"},{text:"知りません",rd:"Shirimasen",vi:"Tôi không biết",correct:false,"comment":"Hoàn toàn không phù hợp😐"}]},
+      {level:"N3",from:{avatar:"👩",name:"Yui"},msg:"別れても、友達でいられる？",msgVi:"Dù chia tay, chúng mình có thể làm bạn không？",hint:"Yui hỏi sau chia tay có thể làm bạn không。",type:"reply",choices:[{text:"今はちょっと難しいけど、いつかきっと",rd:"Ima wa chotto muzukashii kedo, itsuka kitto",vi:"Bây giờ hơi khó, nhưng chắc chắn someday",correct:true,"comment":"Thành thật về cảm xúc nhưng không đóng cửa！ Trưởng thành！"},{text:"もちろん！すぐに友達になれる",rd:"Mochiron! Sugu ni tomodachi ni nareru",vi:"Tất nhiên！Ngay lập tức làm bạn",correct:false,"comment":"Ngay sau chia tay khó lắm！ Nghe không thật😅"},{text:"絶対無理",rd:"Zettai muri",vi:"Tuyệt đối không được",correct:false,"comment":"Quá cứng nhắc！"},{text:"どうでもいい",rd:"Dou demo ii",vi:"Kệ đi",correct:false,"comment":"Thờ ơ😢"}]}
+    ]
+  },
+  shitto:{
+    id:"shitto",emoji:"😭",label:"嫉妬",
+    labelVi:"Ghen tuông",group:"lover",
+    groupLabel:"💑 恋人系",jlptLevel:"N4",targetTotal:50,
+    color:"linear-gradient(135deg,#8B5CF6,#6D28D9)",
+    questions:[
+      {level:"N4",from:{avatar:"👩",name:"Yui"},msg:"今日、男の人と二人でランチだったの",msgVi:"Hôm nay em ăn trưa hai người với một người đàn ông",hint:"Yui nói ăn trưa hai người với người đàn ông khác. Bạn đang ghen.",type:"reply",choices:[{text:"そっか…誰なの？（少し気になる）",rd:"Sokka... dare nano? (sukoshi ki ni naru)",vi:"Thế à... Ai vậy？(Anh hơi thắc mắc）",correct:true,"comment":"Thừa nhận ghen một cách nhẹ nhàng！ Tự nhiên！"},{text:"誰と！？絶対ダメ！",rd:"Dare to!? Zettai dame!",vi:"Với ai！？Không được！",correct:false,"comment":"Phản ứng quá mức！ Kiểm soát người yêu！😡"},{text:"いいです",rd:"Ii desu",vi:"Không sao",correct:false,"comment":"Nếu ghen mà nói vậy thì không thành thật😐"},{text:"ランチは何食べましたか",rd:"Ranchi wa nani tabemashita ka",vi:"Bữa trưa ăn gì？",correct:false,"comment":"Hỏi về đồ ăn thay vì phản ứng！😅"}]},
+      {level:"N4",from:{avatar:"🧑",name:"Ken"},msg:"元カノから連絡きた、友達として",msgVi:"Người yêu cũ nhắn tin, với tư cách bạn bè",hint:"Ken nói người yêu cũ nhắn tin. Bạn ghen nhưng cố kiểm soát。",type:"reply",choices:[{text:"そうなんだ…正直少し心配だけど、信じてる",rd:"Sou nan da... shoujiki sukoshi shinpai da kedo, shinjiteru",vi:"Thế à... Thành thật mà nói anh hơi lo, nhưng anh tin em",correct:true,"comment":"Thành thật và thể hiện tin tưởng！「信じてる」！"},{text:"絶対に返事しないで！",rd:"Zettai ni henji shinaide!",vi:"Tuyệt đối đừng trả lời！",correct:false,"comment":"Cấm đoán người yêu！😡"},{text:"別れる！",rd:"Wakare ru!",vi:"Chia tay！",correct:false,"comment":"Phản ứng thái quá！"},{text:"どうでもいい",rd:"Dou demo ii",vi:"Kệ đi",correct:false,"comment":"Nói kệ nhưng trong lòng ghen là không thành thật😐"}]},
+      {level:"N4",from:{avatar:"👩",name:"Yui"},msg:"女の子の友達と旅行に行ってもいい？",msgVi:"Em đi du lịch với bạn gái có được không？",hint:"Yui hỏi có thể đi du lịch với bạn gái không.",type:"reply",choices:[{text:"もちろん！楽しんできてね😊",rd:"Mochiron! Tanoshinde kite ne",vi:"Tất nhiên！Vui vẻ nhé😊",correct:true,"comment":"Tin tưởng và khuyến khích！ Lành mạnh！"},{text:"ダメ！",rd:"Dame!",vi:"Không được！",correct:false,"comment":"Cấm đoán！😡"},{text:"一人で行ってください",rd:"Hitori de itte kudasai",vi:"Bạn đi một mình đi",correct:false,"comment":"Lạnh lùng và không liên quan😅"},{text:"考えます",rd:"Kangaemasu",vi:"Tôi sẽ suy nghĩ",correct:false,"comment":"Phải xin phép để đi với bạn bè！😐"}]},
+      {level:"N3",from:{avatar:"👩",name:"Yui"},msg:"なんでSNSに「いいね」してるの！？",msgVi:"Sao anh like ảnh người đó trên mạng xã hội！？",hint:"Yui ghen vì bạn like ảnh của người khác.",type:"reply",choices:[{text:"ただの知り合いだよ。そんなに気にしないで",rd:"Tada no shiriaisai da yo. Sonna ni ki ni shinaide",vi:"Chỉ là người quen thôi. Đừng để ý vậy",correct:true,"comment":"Giải thích nhẹ nhàng và trấn an！"},{text:"それが何か問題でも？",rd:"Sore ga nani ka mondai demo?",vi:"Có vấn đề gì không？",correct:false,"comment":"Phòng thủ làm tình hình căng hơn！😡"},{text:"知りません",rd:"Shirimasen",vi:"Tôi không biết",correct:false,"comment":"「知りません」về hành động của mình！😂"},{text:"消します",rd:"Keshimasu",vi:"Tôi sẽ xóa đi",correct:false,"comment":"Xóa ngay mà không giải thích！😅"}]},
+      {level:"N3",from:{avatar:"🧑",name:"Ken"},msg:"前の彼女と比べてるの？",msgVi:"Anh đang so sánh em với người yêu cũ phải không？",hint:"Bạn gái cảm thấy bị so sánh.",type:"reply",choices:[{text:"違う！君は君だよ。比べるなんてない",rd:"Chigau! Kimi wa kimi da yo. Kuraberu nante nai",vi:"Không！Em là em. Không so sánh đâu",correct:true,"comment":"Phủ nhận rõ ràng và khẳng định！💕"},{text:"そうかもしれない",rd:"Sou kamo shirenai",vi:"Có thể vậy",correct:false,"comment":"Thừa nhận so sánh！"},{text:"わかりません",rd:"Wakarimasen",vi:"Tôi không biết",correct:false,"comment":"「わかりません」hoàn toàn không phù hợp😐"},{text:"昔の話はしたくない",rd:"Mukashi no hanashi wa shitaku nai",vi:"Anh không muốn nói chuyện quá khứ",correct:false,"comment":"Tránh né không giải quyết lo lắng！😅"}]}
+    ]
+  },
+  propose:{
+    id:"propose",emoji:"💍",label:"プロポーズ",
+    labelVi:"Cầu hôn",group:"lover",
+    groupLabel:"💑 恋人系",jlptLevel:"N3",targetTotal:50,
+    color:"linear-gradient(135deg,#F59E0B,#D97706)",
+    questions:[
+      {level:"N3",from:{avatar:"🧑",name:"Ken"},msg:"一生そばにいてほしい…結婚してください💍",msgVi:"Anh muốn em ở bên anh mãi mãi... Em hãy lấy anh nhé💍",hint:"Ken cầu hôn！ Bạn vui mừng và đồng ý.",type:"reply",choices:[{text:"はい！喜んで！😭💕",rd:"Hai! Yorokonde!",vi:"Vâng！Em vui lòng！😭💕",correct:true,"comment":"「はい！喜んで！」= Câu trả lời cầu hôn hoàn hảo！💕💍"},{text:"考えます",rd:"Kangaemasu",vi:"Tôi sẽ suy nghĩ",correct:false,"comment":"「考えます」khi nhận cầu hôn！😢"},{text:"わかりました",rd:"Wakarimashita",vi:"Tôi hiểu rồi",correct:false,"comment":"Quá bình thản！"},{text:"どうして？",rd:"Doushite?",vi:"Tại sao vậy？",correct:false,"comment":"Hỏi tại sao khi được cầu hôn！😂"}]},
+      {level:"N3",from:{avatar:"🧑",name:"Ken"},msg:"ずっと幸せにします。指輪、気に入ってくれた？",msgVi:"Anh sẽ làm em hạnh phúc mãi mãi. Em có thích nhẫn không？",hint:"Ken cầu hôn và hỏi về nhẫn。",type:"reply",choices:[{text:"すごくきれい！大切にするね💍😭",rd:"Sugoku kirei! Taisetsu ni suru ne",vi:"Đẹp lắm！Em sẽ trân trọng nhé💍😭",correct:true,"comment":"Khen nhẫn và hứa trân trọng！ Cảm động！💕"},{text:"いくらでしたか",rd:"Ikura deshita ka",vi:"Bao nhiêu tiền？",correct:false,"comment":"Hỏi giá nhẫn khi được cầu hôn！😂"},{text:"普通ですね",rd:"Futsuu desu ne",vi:"Bình thường thôi nhỉ",correct:false,"comment":"Nói「普通」về nhẫn cầu hôn！😢"},{text:"サイズが違います",rd:"Saizu ga chigaimasu",vi:"Kích cỡ không đúng",correct:false,"comment":"Không phải thời điểm nói về kích cỡ！😂"}]},
+      {level:"N4",from:{avatar:"🧑",name:"Ken"},msg:"両親に挨拶に行こう",msgVi:"Mình đi chào hỏi bố mẹ nhé",hint:"Ken muốn đến chào bố mẹ bạn.",type:"reply",choices:[{text:"うん！何か手土産持っていこうか😊",rd:"Un! Nani ka temiyage motte ikiou ka",vi:"Ừ！Mình mang quà gì không？😊",correct:true,"comment":"Đồng ý và nghĩ đến quà cáp！「手土産」= quà khi đến thăm nhà！"},{text:"断ります",rd:"Kotowari masu",vi:"Tôi từ chối",correct:false,"comment":"Từ chối khi người yêu muốn chào bố mẹ😢"},{text:"まだ早い",rd:"Mada hayai",vi:"Còn sớm quá",correct:false,"comment":"Nếu sắp kết hôn thì không sớm！"},{text:"電話でいいです",rd:"Denwa de ii desu",vi:"Gọi điện thôi cũng được",correct:false,"comment":"Gặp mặt trực tiếp quan trọng hơn！"}]},
+      {level:"N3",from:{avatar:"🧑",name:"Ken"},msg:"結婚式、どんなのがいい？",msgVi:"Đám cưới, em muốn kiểu nào？",hint:"Sau đính hôn, Ken hỏi về đám cưới.",type:"reply",choices:[{text:"小さくてアットホームなのがいいな💕",rd:"Chiisaku te atto hoomu na no ga ii na",vi:"Em muốn nhỏ thôi, ấm cúng kiểu gia đình💕",correct:true,"comment":"Diễn đạt ý muốn rõ ràng！「アットホーム」= ấm cúng！"},{text:"どちらでも",rd:"Dochira demo",vi:"Gì cũng được",correct:false,"comment":"Thụ động！ Anh ấy muốn biết ý kiến！"},{text:"高いのがいいです",rd:"Takai no ga ii desu",vi:"Em muốn đắt tiền thôi",correct:false,"comment":"Chỉ quan tâm đến giá cả！"},{text:"知りません",rd:"Shirimasen",vi:"Tôi không biết",correct:false,"comment":"「知りません」về đám cưới của mình！？😂"}]},
+      {level:"N3",from:{avatar:"👩",name:"Yui（母）"},msg:"息子をよろしくお願いします",msgVi:"Xin nhờ anh chăm sóc con trai tôi",hint:"Mẹ của Yui nói khi biết hai bạn sẽ kết hôn。",type:"reply",choices:[{text:"こちらこそ、よろしくお願いいたします",rd:"Kochira koso, yoroshiku onegai itashimasu",vi:"Vâng, cũng xin nhờ bác chăm sóc thêm",correct:true,"comment":"「こちらこそ」+ kính ngữ。 Hoàn hảo với bố mẹ người yêu！"},{text:"わかりました",rd:"Wakarimashita",vi:"Tôi hiểu rồi",correct:false,"comment":"Hơi thiếu lịch sự！"},{text:"はい",rd:"Hai",vi:"Vâng",correct:false,"comment":"Quá ngắn！"},{text:"大丈夫だよ",rd:"Daijoubu da yo",vi:"Không sao đâu",correct:false,"comment":"Quá thân mật với mẹ của người yêu！"}]}
+    ]
+  },
+  hangout:{
+    id:"hangout",emoji:"🍻",label:"遊びに誘う",
+    labelVi:"Rủ đi chơi",group:"friends",
+    groupLabel:"👫 友達系",jlptLevel:"N5",targetTotal:50,
+    color:"linear-gradient(135deg,#10B981,#059669)",
+    questions:[
+      {level:"N5",from:{avatar:"🧑",name:"Kenta"},msg:"週末、暇？飲みに行かない？🍻",msgVi:"Cuối tuần rảnh không？Đi uống không？🍻",hint:"Kenta rủ đi uống cuối tuần. Bạn muốn đi！",type:"reply",choices:[{text:"いいね！何時にする？😆",rd:"Ii ne! Nanji ni suru?",vi:"Hay đó！Mấy giờ hẹn？😆",correct:true,"comment":"「いいね！」= Hay đó！ Vui vẻ đồng ý và hỏi giờ！"},{text:"お酒は飲みません",rd:"Osake wa nomimasen",vi:"Tôi không uống rượu",correct:false,"comment":"Dù không uống cũng có thể đi！ Nói「飲めないけど行くよ！」"},{text:"わかりました、行きます",rd:"Wakarimashita, ikimasu",vi:"Tôi hiểu, tôi sẽ đi",correct:false,"comment":"「わかりました」quá trang trọng với bạn bè！"},{text:"仕事があります",rd:"Shigoto ga arimasu",vi:"Tôi có việc làm",correct:false,"comment":"Nếu muốn đi mà lại nói「仕事がある」thì bỏ lỡ rồi！"}]},
+      {level:"N5",from:{avatar:"👩",name:"Hana"},msg:"カラオケ行こうよ！😆",msgVi:"Đi karaoke đi！😆",hint:"Hana rủ đi karaoke. Bạn đồng ý！",type:"reply",choices:[{text:"行く行く！誰が来るの？🎤",rd:"Iku iku! Dare ga kuru no?",vi:"Đi đi！Ai đến vậy？🎤",correct:true,"comment":"「行く行く！」= Đi đi！ Nhiệt tình！ Tự nhiên với bạn bè！"},{text:"歌が下手です",rd:"Uta ga heta desu",vi:"Tôi hát dở",correct:false,"comment":"Dù hát không hay cũng có thể đi vui！"},{text:"どこですか",rd:"Doko desu ka",vi:"Ở đâu vậy？",correct:false,"comment":"Hỏi địa điểm nhưng chưa đồng ý！ Hãy nói「いいよ！どこ？」"},{text:"考えます",rd:"Kangaemasu",vi:"Tôi sẽ suy nghĩ",correct:false,"comment":"「考えます」với bạn bè！ Cần mạnh hơn！"}]},
+      {level:"N4",from:{avatar:"👩",name:"Hana"},msg:"みんなで鍋パーティーしよ！😊",msgVi:"Tụ tập làm tiệc nồi lẩu nào！😊",hint:"Hana rủ làm tiệc nabe. Bạn muốn đi và hỏi cần mang gì！",type:"reply",choices:[{text:"いいね！何か持っていこうか？",rd:"Ii ne! Nani ka motte ikiou ka?",vi:"Hay đó！Mình có cần mang gì không？",correct:true,"comment":"Đồng ý và hỏi có thể đóng góp gì！ Tốt bụng！"},{text:"鍋が嫌いです",rd:"Nabe ga kirai desu",vi:"Tôi không thích lẩu",correct:false,"comment":"Dù không thích cũng có thể đến！"},{text:"誰の家ですか",rd:"Dare no ie desu ka",vi:"Nhà ai vậy？",correct:false,"comment":"Hỏi nhà ai mà chưa đồng ý！「いいよ！誰の家？」"},{text:"忙しい",rd:"Isogashii",vi:"Tôi bận",correct:false,"comment":"Không giải thích gì thêm！"}]},
+      {level:"N4",from:{avatar:"🧑",name:"Kenta"},msg:"来週、日帰り旅行どう？🚂",msgVi:"Tuần tới đi du lịch trong ngày không？🚂",hint:"Kenta đề xuất du lịch trong ngày. Bạn muốn biết đến đâu！",type:"reply",choices:[{text:"面白そう！どこに行くの？🚂",rd:"Omoshirosou! Doko ni iku no?",vi:"Nghe hay đấy！Đi đâu vậy？🚂",correct:true,"comment":"Hào hứng và hỏi địa điểm！"},{text:"費用はいくらですか",rd:"Hiyo wa ikura desu ka",vi:"Chi phí bao nhiêu？",correct:false,"comment":"Hỏi tiền trước khi hỏi địa điểm！😅"},{text:"一人でいいです",rd:"Hitori de ii desu",vi:"Tôi thích đi một mình",correct:false,"comment":"「一人でいい」khi bạn rủ đi！😢"},{text:"電車の時刻を調べます",rd:"Densha no jikoku wo shirabemasu",vi:"Tôi sẽ tra giờ tàu",correct:false,"comment":"Tra giờ tàu trước khi đồng ý！？"}]},
+      {level:"N5",from:{avatar:"🧑",name:"Kenta"},msg:"明日、サッカーしない？⚽",msgVi:"Ngày mai đá bóng không？⚽",hint:"Kenta rủ đá bóng ngày mai. Bạn đồng ý！",type:"reply",choices:[{text:"やろう！何時に集合する？⚽",rd:"Yarou! Nanji ni shuugou suru?",vi:"Chơi thôi！Tập hợp mấy giờ？⚽",correct:true,"comment":"「やろう！」= Làm thôi！ Nhiệt tình！"},{text:"スポーツは苦手です",rd:"Supootsu wa nigate desu",vi:"Tôi không giỏi thể thao",correct:false,"comment":"Không phải lý do chính đáng！「下手だけどいい？」"},{text:"雨だったら？",rd:"Ame dattara?",vi:"Nếu trời mưa thì sao？",correct:false,"comment":"Hỏi trường hợp mưa trước khi đồng ý！ Tiêu cực！"},{text:"わかりました",rd:"Wakarimashita",vi:"Tôi hiểu rồi",correct:false,"comment":"Quá trang trọng với bạn bè！"}]}
+    ]
+  },
+  birthday:{
+    id:"birthday",emoji:"🎂",label:"誕生日を祝う",
+    labelVi:"Chúc sinh nhật",group:"friends",
+    groupLabel:"👫 友達系",jlptLevel:"N5",targetTotal:50,
+    color:"linear-gradient(135deg,#F59E0B,#F97316)",
+    questions:[
+      {level:"N5",from:{avatar:"👩",name:"Hana"},msg:"今日、誕生日なんだよね～😊",msgVi:"Hôm nay là sinh nhật tớ đó～😊",hint:"Hana nói hôm nay là sinh nhật. Bạn chúc mừng！",type:"reply",choices:[{text:"誕生日おめでとう！🎂🎉",rd:"Tanjoubi omedetou!",vi:"Chúc mừng sinh nhật！🎂🎉",correct:true,"comment":"「誕生日おめでとう！」= Câu chúc hoàn hảo！"},{text:"そうですか",rd:"Sou desu ka",vi:"Vậy à",correct:false,"comment":"「そうですか」lạnh lùng！😢"},{text:"今日は何日ですか",rd:"Kyou wa nannichi desu ka",vi:"Hôm nay là ngày mấy？",correct:false,"comment":"Hỏi ngày tháng khi bạn nói sinh nhật！😂"},{text:"ありがとうございます",rd:"Arigatou gozaimasu",vi:"Cảm ơn bạn",correct:false,"comment":"Bạn đang cảm ơn？ Không phải bạn chúc mừng sao！😂"}]},
+      {level:"N5",from:{avatar:"🧑",name:"Kenta"},msg:"プレゼント、何がいい？🎁",msgVi:"Quà, cậu muốn gì？🎁",hint:"Kenta hỏi bạn muốn quà gì. Bạn trả lời lịch sự！",type:"reply",choices:[{text:"気持ちだけで嬉しいよ😊",rd:"Kimochi dake de ureshii yo",vi:"Chỉ cần tấm lòng thôi là vui rồi😊",correct:true,"comment":"「気持ちだけで」= Chỉ cần tấm lòng！ Lịch sự！"},{text:"お金をください",rd:"Okane wo kudasai",vi:"Cho tôi tiền đi",correct:false,"comment":"Xin tiền trực tiếp！😅"},{text:"何でもいいです",rd:"Nandemo ii desu",vi:"Gì cũng được",correct:false,"comment":"Đúng nhưng「気持ちだけで嬉しい」hay hơn！"},{text:"プレゼントは必要ありません",rd:"Purezento wa hitsuyou arimasen",vi:"Không cần quà",correct:false,"comment":"Quá trang trọng！ Dùng「いらないよ～」"}]},
+      {level:"N5",from:{avatar:"👩",name:"Hana"},msg:"サプライズパーティー計画してるの！内緒にして😉",msgVi:"Tớ đang lên kế hoạch party bất ngờ！Giữ bí mật nhé😉",hint:"Hana nhờ giữ bí mật party bất ngờ.",type:"reply",choices:[{text:"了解！絶対内緒にするよ😉",rd:"Ryoukai! Zettai naisho ni suru yo",vi:"OK！Nhất định giữ bí mật！😉",correct:true,"comment":"「了解！」+「絶対内緒」= Đáng tin！"},{text:"なぜ？",rd:"Naze?",vi:"Tại sao？",correct:false,"comment":"Hỏi lý do về party bất ngờ！😅"},{text:"わかりました、報告します",rd:"Wakarimashita, houkoku shimasu",vi:"Tôi hiểu, tôi sẽ báo cáo",correct:false,"comment":"「報告します」= sẽ báo cáo？！ Phá bí mật！😂"},{text:"本人に言います",rd:"Honin ni iimasu",vi:"Tôi sẽ nói với đương sự",correct:false,"comment":"Phá hỏng bí mật ngay！😂"}]},
+      {level:"N4",from:{avatar:"👩",name:"Hana"},msg:"Birthday、来られる？🎉",msgVi:"Sinh nhật, cậu đến được không？🎉",hint:"Hana hỏi bạn có đến dự tiệc sinh nhật không。",type:"reply",choices:[{text:"もちろん！楽しみにしてるよ🎉",rd:"Mochiron! Tanoshimi ni shiteru yo",vi:"Tất nhiên！Tớ đang mong đến lắm🎉",correct:true,"comment":"「もちろん！」+「楽しみにしてる」= Nhiệt tình！"},{text:"予定を確認します",rd:"Yotei wo kakunin shimasu",vi:"Tôi sẽ kiểm tra lịch",correct:false,"comment":"Với bạn thân nên nhiệt tình hơn！"},{text:"多分行けます",rd:"Tabun ikemasu",vi:"Có lẽ tôi đến được",correct:false,"comment":"「多分」= Có lẽ. Không chắc！ Bạn sẽ buồn😢"},{text:"都合がつかない",rd:"Tsugou ga tsukanai",vi:"Tôi không thu xếp được",correct:false,"comment":"Nếu không đến được cần xin lỗi！"}]},
+      {level:"N4",from:{avatar:"🧑",name:"Kenta"},msg:"〇〇に何あげたらいいか迷ってて",msgVi:"Tớ đang phân vân không biết tặng gì cho cậu ấy",hint:"Kenta nhờ tư vấn quà cho người bạn chung.",type:"reply",choices:[{text:"あの子、コーヒー好きだから、カフェのギフト券は？",rd:"Ano ko, koohii suki dakara, kafe no gifuto ken wa?",vi:"Đứa đó thích cà phê, tặng thẻ quà cà phê không？",correct:true,"comment":"Dựa vào sở thích người nhận！ Chu đáo！"},{text:"何でもいいです",rd:"Nandemo ii desu",vi:"Gì cũng được",correct:false,"comment":"「何でもいい」không giúp quyết định！"},{text:"知りません",rd:"Shirimasen",vi:"Tôi không biết",correct:false,"comment":"Không giúp ích！"},{text:"高いものがいいです",rd:"Takai mono ga ii desu",vi:"Nên chọn thứ đắt tiền",correct:false,"comment":"Chỉ dựa vào giá！ Không phải cách tư vấn tốt！"}]}
+    ]
+  },
+  gaming:{
+    id:"gaming",emoji:"🎮",label:"ゲーム仲間",
+    labelVi:"Bạn chơi game",group:"friends",
+    groupLabel:"👫 友達系",jlptLevel:"N5",targetTotal:50,
+    color:"linear-gradient(135deg,#6366F1,#4F46E5)",
+    questions:[
+      {level:"N5",from:{avatar:"🧑",name:"Kenta"},msg:"今夜、オンラインゲームやろう！🎮",msgVi:"Tối nay chơi game online không！🎮",hint:"Kenta rủ chơi game tối nay.",type:"reply",choices:[{text:"やろう！何時から？🎮",rd:"Yarou! Nanji kara?",vi:"Chơi thôi！Từ mấy giờ？🎮",correct:true,"comment":"「やろう！」= Chơi thôi！ Hỏi giờ bắt đầu！"},{text:"ゲームは時間の無駄です",rd:"Geemu wa jikan no muda desu",vi:"Game là phí thời gian",correct:false,"comment":"Không phải câu trả lời hay với bạn game！😂"},{text:"下手だから嫌です",rd:"Heta dakara iya desu",vi:"Tôi tệ nên không thích",correct:false,"comment":"Bạn bè chơi cùng để vui, không cần phải giỏi！"},{text:"電源がありません",rd:"Dengen ga arimasen",vi:"Không có điện",correct:false,"comment":"Không phải lý do thuyết phục！😂"}]},
+      {level:"N5",from:{avatar:"🧑",name:"Ryu"},msg:"レベル上がったよ！すごくない？😆",msgVi:"Tớ level up rồi！Ghê không？😆",hint:"Ryu khoe level up. Bạn phản ứng thế nào？",type:"reply",choices:[{text:"すごい！どうやったの？😮",rd:"Sugoi! Dou yatta no?",vi:"Ghê quá！Làm sao vậy？😮",correct:true,"comment":"「すごい！」= Ghê！ Hào hứng và hỏi thêm！"},{text:"そうですか",rd:"Sou desu ka",vi:"Vậy à",correct:false,"comment":"Lạnh nhạt quá！ Bạn đang khoe！"},{text:"ゲームは難しい",rd:"Geemu wa muzukashii",vi:"Game khó lắm",correct:false,"comment":"Không liên quan！😐"},{text:"わかりました",rd:"Wakarimashita",vi:"Tôi hiểu rồi",correct:false,"comment":"Như công việc！😂"}]},
+      {level:"N4",from:{avatar:"🧑",name:"Ryu"},msg:"あのボス、倒せなくて詰まってる💦",msgVi:"Tớ bị tắc ở boss đó, không đánh được💦",hint:"Ryu bị tắc ở boss khó. Bạn muốn giúp！",type:"reply",choices:[{text:"一緒にやってみようか？攻略法知ってるよ💡",rd:"Issho ni yatte miyou ka? Kouryaku hou shitteru yo",vi:"Cùng thử làm không？Tớ biết cách đánh💡",correct:true,"comment":"Đề nghị giúp và có kinh nghiệm！ Bạn game lý tưởng！"},{text:"諦めなさい",rd:"Akirame nasai",vi:"Bỏ cuộc đi",correct:false,"comment":"Bảo bỏ cuộc！😐"},{text:"難しいですね",rd:"Muzukashii desu ne",vi:"Khó nhỉ",correct:false,"comment":"Đồng cảm nhưng không giúp！"},{text:"ゲームを買い直して",rd:"Geemu wo kainashite",vi:"Mua lại game đi",correct:false,"comment":"Mua lại game！？😂"}]},
+      {level:"N4",from:{avatar:"🧑",name:"Kenta"},msg:"今日のプレイ、神だったじゃん！",msgVi:"Màn chơi hôm nay của cậu siêu ghê！",hint:"Kenta khen bạn chơi giỏi hôm nay.",type:"reply",choices:[{text:"ありがとう！まだまだだけどね😄",rd:"Arigatou! Mada mada da kedo ne",vi:"Cảm ơn！Vẫn còn cần cố hơn nữa😄",correct:true,"comment":"Nhận lời khen khiêm tốn！「まだまだ」= Vẫn cần cố！"},{text:"そうですか",rd:"Sou desu ka",vi:"Vậy à",correct:false,"comment":"Lạnh lùng khi được khen！"},{text:"下手でした",rd:"Heta deshita",vi:"Tôi chơi dở lắm",correct:false,"comment":"Phủ nhận hoàn toàn！"},{text:"わかりました",rd:"Wakarimashita",vi:"Tôi hiểu rồi",correct:false,"comment":"Khi được khen！？😂"}]},
+      {level:"N5",from:{avatar:"🧑",name:"Kenta"},msg:"このキャラ、どう思う？😎",msgVi:"Cậu nghĩ sao về nhân vật này？😎",hint:"Kenta hỏi ý kiến về nhân vật game.",type:"reply",choices:[{text:"かっこいい！スキル何？😎",rd:"Kakkoii! Sukiru nani?",vi:"Ngầu！Skill gì vậy？😎",correct:true,"comment":"「かっこいい！」= Ngầu！ Hỏi thêm！ Tự nhiên！"},{text:"普通ですね",rd:"Futsuu desu ne",vi:"Bình thường thôi nhỉ",correct:false,"comment":"「普通」khi bạn đang hào hứng！😢"},{text:"知りません",rd:"Shirimasen",vi:"Tôi không biết",correct:false,"comment":"「知りません」về nhân vật！😐"},{text:"高いですか",rd:"Takai desu ka",vi:"Đắt không？",correct:false,"comment":"Hỏi giá khi bạn hỏi ý kiến！😐"}]}
+    ]
+  },
+  secret:{
+    id:"secret",emoji:"🤫",label:"秘密の相談",
+    labelVi:"Tâm sự bí mật",group:"friends",
+    groupLabel:"👫 友達系",jlptLevel:"N4",targetTotal:50,
+    color:"linear-gradient(135deg,#7C3AED,#5B21B6)",
+    questions:[
+      {level:"N4",from:{avatar:"👩",name:"Hana"},msg:"誰にも言わないで。実は好きな人がいるんだ",msgVi:"Đừng nói ai nhé. Thực ra tớ có người thích rồi",hint:"Hana tâm sự bí mật về người cô ấy thích.",type:"reply",choices:[{text:"え！誰誰！？もちろん内緒にするよ！",rd:"E! Dare dare!? Mochiron naisho ni suru yo!",vi:"Ồ！Ai vậy！？Tất nhiên tớ giữ bí mật！",correct:true,"comment":"Hào hứng và cam kết giữ bí mật！ Phản ứng bạn thân！"},{text:"知っています",rd:"Shitte imasu",vi:"Tôi biết rồi",correct:false,"comment":"Sao biết được bí mật！？😂"},{text:"みんなに言います",rd:"Minna ni iimasu",vi:"Tôi sẽ nói với mọi người",correct:false,"comment":"Phản bội ngay！😡"},{text:"どうでもいい",rd:"Dou demo ii",vi:"Kệ đi",correct:false,"comment":"Vô tâm！😢"}]},
+      {level:"N4",from:{avatar:"🧑",name:"Kenta"},msg:"仕事でミスって、上司に怒られた。誰にも言えなかった",msgVi:"Tớ mắc lỗi ở công ty, bị sếp mắng. Không nói được với ai",hint:"Kenta tâm sự về chuyện khó khăn ở công ty.",type:"reply",choices:[{text:"大変だったね…話してくれてよかった。何かできることある？",rd:"Taihen datta ne... Hanashite kurete yokatta. Nani ka dekiru koto aru?",vi:"Vất vả quá nhỉ...Tốt là nói ra rồi. Tớ giúp được gì không？",correct:true,"comment":"Đồng cảm, cảm ơn và hỏi muốn giúp！ Bạn thân lý tưởng！"},{text:"なんでミスしたの？",rd:"Nande misu shita no?",vi:"Sao lại mắc lỗi？",correct:false,"comment":"Hỏi nguyên nhân lỗi ngay！ Chỉ trích！"},{text:"仕方ないですね",rd:"Shikata nai desu ne",vi:"Biết làm sao được nhỉ",correct:false,"comment":"Thụ động và không đồng cảm！"},{text:"報告しなきゃ",rd:"Houkoku shinakya",vi:"Phải báo cáo chứ",correct:false,"comment":"Nói「報告」khi xử lý bí mật！ Không hay！"}]},
+      {level:"N3",from:{avatar:"👩",name:"Hana"},msg:"好きな人に告白しようと思ってる。でも怖い",msgVi:"Tớ định tỏ tình với người tớ thích. Nhưng sợ lắm",hint:"Hana phân vân về việc tỏ tình. Bạn khích lệ！",type:"reply",choices:[{text:"勇気出して！後悔するよりチャレンジしよ！",rd:"Yuuki dashite! Koukai suru yori charenji shiyo!",vi:"Lấy can đảm lên！Thách thức còn hơn hối hận！",correct:true,"comment":"Khích lệ mạnh mẽ！「後悔するよりチャレンジ」！"},{text:"やめた方がいい",rd:"Yameta hou ga ii",vi:"Tốt hơn là đừng làm",correct:false,"comment":"Khuyên từ bỏ！😢"},{text:"大丈夫です",rd:"Daijoubu desu",vi:"Không sao đâu",correct:false,"comment":"Chung chung quá！"},{text:"断られたら？",rd:"Kotowaraetara?",vi:"Nếu bị từ chối？",correct:false,"comment":"Đặt tình huống tiêu cực khi bạn đang sợ！"}]},
+      {level:"N4",from:{avatar:"👩",name:"Hana"},msg:"あの子のこと、実はあまり好きじゃないの…",msgVi:"Thực ra tớ không thích đứa đó lắm...",hint:"Hana tâm sự không thích ai đó. Bạn lắng nghe！",type:"reply",choices:[{text:"そうなんだ…どうして？話して",rd:"Sou nan da... Doushite? Hanashite",vi:"Thế à... Tại sao？Kể tớ nghe đi",correct:true,"comment":"Lắng nghe và khuyến khích tâm sự！ Không phán xét！"},{text:"えっ、それは良くない！",rd:"E, sore wa yokunai!",vi:"Ồ, cái đó không tốt！",correct:false,"comment":"Phán xét ngay！"},{text:"みんなに言う？",rd:"Minna ni iu?",vi:"Nói với mọi người không？",correct:false,"comment":"Đây là tâm sự bí mật！"},{text:"どうでもいい",rd:"Dou demo ii",vi:"Kệ đi",correct:false,"comment":"Lạnh lùng！😢"}]},
+      {level:"N3",from:{avatar:"🧑",name:"Kenta"},msg:"実は転職考えてる。誰にも相談できなくて",msgVi:"Thực ra tớ đang nghĩ đến việc chuyển việc. Không biết hỏi ai",hint:"Kenta tâm sự về chuyển việc.",type:"reply",choices:[{text:"そうなんだ！今の仕事、何が嫌なの？",rd:"Sou nan da! Ima no shigoto, nani ga iya na no?",vi:"Thế à！Công việc hiện tại điều gì không ổn？",correct:true,"comment":"Lắng nghe và hỏi sâu hơn！ Không phán xét！"},{text:"転職はリスクが高い",rd:"Tenshoku wa risuku ga takai",vi:"Chuyển việc rủi ro cao lắm",correct:false,"comment":"Nói về rủi ro khi bạn chưa kể hết！😢"},{text:"今の仕事を続けなさい",rd:"Ima no shigoto wo tsuzuke nasai",vi:"Tiếp tục công việc hiện tại đi",correct:false,"comment":"Đưa kết luận khi chưa nghe đầy đủ！"},{text:"どうでもいい",rd:"Dou demo ii",vi:"Kệ đi",correct:false,"comment":"Vô tâm！😡"}]}
+    ]
+  },
+  joke:{
+    id:"joke",emoji:"🤣",label:"ネタ・ジョーク",
+    labelVi:"Hài hước",group:"friends",
+    groupLabel:"👫 友達系",jlptLevel:"N4",targetTotal:50,
+    color:"linear-gradient(135deg,#F97316,#DC2626)",
+    questions:[
+      {level:"N4",from:{avatar:"🧑",name:"Kenta"},msg:"昨日、すごいことがあってさ〜😂",msgVi:"Hôm qua có chuyện hay lắm～😂",hint:"Kenta muốn kể chuyện hài. Bạn hỏi thêm！",type:"reply",choices:[{text:"え！？なになに！？教えて！😂",rd:"E!? Nani nani!? Oshiete!",vi:"Ồ！？Gì vậy！？Kể đi！😂",correct:true,"comment":"Hào hứng và muốn nghe！ Tự nhiên với bạn bè！"},{text:"そうですか",rd:"Sou desu ka",vi:"Vậy à",correct:false,"comment":"Lạnh lùng！😢"},{text:"仕事の話ですか",rd:"Shigoto no hanashi desu ka",vi:"Chuyện công việc phải không？",correct:false,"comment":"Hỏi về công việc！？😐"},{text:"わかりました",rd:"Wakarimashita",vi:"Tôi hiểu rồi",correct:false,"comment":"「わかりました」như phòng họp！😂"}]},
+      {level:"N4",from:{avatar:"🧑",name:"Ryu"},msg:"（面白い話をした後）ウケる？😂",msgVi:"（Sau khi kể chuyện）Buồn cười không？😂",hint:"Ryu hỏi có thấy hài không sau khi kể chuyện.",type:"reply",choices:[{text:"ウケる！！もう1回言って😂",rd:"Ukeru!! Mou ikkai itte",vi:"Hài quá！！Nói lại đi😂",correct:true,"comment":"「ウケる！！」= Hài quá！ Nhiệt tình！ Hỏi nghe lại！"},{text:"おもしろくないです",rd:"Omoshirokunai desu",vi:"Không buồn cười",correct:false,"comment":"「おもしろくない」trang trọng quá！ Không phải phản ứng tự nhiên！"},{text:"そうですか",rd:"Sou desu ka",vi:"Vậy à",correct:false,"comment":"Lạnh lùng！"},{text:"わかりません",rd:"Wakarimasen",vi:"Tôi không hiểu",correct:false,"comment":"Nếu không hiểu thì hỏi！「どういう意味？」"}]},
+      {level:"N4",from:{avatar:"👩",name:"Hana"},msg:"このダジャレ、どう？「布団がふっとんだ」😂",msgVi:"Câu chơi chữ này thế nào？「Bộ chăn đã bay 布団がふっとんだ」😂",hint:"Hana kể chơi chữ. Bạn phản ứng！",type:"reply",choices:[{text:"うまい！！笑笑笑😂",rd:"Umai!! Wara wara wara",vi:"Hay quá！！Haha😂",correct:true,"comment":"「うまい！！」= Tài！！ Phản ứng với chơi chữ！ Vui！"},{text:"何ですか",rd:"Nan desu ka",vi:"Cái gì vậy？",correct:false,"comment":"「何ですか」trang trọng！ Nghe không hiểu chơi chữ！"},{text:"つまらない",rd:"Tsumaranai",vi:"Chán lắm",correct:false,"comment":"Nói「つまらない」khi bạn đang vui！ Dội nước lạnh！"},{text:"もう一度言ってください",rd:"Mou ichido itte kudasai",vi:"Hãy nói lại",correct:false,"comment":"Quá trang trọng！「もっかい言って！」tự nhiên hơn！"}]},
+      {level:"N3",from:{avatar:"🧑",name:"Kenta"},msg:"なんかおもしろいネタない？暇〜",msgVi:"Có chuyện gì hay không？Chán～",hint:"Kenta chán và muốn nghe chuyện vui. Bạn kể！",type:"reply",choices:[{text:"あるある！聞いて聞いて！😂",rd:"Aru aru! Kiite kiite!",vi:"Có có！Nghe nè！Nghe nè！😂",correct:true,"comment":"Hào hứng và muốn kể！ Tự nhiên và vui vẻ！"},{text:"特にありません",rd:"Toku ni arimasen",vi:"Không có đặc biệt gì",correct:false,"comment":"「特にない」trang trọng và thụ động！"},{text:"知りません",rd:"Shirimasen",vi:"Tôi không biết",correct:false,"comment":"「知りません」về chuyện vui！？😐"},{text:"勉強しなさい",rd:"Benkyou shinasai",vi:"Đi học đi",correct:false,"comment":"Bảo đi học khi bạn chán！？😂"}]},
+      {level:"N3",from:{avatar:"👩",name:"Hana"},msg:"（冗談を言った後）冗談だよ！😂",msgVi:"（Sau khi nói đùa）Đùa thôi！😂",hint:"Hana nói đùa và giải thích. Bạn phản ứng！",type:"reply",choices:[{text:"もう！本当かと思った！びっくりした！😂",rd:"Mou! Hontou ka to omotta! Bikkuri shita!",vi:"Thôi nào！Tớ tưởng thật！Bất ngờ quá！😂",correct:true,"comment":"「もう！」+ phản ứng tự nhiên！「びっくりした」= Bất ngờ！"},{text:"はい、わかりました",rd:"Hai, wakarimashita",vi:"Vâng, tôi hiểu rồi",correct:false,"comment":"Quá trang trọng！"},{text:"冗談はよくない",rd:"Joudan wa yokunai",vi:"Đùa không tốt",correct:false,"comment":"Phản ứng nghiêm túc với câu đùa！😂"},{text:"そうですか",rd:"Sou desu ka",vi:"Vậy à",correct:false,"comment":"Lạnh lùng！"}]}
+    ]
+  },
+  photo:{
+    id:"photo",emoji:"📸",label:"写真を送る",
+    labelVi:"Gửi ảnh",group:"friends",
+    groupLabel:"👫 友達系",jlptLevel:"N5",targetTotal:50,
+    color:"linear-gradient(135deg,#EC4899,#BE185D)",
+    questions:[
+      {level:"N5",from:{avatar:"👩",name:"Hana"},msg:"旅行の写真送るね📸",msgVi:"Tớ gửi ảnh du lịch cho nhé📸",hint:"Hana gửi ảnh du lịch.",type:"reply",choices:[{text:"わ！すごくきれい！どこ？😍",rd:"Wa! Sugoku kirei! Doko?",vi:"Ồ！Đẹp quá！Ở đâu vậy？😍",correct:true,"comment":"「きれい！」= Đẹp！ Khen và hỏi thêm！"},{text:"受け取りました",rd:"Uketorimashita",vi:"Tôi đã nhận được",correct:false,"comment":"「受け取りました」như email！😂"},{text:"写真が小さい",rd:"Shashin ga chiisai",vi:"Ảnh nhỏ quá",correct:false,"comment":"Phàn nàn về kích cỡ！😅"},{text:"ありがとうございます",rd:"Arigatou gozaimasu",vi:"Cảm ơn bạn",correct:false,"comment":"Quá trang trọng！ Dùng「ありがとう！」"}]},
+      {level:"N5",from:{avatar:"👩",name:"Hana"},msg:"この写真、SNSにあげていい？",msgVi:"Ảnh này đăng lên mạng được không？",hint:"Hana hỏi có thể đăng ảnh bạn không. Bạn không muốn.",type:"reply",choices:[{text:"ごめん、この写真はちょっと…別のにして😅",rd:"Gomen, kono shashin wa chotto... betsu no ni shite",vi:"Xin lỗi, ảnh này thì hơi... Dùng ảnh khác nhé😅",correct:true,"comment":"Từ chối lịch sự và đề xuất thay thế！"},{text:"ダメ！",rd:"Dame!",vi:"Không được！",correct:false,"comment":"「ダメ！」quá cứng！ Cần giải thích！"},{text:"いいです",rd:"Ii desu",vi:"Không sao",correct:false,"comment":"「いいです」không rõ đồng ý hay từ chối！"},{text:"なぜ聞くの？",rd:"Naze kiku no?",vi:"Sao lại hỏi？",correct:false,"comment":"Thái độ tệ！ Hỏi trước là đúng lịch sự！"}]},
+      {level:"N4",from:{avatar:"👩",name:"Hana"},msg:"さっきの集合写真、送ってもらえる？",msgVi:"Cậu có thể gửi ảnh chụp nhóm lúc nãy không？",hint:"Hana xin ảnh chụp nhóm. Bạn có ảnh！",type:"reply",choices:[{text:"もちろん！LINEで送るね📱",rd:"Mochiron! LINE de okuru ne",vi:"Tất nhiên！Gửi qua LINE nhé📱",correct:true,"comment":"Đồng ý và nói rõ gửi qua LINE！"},{text:"写真は持っていません",rd:"Shashin wa motte imasen",vi:"Tôi không có ảnh",correct:false,"comment":"Nếu có ảnh thì nói dối！😐"},{text:"自分で撮れば？",rd:"Jibun de toreba?",vi:"Tự chụp lấy đi？",correct:false,"comment":"Thái độ không tốt！"},{text:"考えます",rd:"Kangaemasu",vi:"Tôi sẽ suy nghĩ",correct:false,"comment":"「考えます」để gửi ảnh！？😂"}]},
+      {level:"N4",from:{avatar:"🧑",name:"Kenta"},msg:"これ、誰に撮ってもらったの？上手すぎ！",msgVi:"Cái này ai chụp cho cậu？Đẹp quá！",hint:"Kenta khen ảnh của bạn. Bạn tự chụp.",type:"reply",choices:[{text:"自撮りだよ！😄 褒めてくれてありがとう！",rd:"Jidori da yo! Homete kurete arigatou!",vi:"Tự chụp đấy！😄 Cảm ơn cậu khen！",correct:true,"comment":"「自撮り」= Selfie。 Tự hào và cảm ơn！"},{text:"秘密です",rd:"Himitsu desu",vi:"Bí mật",correct:false,"comment":"「秘密」về người chụp！？😅"},{text:"普通ですよ",rd:"Futsuu desu yo",vi:"Bình thường thôi",correct:false,"comment":"Phủ nhận khi được khen！"},{text:"どこかで見たの？",rd:"Doko ka de mita no?",vi:"Cậu thấy ảnh này ở đâu？",correct:false,"comment":"Lạc đề！😂"}]},
+      {level:"N5",from:{avatar:"🧑",name:"Kenta"},msg:"俺の写真使っていい？😅",msgVi:"Dùng ảnh của tớ được không？😅",hint:"Kenta hỏi bạn có thể dùng ảnh của anh ấy không.",type:"reply",choices:[{text:"もちろん！ありがとう😊",rd:"Mochiron! Arigatou",vi:"Tất nhiên！Cảm ơn nhé😊",correct:true,"comment":"Đồng ý và cảm ơn！"},{text:"使います",rd:"Tsukaimasu",vi:"Tôi sẽ dùng",correct:false,"comment":"Đồng ý nhưng không cảm ơn！"},{text:"どうして？",rd:"Doushite?",vi:"Tại sao？",correct:false,"comment":"Hỏi ngược lại！？😐"},{text:"写真はいりません",rd:"Shashin wa irimasen",vi:"Tôi không cần ảnh",correct:false,"comment":"Từ chối！😐"}]}
+    ]
+  },
+  travel_plan:{
+    id:"travel_plan",emoji:"✈️",label:"旅行計画",
+    labelVi:"Kế hoạch du lịch",group:"travel",
+    groupLabel:"✈️ 旅行編",jlptLevel:"N4",targetTotal:50,
+    color:"linear-gradient(135deg,#06B6D4,#0891B2)",
+    questions:[
+      {level:"N4",from:{avatar:"🧑",name:"Tour Guide"},msg:"何泊する予定ですか？",msgVi:"Bạn dự định ở mấy đêm？",hint:"Nhân viên du lịch hỏi kế hoạch. Bạn dự định 3 đêm 4 ngày。",type:"reply",choices:[{text:"3泊4日の予定です",rd:"Sanhaku yokka no yotei desu",vi:"Tôi dự định 3 đêm 4 ngày",correct:true,"comment":"「〜泊〜日」là cách nói thời gian ở Nhật！「3泊4日」！"},{text:"3日間です",rd:"Mikkakan desu",vi:"3 ngày",correct:false,"comment":"「3日間」đúng nhưng「3泊4日」chính xác hơn！"},{text:"長い間です",rd:"Nagai aida desu",vi:"Lâu lắm",correct:false,"comment":"Không cho biết số ngày cụ thể！"},{text:"まだ決めていません",rd:"Mada kimete imasen",vi:"Chưa quyết định",correct:false,"comment":"Nếu đã quyết định thì không đúng！"}]},
+      {level:"N4",from:{avatar:"👩",name:"Hotel Staff"},msg:"チェックインをお願いします",msgVi:"Xin làm thủ tục nhận phòng",hint:"Nhân viên khách sạn nói câu nhận phòng.",type:"reply",choices:[{text:"はい、予約した〇〇です",rd:"Hai, yoyaku shita marumaru desu",vi:"Vâng, tôi là [tên] đã đặt trước",correct:true,"comment":"Xác nhận đặt phòng！「予約した」= Đã đặt trước！"},{text:"部屋を見せてください",rd:"Heya wo misete kudasai",vi:"Hãy cho tôi xem phòng",correct:false,"comment":"Chưa làm thủ tục mà đã đòi xem！😅"},{text:"ありがとうございます",rd:"Arigatou gozaimasu",vi:"Cảm ơn bạn",correct:false,"comment":"Cảm ơn khi đang được chào check-in！？😐"},{text:"チェックアウトは何時ですか",rd:"Chekkuauto wa nanji desu ka",vi:"Giờ check-out？",correct:false,"comment":"Hỏi check-out khi đang check-in！😂"}]},
+      {level:"N5",from:{avatar:"🧑",name:"Friend"},msg:"明日、どこ行く？",msgVi:"Ngày mai đi đâu？",hint:"Đang du lịch cùng bạn và lên kế hoạch。",type:"reply",choices:[{text:"温泉に行きたいな♨️",rd:"Onsen ni ikitai na",vi:"Muốn đi onsen♨️",correct:true,"comment":"「温泉」= Suối nước nóng！ Trải nghiệm Nhật tuyệt！"},{text:"どこでもいい",rd:"Doko demo ii",vi:"Ở đâu cũng được",correct:false,"comment":"Thụ động！ Hãy đề xuất！"},{text:"帰りたい",rd:"Kaeritai",vi:"Muốn về nhà",correct:false,"comment":"Nói「帰りたい」trong du lịch！😂"},{text:"わかりません",rd:"Wakarimasen",vi:"Tôi không biết",correct:false,"comment":"「わかりません」không giúp lên kế hoạch！"}]},
+      {level:"N4",from:{avatar:"🧑",name:"Kenta"},msg:"道に迷っちゃった💦 どこ？",msgVi:"Bị lạc rồi💦 Đang ở đâu？",hint:"Bị lạc đường trong du lịch. Hỏi người địa phương！",type:"reply",choices:[{text:"すみません、〇〇はどこですか？",rd:"Sumimasen, marumaru wa doko desu ka?",vi:"Xin lỗi, [địa điểm] ở đâu ạ？",correct:true,"comment":"「すみません」+ hỏi đường！ Chuẩn mực！"},{text:"迷子です",rd:"Maigo desu",vi:"Tôi bị lạc",correct:false,"comment":"「迷子」thường dùng cho trẻ em！"},{text:"助けてください",rd:"Tasukete kudasai",vi:"Hãy giúp tôi",correct:false,"comment":"「助けて」dùng khi khẩn cấp！ Lạc đường hỏi đường thôi！"},{text:"電話します",rd:"Denwa shimasu",vi:"Tôi sẽ gọi điện",correct:false,"comment":"Gọi điện ai？ Hỏi người xung quanh！"}]},
+      {level:"N4",from:{avatar:"👩",name:"Hana"},msg:"おみやげ、何買おう？",msgVi:"Mua quà về gì nhỉ？",hint:"Đang mua đồ lưu niệm ở Nhật.",type:"reply",choices:[{text:"地元のお菓子とか、地酒とかどう？",rd:"Jimoto no okashi toka, jizake toka dou?",vi:"Bánh kẹo địa phương hay sake địa phương？",correct:true,"comment":"「地元の〜」= Đặc sản địa phương. Quà lưu niệm tuyệt！"},{text:"何でもいい",rd:"Nandemo ii",vi:"Gì cũng được",correct:false,"comment":"「何でもいい」không giúp quyết định！"},{text:"高いものがいい",rd:"Takai mono ga ii",vi:"Nên mua đắt tiền",correct:false,"comment":"Không phải tiêu chí tốt！"},{text:"買わない",rd:"Kawanai",vi:"Không mua",correct:false,"comment":"Không mua quà！😐"}]}
+    ]
+  },
+  hotel:{
+    id:"hotel",emoji:"🏨",label:"ホテル・宿",
+    labelVi:"Khách sạn",group:"travel",
+    groupLabel:"✈️ 旅行編",jlptLevel:"N4",targetTotal:50,
+    color:"linear-gradient(135deg,#0EA5E9,#0369A1)",
+    questions:[
+      {level:"N4",from:{avatar:"👩",name:"Hotel Staff"},msg:"本日はご予約でしょうか？",msgVi:"Hôm nay bạn có đặt trước không？",hint:"Nhân viên hỏi có đặt phòng trước không。",type:"reply",choices:[{text:"はい、〇〇の名前で予約しています",rd:"Hai, marumaru no namae de yoyaku shite imasu",vi:"Vâng, tôi đặt tên [tên]",correct:true,"comment":"「〜の名前で予約」= Đặt phòng tên [tên]！"},{text:"予約していません",rd:"Yoyaku shite imasen",vi:"Tôi không đặt trước",correct:false,"comment":"Nếu thực sự không đặt cần hỏi tiếp！"},{text:"部屋はありますか",rd:"Heya wa arimasu ka",vi:"Còn phòng không？",correct:false,"comment":"Hỏi có phòng mà chưa trả lời！😐"},{text:"チェックアウトします",rd:"Chekkuauto shimasu",vi:"Tôi sẽ check-out",correct:false,"comment":"Nhầm check-in và check-out！😂"}]},
+      {level:"N4",from:{avatar:"🧑",name:"Staff"},msg:"何かご不便なことはありますか？",msgVi:"Có gì bất tiện không？",hint:"Nhân viên hỏi bạn có phàn nàn không. Phòng quá ồn。",type:"reply",choices:[{text:"部屋が少しうるさいのですが…",rd:"Heya ga sukoshi urusai no desu ga...",vi:"Phòng hơi ồn một chút....",correct:true,"comment":"Phản ánh vấn đề lịch sự với「〜のですが」！"},{text:"全然問題ありません",rd:"Zenzen mondai arimasen",vi:"Hoàn toàn không vấn đề",correct:false,"comment":"Nếu phòng ồn thì phải nói！"},{text:"うるさい！変えて！",rd:"Urusai! Kaete!",vi:"Ồn！Đổi phòng！",correct:false,"comment":"Quá thẳng thừng！ Cần nhẹ nhàng hơn！"},{text:"ありがとうございます",rd:"Arigatou gozaimasu",vi:"Cảm ơn",correct:false,"comment":"Cảm ơn khi đang phàn nàn！？😐"}]},
+      {level:"N4",from:{avatar:"👩",name:"Hotel Staff"},msg:"朝食は何時からですか",msgVi:"Bữa sáng từ mấy giờ？",hint:"Nhân viên giải thích bữa sáng. Bạn muốn hỏi giờ kết thúc。",type:"reply",choices:[{text:"何時までですか？",rd:"Nanji made desu ka?",vi:"Đến mấy giờ？",correct:true,"comment":"「何時まで？」hỏi giờ kết thúc！ Tự nhiên！"},{text:"食べません",rd:"Tabemasen",vi:"Tôi không ăn",correct:false,"comment":"Từ chối bữa sáng！😐"},{text:"おいしいですか",rd:"Oishii desu ka",vi:"Ngon không？",correct:false,"comment":"Hỏi ngon không trước khi hỏi giờ！😂"},{text:"どこで食べますか",rd:"Doko de tabemasu ka",vi:"Ăn ở đâu vậy？",correct:false,"comment":"Hỏi địa điểm nhưng chưa hỏi giờ！"}]},
+      {level:"N3",from:{avatar:"👩",name:"Hotel Staff"},msg:"ご滞在はいかがでしたか？",msgVi:"Kỳ nghỉ của bạn thế nào？",hint:"Nhân viên hỏi khi check-out. Bạn hài lòng。",type:"reply",choices:[{text:"とても快適でした！また来ます",rd:"Totemo kaiteki deshita! Mata kimasu",vi:"Rất thoải mái！Tôi sẽ đến lại",correct:true,"comment":"「快適でした」= Thoải mái。「また来ます」= Sẽ đến lại！"},{text:"普通でした",rd:"Futsuu deshita",vi:"Bình thường thôi",correct:false,"comment":"「普通」= Không phản hồi tích cực！"},{text:"悪かったです",rd:"Warukatta desu",vi:"Không tốt",correct:false,"comment":"Nếu không hài lòng cần giải thích！"},{text:"わかりません",rd:"Wakarimasen",vi:"Tôi không biết",correct:false,"comment":"「わかりません」về kỳ nghỉ của mình！？😂"}]},
+      {level:"N3",from:{avatar:"🧑",name:"Staff"},msg:"お部屋のタオルが足りない場合はフロントまで",msgVi:"Nếu thiếu khăn phòng, vui lòng thông báo cho lễ tân",hint:"Nhân viên hướng dẫn về khăn tắm. Bạn muốn xin thêm。",type:"reply",choices:[{text:"すみません、タオルをもう一枚もらえますか？",rd:"Sumimasen, taoru wo mou ichimai morae masu ka?",vi:"Xin lỗi, cho tôi thêm một cái khăn？",correct:true,"comment":"Cách xin đúng！「もう一枚」= thêm một cái！"},{text:"タオルください",rd:"Taoru kudasai",vi:"Cho tôi khăn",correct:false,"comment":"Hơi cộc！ Cần lịch sự hơn！"},{text:"洗濯します",rd:"Sentaku shimasu",vi:"Tôi sẽ giặt",correct:false,"comment":"Tự giặt khi có thể xin thêm！😂"},{text:"大丈夫です",rd:"Daijoubu desu",vi:"Không sao",correct:false,"comment":"Nếu thiếu khăn thì không nên nhịn！"}]}
+    ]
+  },
+  interview:{
+    id:"interview",emoji:"📅",label:"面接",
+    labelVi:"Phỏng vấn",group:"work",
+    groupLabel:"💼 仕事系",jlptLevel:"N4",targetTotal:50,
+    color:"linear-gradient(135deg,#1565C0,#0D47A1)",
+    questions:[
+      {level:"N4",from:{avatar:"👩",name:"Manager"},msg:"自己紹介をお願いします",msgVi:"Xin hãy tự giới thiệu bản thân",hint:"Người phỏng vấn yêu cầu tự giới thiệu.",type:"reply",choices:[{text:"はじめまして。〇〇と申します。本日はよろしくお願いいたします",rd:"Hajimemashite. Marumaru to moushimasu. Honjitsu wa yoroshiku onegai itashimasu",vi:"Xin chào. Tôi tên là [tên]. Hôm nay xin nhờ mọi người chỉ giáo",correct:true,"comment":"「〜と申します」kính ngữ！ Tự giới thiệu chuẩn mực！"},{text:"私は〇〇です",rd:"Watashi wa marumaru desu",vi:"Tôi là [tên]",correct:false,"comment":"Quá đơn giản！ Cần「はじめまして」và lời chào！"},{text:"名前は〇〇です",rd:"Namae wa marumaru desu",vi:"Tên tôi là [tên]",correct:false,"comment":"Hơi cộc！ Cần kính ngữ！"},{text:"よろしく！",rd:"Yoroshiku!",vi:"Vui lòng nhé！",correct:false,"comment":"Quá thân mật！"}]},
+      {level:"N4",from:{avatar:"👩",name:"Manager"},msg:"志望動機を教えてください",msgVi:"Hãy cho biết lý do muốn vào công ty này",hint:"Người phỏng vấn hỏi lý do muốn vào công ty.",type:"reply",choices:[{text:"御社の理念に共感しています。〜の部分が特に魅力的でした",rd:"Onsha no rinen ni kyoukan shite imasu. ~no bubun ga tokuni miryokuteki deshita",vi:"Tôi đồng cảm với triết lý quý công ty. Phần ~ đặc biệt hấp dẫn",correct:true,"comment":"「御社」= Quý công ty（kính ngữ). 「共感」= Đồng cảm. Chuyên nghiệp！"},{text:"お金のためです",rd:"Okane no tame desu",vi:"Vì tiền",correct:false,"comment":"Thật quá！ Không phù hợp phỏng vấn！😂"},{text:"特にありません",rd:"Toku ni arimasen",vi:"Không có đặc biệt gì",correct:false,"comment":"Câu trả lời tệ nhất！😅"},{text:"友達が紹介してくれました",rd:"Tomodachi ga shoukai shite kuremashita",vi:"Bạn giới thiệu",correct:false,"comment":"Cần thêm động lực cá nhân！"}]},
+      {level:"N4",from:{avatar:"👩",name:"Manager"},msg:"長所と短所を教えてください",msgVi:"Hãy cho biết điểm mạnh và điểm yếu",hint:"Người phỏng vấn hỏi điểm mạnh/yếu.",type:"reply",choices:[{text:"長所は責任感が強いことです。短所は完璧主義すぎる点ですが、改善しています",rd:"Chousho wa sekinin kan ga tsuyoi koto desu. Tansho wa kanpeki shugi sugiru ten desu ga, kaizen shite imasu",vi:"Điểm mạnh là tinh thần trách nhiệm. Điểm yếu là hơi cầu toàn nhưng đang cải thiện",correct:true,"comment":"Điểm mạnh rõ ràng, điểm yếu thừa nhận và nói đang cải thiện！"},{text:"長所も短所もありません",rd:"Chousho mo tansho mo arimasen",vi:"Không có điểm mạnh hay yếu",correct:false,"comment":"Không ai hoàn hảo！"},{text:"短所は多すぎます",rd:"Tansho wa oosugimasu",vi:"Điểm yếu nhiều quá",correct:false,"comment":"Quá trung thực theo hướng tiêu cực！😂"},{text:"わかりません",rd:"Wakarimasen",vi:"Tôi không biết",correct:false,"comment":"Câu trả lời tệ nhất trong phỏng vấn！"}]},
+      {level:"N4",from:{avatar:"👩",name:"Manager"},msg:"いつから働けますか",msgVi:"Bạn có thể bắt đầu từ khi nào？",hint:"Người phỏng vấn hỏi ngày bắt đầu. Bạn có thể sau 2 tuần。",type:"reply",choices:[{text:"2週間後から働けます",rd:"Nishukan go kara hatarakemasu",vi:"Tôi có thể bắt đầu sau 2 tuần",correct:true,"comment":"Nêu rõ thời gian！「〜週間後」= Sau〜tuần！"},{text:"すぐ働きます",rd:"Sugu hatarakimasu",vi:"Tôi làm ngay",correct:false,"comment":"「すぐ」= Ngay. Chưa cho biết ngày cụ thể！"},{text:"考えます",rd:"Kangaemasu",vi:"Tôi sẽ suy nghĩ",correct:false,"comment":"「考えます」nghe không chắc！"},{text:"都合がつかない",rd:"Tsugou ga tsukanai",vi:"Tôi không thu xếp được",correct:false,"comment":"Từ chối làm việc trong phỏng vấn！？😂"}]},
+      {level:"N4",from:{avatar:"👩",name:"Manager"},msg:"給料はいくら希望ですか",msgVi:"Bạn mong muốn mức lương bao nhiêu？",hint:"Người phỏng vấn hỏi về lương mong muốn.",type:"reply",choices:[{text:"御社の規定に合わせていただければと思います",rd:"Onsha no kitei ni awasete itadakereba to omoimasu",vi:"Tôi xin tuân theo quy định của quý công ty",correct:true,"comment":"Lịch sự và linh hoạt！ Tốt trong phỏng vấn！"},{text:"たくさんほしいです",rd:"Takusan hoshii desu",vi:"Tôi muốn nhiều tiền",correct:false,"comment":"Không chuyên nghiệp！😂"},{text:"〇〇万円です",rd:"Marumaru man en desu",vi:"Tôi muốn X triệu yên",correct:false,"comment":"Nêu số cụ thể mà chưa biết mức công ty！"},{text:"知りません",rd:"Shirimasen",vi:"Tôi không biết",correct:false,"comment":"「知りません」về lương mong muốn！？😅"}]}
+    ]
+  },
+  parttime:{
+    id:"parttime",emoji:"💼",label:"アルバイト",
+    labelVi:"Làm thêm",group:"work",
+    groupLabel:"💼 仕事系",jlptLevel:"N5",targetTotal:50,
+    color:"linear-gradient(135deg,#2563EB,#1D4ED8)",
+    questions:[
+      {level:"N5",from:{avatar:"👨",name:"Customer"},msg:"いらっしゃいませ！",msgVi:"Xin chào quý khách！",hint:"Bạn làm bán hàng, khách vào cửa hàng.",type:"reply",choices:[{text:"いらっしゃいませ！",rd:"Irasshaimase!",vi:"Xin chào quý khách！",correct:true,"comment":"「いらっしゃいませ！」là câu chào khách chuẩn！ Học thuộc！"},{text:"こんにちは！",rd:"Konnichiwa!",vi:"Xin chào！",correct:false,"comment":"Quá bình thường！ Khi làm việc phải dùng「いらっしゃいませ！」"},{text:"何ですか？",rd:"Nan desu ka?",vi:"Có gì không？",correct:false,"comment":"「何ですか？」thô lỗ với khách！😡"},{text:"どうぞ",rd:"Douzo",vi:"Mời vào",correct:false,"comment":"「どうぞ」cũng OK nhưng「いらっしゃいませ」chuẩn hơn！"}]},
+      {level:"N5",from:{avatar:"👩",name:"Customer"},msg:"これください",msgVi:"Cho tôi cái này",hint:"Khách muốn mua sản phẩm.",type:"reply",choices:[{text:"ありがとうございます！〇〇円になります",rd:"Arigatou gozaimasu! Marumaru en ni narimasu",vi:"Cảm ơn quý khách！ [Giá] yên ạ",correct:true,"comment":"Cảm ơn và thông báo giá！「〜になります」chuẩn！"},{text:"わかりました",rd:"Wakarimashita",vi:"Tôi hiểu rồi",correct:false,"comment":"Thiếu phần cảm ơn và thông báo giá！"},{text:"どれですか",rd:"Dore desu ka",vi:"Cái nào？",correct:false,"comment":"Khách đã chỉ sản phẩm rồi！"},{text:"ちょっと待ってください",rd:"Chotto matte kudasai",vi:"Vui lòng đợi một chút",correct:false,"comment":"Chỉ nói đợi mà không giải thích！"}]},
+      {level:"N4",from:{avatar:"👨",name:"Manager"},msg:"今日のシフトを確認してください",msgVi:"Hãy kiểm tra ca làm việc hôm nay",hint:"Sếp nhờ kiểm tra lịch.",type:"reply",choices:[{text:"確認しました！〇時から〇時まで働きます",rd:"Kakunin shimashita! Marumaru ji kara marumaru ji made hatarakimasu",vi:"Đã kiểm tra！Tôi làm từ [giờ] đến [giờ]",correct:true,"comment":"Xác nhận và thông báo ca làm！ Chuyên nghiệp！"},{text:"わかりました",rd:"Wakarimashita",vi:"Tôi hiểu rồi",correct:false,"comment":"Xác nhận nhưng không nói rõ ca！"},{text:"シフトは何ですか",rd:"Shifuto wa nan desu ka",vi:"Ca làm là gì？",correct:false,"comment":"Mới được nhờ kiểm tra mà lại hỏi！"},{text:"休みたいです",rd:"Yasumitai desu",vi:"Tôi muốn nghỉ",correct:false,"comment":"Nói muốn nghỉ khi sếp nhờ kiểm tra！😅"}]},
+      {level:"N4",from:{avatar:"👩",name:"Customer"},msg:"すみません、〇〇はどこにありますか？",msgVi:"Xin lỗi, [sản phẩm] ở đâu？",hint:"Khách hỏi vị trí sản phẩm. Bạn biết vị trí.",type:"reply",choices:[{text:"こちらです、ご案内します",rd:"Kochira desu, goannai shimasu",vi:"Ở đây ạ, tôi dẫn bạn đến",correct:true,"comment":"「ご案内します」= Tôi hướng dẫn. Dẫn khách trực tiếp！"},{text:"〇番棚にあります",rd:"Marumaru ban tana ni arimasu",vi:"Ở kệ số〇",correct:false,"comment":"Nói kệ số có thể đủ nhưng dẫn khách sẽ tốt hơn！"},{text:"知りません",rd:"Shirimasen",vi:"Tôi không biết",correct:false,"comment":"Nếu không biết phải hỏi đồng nghiệp！"},{text:"自分で探してください",rd:"Jibun de sagashite kudasai",vi:"Tự tìm đi",correct:false,"comment":"Cách phục vụ tệ nhất！😡"}]},
+      {level:"N4",from:{avatar:"👨",name:"Manager"},msg:"今日、人手が足りないんだけど、残業できる？",msgVi:"Hôm nay thiếu người, bạn có thể tăng ca không？",hint:"Sếp hỏi làm thêm giờ. Bạn có thể thêm 1 tiếng。",type:"reply",choices:[{text:"1時間くらいなら大丈夫です",rd:"Ichi jikan kurai nara daijoubu desu",vi:"Khoảng 1 tiếng thì được ạ",correct:true,"comment":"Nêu rõ giới hạn！「〜くらいなら」= Nếu khoảng～ thì được！"},{text:"できません",rd:"Dekimasen",vi:"Không thể",correct:false,"comment":"Từ chối thẳng！ Hãy giải thích！"},{text:"いいですよ",rd:"Ii desu yo",vi:"Được thôi",correct:false,"comment":"Đồng ý nhưng không nói rõ bao lâu！"},{text:"給料はいくらになりますか",rd:"Kyuukyou wa ikura ni narimasu ka",vi:"Lương sẽ là bao nhiêu？",correct:false,"comment":"Hỏi lương trước khi đồng ý！ Không hay！😅"}]}
+    ]
+  },
+  thanks_sorry:{
+    id:"thanks_sorry",emoji:"🙇",label:"お礼・謝罪",
+    labelVi:"Cảm ơn & Xin lỗi",group:"work",
+    groupLabel:"💼 仕事系",jlptLevel:"N4",targetTotal:50,
+    color:"linear-gradient(135deg,#7C3AED,#5B21B6)",
+    questions:[
+      {level:"N4",from:{avatar:"🧑",name:"Boss"},msg:"先日はありがとうございました",msgVi:"Cảm ơn về hôm trước nhé",hint:"Sếp cảm ơn bạn. Bạn phản hồi thế nào？",type:"reply",choices:[{text:"こちらこそ、ありがとうございました",rd:"Kochira koso, arigatou gozaimashita",vi:"Tôi cũng xin cảm ơn anh/chị ạ",correct:true,"comment":"「こちらこそ」= Chính tôi mới phải cảm ơn！ Lịch sự！"},{text:"はい",rd:"Hai",vi:"Vâng",correct:false,"comment":"Chỉ nói「はい」！ Quá ngắn！"},{text:"どういたしまして",rd:"Dou itashimashite",vi:"Không có gì",correct:false,"comment":"「どういたしまして」với cấp trên hơi bất lịch sự！"},{text:"わかりました",rd:"Wakarimashita",vi:"Tôi hiểu rồi",correct:false,"comment":"「わかりました」khi được cảm ơn！？😐"}]},
+      {level:"N4",from:{avatar:"👩",name:"Colleague"},msg:"昨日は助かりました！ありがとう",msgVi:"Hôm qua được giúp nhiều！Cảm ơn",hint:"Đồng nghiệp cảm ơn bạn đã giúp đỡ.",type:"reply",choices:[{text:"お役に立てて良かったです！",rd:"Oyaku ni tatete yokatta desu!",vi:"Vui vì đã giúp ích được！",correct:true,"comment":"「お役に立てて良かった」= Vui vì đã giúp được！"},{text:"いいえ",rd:"Iie",vi:"Không",correct:false,"comment":"「いいえ」phủ nhận việc giúp đỡ！？😐"},{text:"当然でしょう",rd:"Touzen deshou",vi:"Đương nhiên thôi",correct:false,"comment":"「当然」nghe kiêu ngạo！"},{text:"また助けます",rd:"Mata tasukemasu",vi:"Lần sau tôi sẽ giúp",correct:false,"comment":"Hứa lần sau nhưng không cảm ơn lần này！"}]},
+      {level:"N4",from:{avatar:"🧑",name:"Boss"},msg:"例の件、間違えてしまいました。申し訳ございません",msgVi:"Về vụ đó, tôi đã mắc lỗi. Thành thật xin lỗi",hint:"Bạn mắc lỗi và cần xin lỗi sếp。",type:"reply",choices:[{text:"大変申し訳ございません。今後このようなことがないよう気をつけます",rd:"Taihen moushiwake gozaimasen. Kongo kono you na koto ga nai you ki wo tsukemasu",vi:"Thành thật xin lỗi. Tôi sẽ cẩn thận để không tái phạm",correct:true,"comment":"Xin lỗi chân thành và cam kết！ Chuẩn mực！"},{text:"すみません",rd:"Sumimasen",vi:"Xin lỗi",correct:false,"comment":"Quá đơn giản！ Cần chi tiết hơn！"},{text:"しょうがないです",rd:"Shougana i desu",vi:"Biết làm sao được",correct:false,"comment":"Không chấp nhận trách nhiệm！😡"},{text:"次の人に聞いてください",rd:"Tsugi no hito ni kiite kudasai",vi:"Hỏi người tiếp theo",correct:false,"comment":"Đẩy lỗi sang người khác！"}]},
+      {level:"N3",from:{avatar:"📞",name:"Customer"},msg:"先日の対応について苦情があります",msgVi:"Về cách phục vụ hôm trước, tôi có khiếu nại",hint:"Khách gọi điện khiếu nại.",type:"reply",choices:[{text:"大変ご不便をおかけして誠に申し訳ございません。詳しくお聞かせいただけますか",rd:"Taihen go fuben wo okake shite makoto ni moushiwake gozaimasen. Kuwashiku okikase itadake masu ka",vi:"Thành thật xin lỗi vì đã gây bất tiện. Quý khách cho biết chi tiết？",correct:true,"comment":"Xin lỗi bằng kính ngữ cao nhất và lắng nghe！ Chuyên nghiệp！"},{text:"知りません",rd:"Shirimasen",vi:"Tôi không biết",correct:false,"comment":"「知りません」với khách đang khiếu nại！ Tệ nhất！😡"},{text:"担当者を代わります",rd:"Tantousha wo kawarimasu",vi:"Tôi sẽ chuyển sang người phụ trách",correct:false,"comment":"Chuyển sang người khác trước khi lắng nghe！"},{text:"そうですか",rd:"Sou desu ka",vi:"Vậy à",correct:false,"comment":"Thờ ơ với khiếu nại！😡"}]},
+      {level:"N3",from:{avatar:"👩",name:"Colleague"},msg:"ご迷惑をおかけして申し訳ありませんでした",msgVi:"Tôi xin lỗi vì đã gây phiền",hint:"Đồng nghiệp xin lỗi bạn.",type:"reply",choices:[{text:"いいえ、お気になさらず",rd:"Iie, oki ni nasarazu",vi:"Không, xin đừng bận tâm",correct:true,"comment":"「お気になさらず」= Xin đừng bận tâm. Lịch sự！"},{text:"大丈夫ですよ",rd:"Daijoubu desu yo",vi:"Không sao đâu",correct:false,"comment":"Đúng nhưng ít trang trọng hơn！"},{text:"また謝ってください",rd:"Mata ayamatte kudasai",vi:"Hãy xin lỗi lại",correct:false,"comment":"Yêu cầu xin lỗi lại！？😂"},{text:"許しません",rd:"Yurushinasen",vi:"Tôi không tha thứ",correct:false,"comment":"「許しません」khi đồng nghiệp xin lỗi！😡"}]}
+    ]
+  },
+  schedule:{
+    id:"schedule",emoji:"📝",label:"スケジュール調整",
+    labelVi:"Sắp xếp lịch",group:"work",
+    groupLabel:"💼 仕事系",jlptLevel:"N4",targetTotal:50,
+    color:"linear-gradient(135deg,#0F766E,#0D9488)",
+    questions:[
+      {level:"N4",from:{avatar:"👩",name:"Colleague"},msg:"来週の水曜、ミーティングどう？",msgVi:"Thứ tư tuần tới, họp được không？",hint:"Đồng nghiệp hỏi lịch họp.",type:"reply",choices:[{text:"確認して、折り返しご連絡します",rd:"Kakunin shite, orikaeshi gorenraku shimasu",vi:"Để tôi kiểm tra và liên lạc lại",correct:true,"comment":"Kiểm tra lịch trước khi đồng ý！ Chuyên nghiệp！"},{text:"大丈夫です",rd:"Daijoubu desu",vi:"Được thôi",correct:false,"comment":"Đồng ý mà chưa kiểm tra！ Có thể bị trùng！"},{text:"無理です",rd:"Muri desu",vi:"Không thể",correct:false,"comment":"Từ chối ngay mà chưa kiểm tra！"},{text:"いつでも大丈夫です",rd:"Itsudemo daijoubu desu",vi:"Lúc nào cũng được",correct:false,"comment":"Chưa kiểm tra！ Cẩn thận！"}]},
+      {level:"N4",from:{avatar:"🧑",name:"Boss"},msg:"金曜日に変更できますか？",msgVi:"Có thể đổi sang thứ Sáu không？",hint:"Sếp muốn đổi lịch. Bạn kiểm tra và được。",type:"reply",choices:[{text:"はい、金曜日で問題ございません",rd:"Hai, kinyoubi de mondai gozaimasen",vi:"Vâng, thứ Sáu hoàn toàn được ạ",correct:true,"comment":"「問題ございません」= Không có vấn đề（kính ngữ)！"},{text:"いいですよ",rd:"Ii desu yo",vi:"Được thôi",correct:false,"comment":"Thiếu kính ngữ với sếp！"},{text:"できません",rd:"Dekimasen",vi:"Không thể",correct:false,"comment":"Từ chối mà không giải thích！"},{text:"どうして変更するの？",rd:"Doushite henikou suru no?",vi:"Tại sao lại đổi？",correct:false,"comment":"Hỏi sếp tại sao！ Không phù hợp！"}]},
+      {level:"N4",from:{avatar:"👩",name:"Colleague"},msg:"今週中に打ち合わせしたいんですけど",msgVi:"Tuần này tôi muốn họp bàn",hint:"Đồng nghiệp muốn họp bàn trong tuần.",type:"reply",choices:[{text:"木曜の午後2時はいかがでしょうか？",rd:"Mokuyou no gogo niji wa ikaga deshou ka?",vi:"Thứ Năm lúc 2 giờ chiều thì sao？",correct:true,"comment":"Đề xuất ngày giờ cụ thể！「いかがでしょうか？」= Thế nào？！"},{text:"いつでも",rd:"Itsudemo",vi:"Lúc nào cũng được",correct:false,"comment":"Thiếu cụ thể！"},{text:"私は忙しい",rd:"Watashi wa isogashii",vi:"Tôi bận",correct:false,"comment":"Từ chối mà không đề xuất thời gian khác！"},{text:"来週にして",rd:"Raishu ni shite",vi:"Để tuần sau đi",correct:false,"comment":"Đồng nghiệp nói tuần này！ Trì hoãn！"}]},
+      {level:"N3",from:{avatar:"👩",name:"Client"},msg:"打ち合わせの日程を調整したいのですが",msgVi:"Tôi muốn sắp xếp lịch họp bàn",hint:"Khách hàng muốn sắp xếp lịch họp.",type:"reply",choices:[{text:"ありがとうございます。ご都合の良い日時をいくつかお聞かせいただけますか？",rd:"Arigatou gozaimasu. Gotsugou no yoi nichiji wo ikutsuka okikase itadakemasu ka?",vi:"Cảm ơn. Quý khách cho biết vài ngày giờ thuận tiện？",correct:true,"comment":"Cảm ơn và hỏi thời gian thuận tiện！ Chuyên nghiệp！"},{text:"いつですか？",rd:"Itsu desu ka?",vi:"Khi nào？",correct:false,"comment":"Quá đơn giản và không lịch sự！"},{text:"月曜日にします",rd:"Getsuyoubi ni shimasu",vi:"Tôi quyết định Thứ Hai",correct:false,"comment":"Quyết định một chiều！"},{text:"予定を確認します",rd:"Yotei wo kakunin shimasu",vi:"Tôi sẽ kiểm tra lịch",correct:false,"comment":"Kiểm tra lịch trước khi hỏi ý khách！"}]},
+      {level:"N3",from:{avatar:"🧑",name:"Boss"},msg:"明日の会議を急遽中止にします",msgVi:"Cuộc họp ngày mai hủy đột xuất",hint:"Sếp thông báo hủy họp. Bạn xác nhận và hỏi lịch mới。",type:"reply",choices:[{text:"承知しました。改めて日程はいつ頃になりますでしょうか？",rd:"Shouchi shimashita. Aratamete nittei wa itsu goro ni narimasu deshou ka?",vi:"Tôi đã biết. Lịch mới sẽ vào khoảng khi nào ạ？",correct:true,"comment":"Xác nhận và hỏi về lịch thay thế！ Chuyên nghiệp và chủ động！"},{text:"なぜですか？",rd:"Naze desu ka?",vi:"Tại sao vậy？",correct:false,"comment":"Hỏi sếp lý do hủy họp！ Không phù hợp！"},{text:"わかりました",rd:"Wakarimashita",vi:"Tôi hiểu rồi",correct:false,"comment":"Xác nhận nhưng không hỏi lịch mới！ Bị động！"},{text:"困ります",rd:"Komarimasu",vi:"Tôi bị khó",correct:false,"comment":"Nói「困ります」khi sếp thông báo！"}]}
+    ]
+  },
+  customer:{
+    id:"customer",emoji:"📈",label:"お客様対応",
+    labelVi:"Phục vụ khách hàng",group:"work",
+    groupLabel:"💼 仕事系",jlptLevel:"N4",targetTotal:50,
+    color:"linear-gradient(135deg,#0369A1,#075985)",
+    questions:[
+      {level:"N4",from:{avatar:"👩",name:"Customer"},msg:"商品に不具合があって…",msgVi:"Sản phẩm bị lỗi...",hint:"Khách phàn nàn về sản phẩm lỗi. Bạn xử lý thế nào？",type:"reply",choices:[{text:"大変申し訳ございません。確認させていただきます",rd:"Taihen moushiwake gozaimasen. Kakunin sasete itadakimasu",vi:"Thành thật xin lỗi. Cho phép tôi xác nhận lại",correct:true,"comment":"「大変申し訳ございません」= Thành thật xin lỗi (kính ngữ cao)！"},{text:"知りません",rd:"Shirimasen",vi:"Tôi không biết",correct:false,"comment":"「知りません」với khách phàn nàn！ Tệ nhất！😡"},{text:"使い方が間違っています",rd:"Tsukaikata ga machigatte imasu",vi:"Bạn sử dụng sai cách",correct:false,"comment":"Đổ lỗi cho khách ngay！"},{text:"他の店で買ってください",rd:"Hoka no mise de katte kudasai",vi:"Đến cửa hàng khác mua đi",correct:false,"comment":"Đây là cách đuổi khách！😡"}]},
+      {level:"N4",from:{avatar:"👩",name:"Customer"},msg:"これ、返品できますか？",msgVi:"Cái này có thể trả lại không？",hint:"Khách muốn trả hàng.",type:"reply",choices:[{text:"はい、レシートをお持ちでしたら対応できます",rd:"Hai, reshiito wo omochi deshitara taiou dekimasu",vi:"Vâng, nếu quý khách có hóa đơn thì có thể xử lý",correct:true,"comment":"「レシートをお持ちでしたら」= Nếu có hóa đơn！ Điều kiện rõ ràng！"},{text:"できません",rd:"Dekimasen",vi:"Không thể",correct:false,"comment":"Từ chối thẳng mà không giải thích！"},{text:"なぜ返品したいのですか",rd:"Naze henpin shitai no desu ka",vi:"Tại sao muốn trả？",correct:false,"comment":"Hỏi lý do trước khi giải thích chính sách！ Sai trình tự！"},{text:"どうぞ",rd:"Douzo",vi:"Mời vào",correct:false,"comment":"「どうぞ」không liên quan！😐"}]},
+      {level:"N4",from:{avatar:"📞",name:"Customer（電話）"},msg:"〇〇さんはいらっしゃいますか？",msgVi:"Anh/Chị〇〇 có ở đó không？",hint:"Khách gọi điện hỏi đồng nghiệp đi vắng。",type:"reply",choices:[{text:"申し訳ありませんが、只今席を外しております。折り返しご連絡させます",rd:"Moushiwake arimasen ga, tadaima seki wo hazushite orimasu. Orikaeshi gorenraku sasemasu",vi:"Thành thật xin lỗi, hiện tại đang ra ngoài. Chúng tôi sẽ gọi lại",correct:true,"comment":"Chuẩn mực trả lời điện thoại công ty！「席を外しております」= Đang ra ngoài（kính ngữ）！"},{text:"いません",rd:"Imasen",vi:"Không có đây",correct:false,"comment":"Quá cộc！ Thiếu lịch sự！"},{text:"ちょっと待ってください",rd:"Chotto matte kudasai",vi:"Đợi một chút",correct:false,"comment":"Chỉ nói đợi mà không giải thích！"},{text:"電話してください",rd:"Denwa shite kudasai",vi:"Hãy gọi điện đi",correct:false,"comment":"Người ta đang gọi rồi！😂"}]},
+      {level:"N3",from:{avatar:"👩",name:"Customer"},msg:"このサービスについて詳しく教えてください",msgVi:"Hãy giải thích chi tiết về dịch vụ này",hint:"Khách muốn biết chi tiết về dịch vụ.",type:"reply",choices:[{text:"かしこまりました。まず〜から説明いたします",rd:"Kashikomarimashita. Mazu ~kara setsumei itashimasu",vi:"Vâng ạ. Trước tiên tôi xin giải thích về~",correct:true,"comment":"「かしこまりました」= Vâng ạ (kính ngữ cao nhất)！"},{text:"わかりました、説明します",rd:"Wakarimashita, setsumei shimasu",vi:"Tôi hiểu, tôi giải thích",correct:false,"comment":"Cần kính ngữ hơn！"},{text:"パンフレットを読んでください",rd:"Panfuretto wo yonde kudasai",vi:"Hãy đọc tờ rơi",correct:false,"comment":"Bảo khách tự đọc！ Dịch vụ kém！"},{text:"複雑です",rd:"Fukuzatsu desu",vi:"Phức tạp lắm",correct:false,"comment":"Nói phức tạp thay vì giải thích！😅"}]},
+      {level:"N3",from:{avatar:"👩",name:"Customer"},msg:"クレームを入れたい",msgVi:"Tôi muốn khiếu nại",hint:"Khách nói muốn khiếu nại.",type:"reply",choices:[{text:"大変ご不便をおかけして申し訳ありません。詳しくお聞かせいただけますか？",rd:"Taihen go fuben wo okake shite moushiwake arimasen. Kuwashiku okikase itadake masu ka?",vi:"Thành thật xin lỗi vì đã gây bất tiện. Quý khách cho biết chi tiết？",correct:true,"comment":"Xin lỗi trước rồi lắng nghe！ Chuyên nghiệp！"},{text:"私のせいではありません",rd:"Watashi no sei dewa arimasen",vi:"Không phải lỗi của tôi",correct:false,"comment":"Đổ lỗi！ Cực kỳ không chuyên nghiệp！😡"},{text:"上の者に聞いてください",rd:"Ue no mono ni kiite kudasai",vi:"Hỏi cấp trên của tôi",correct:false,"comment":"Đẩy khách sang người khác！"},{text:"次は気をつけてください",rd:"Tsugi wa ki wo tsukete kudasai",vi:"Lần sau hãy cẩn thận",correct:false,"comment":"Đổ lỗi cho khách！😡"}]}
+    ]
+  },
+  gal_everyday:{
+    id:"gal_everyday",emoji:"✨",label:"ギャル日常",
+    labelVi:"Hằng ngày kiểu Gal",group:"gal",
+    groupLabel:"💅 ギャル編",jlptLevel:"N5",targetTotal:50,
+    color:"linear-gradient(135deg,#FF69B4,#FF1493)",
+    questions:[
+      {level:"N5",from:{avatar:"💁",name:"Gyaru Yui"},msg:"やほー！今日ヒマ？遊ばない？💕",msgVi:"Yaho～！Hôm nay rảnh không？Chơi không？💕",hint:"Yui kiểu gal rủ đi chơi. Trả lời theo style gal！",type:"reply",choices:[{text:"やほー！いいじゃん！何する？😆",rd:"Yahoo! Ii jan! Nani suru?",vi:"Yaho！Hay đấy！Làm gì vậy？😆",correct:true,"comment":"「やほー！」+「いいじゃん！」= style gal hoàn hảo！✨"},{text:"こんにちは、お元気ですか",rd:"Konnichiwa, ogenki desu ka",vi:"Xin chào, bạn có khỏe không",correct:false,"comment":"Quá trang trọng！ Gal không nói kiểu này！😂"},{text:"暇ではありません",rd:"Hima dewa arimasen",vi:"Tôi không rảnh",correct:false,"comment":"Phủ nhận quá trang trọng！ Gal nói「むーり！今日バイトー😭」"},{text:"はい、行きます",rd:"Hai, ikimasu",vi:"Vâng, tôi đi",correct:false,"comment":"Quá nghiêm túc！ Gal nói「行くいく！！」！"}]},
+      {level:"N5",from:{avatar:"💁",name:"Gyaru Yui"},msg:"まじ！？それやばくない！？💥",msgVi:"Maji!？Cái đó không phải bình thường！？💥",hint:"Yui phản ứng ngạc nhiên. Bạn đồng ý theo style gal！",type:"reply",choices:[{text:"やばいよね！！神すぎ！✨",rd:"Yabai yo ne!! Kami sugi!",vi:"Siêu ghê！！Thần thánh quá！✨",correct:true,"comment":"「やばい」+「神すぎ」= gal speech hoàn hảo！✨"},{text:"そうですね",rd:"Sou desu ne",vi:"Đúng vậy nhỉ",correct:false,"comment":"Quá trang trọng！ Gal không nói「そうですね」！😂"},{text:"びっくりしました",rd:"Bikkuri shimashita",vi:"Tôi ngạc nhiên",correct:false,"comment":"「びっくりしました」trang trọng quá！ Gal nói「まじびびった！！」"},{text:"本当ですか",rd:"Hontou desu ka",vi:"Thật không？",correct:false,"comment":"Quá nghiêm túc！ Gal nói「まじ！？うそー！！」"}]},
+      {level:"N5",from:{avatar:"💁",name:"Gyaru Yui"},msg:"カフェ行こっ☕✨ インスタ映えするやつ！",msgVi:"Đi cà phê nhé☕✨ Chỗ ngon cho ảnh insta！",hint:"Yui rủ đi cà phê chụp ảnh. Bạn đồng ý！",type:"reply",choices:[{text:"いいじゃん！！どこどこ？📸✨",rd:"Ii jan!! Doko doko?",vi:"Hay đó！！Ở đâu vậy？📸✨",correct:true,"comment":"「いいじゃん！！」+ hỏi địa điểm！ Gal speech！✨"},{text:"カフェには行きません",rd:"Kafe ni wa ikimasen",vi:"Tôi không đi cà phê",correct:false,"comment":"Từ chối trang trọng！ Gal nói「むーり！今お金ないわ💦」"},{text:"わかりました",rd:"Wakarimashita",vi:"Tôi hiểu rồi",correct:false,"comment":"「わかりました」quá trang trọng！"},{text:"考えます",rd:"Kangaemasu",vi:"Tôi sẽ suy nghĩ",correct:false,"comment":"「考えます」！ Quá bình thường！"}]},
+      {level:"N4",from:{avatar:"💁",name:"Gyaru Yui"},msg:"あの子、きゃわすぎない！？💕",msgVi:"Đứa đó cute quá không？💕",hint:"Yui khen ai đó dễ thương. Bạn đồng ý！",type:"reply",choices:[{text:"わかるー！！ぴえん🥺かわいすぎて無理！",rd:"Wakaru!! Pien kawaisugite muri!",vi:"Đồng ý！！Pien🥺 Cute quá xỉu！",correct:true,"comment":"「わかる」+「ぴえん」+「〜すぎて無理」= gal speech cực chuẩn！✨"},{text:"かわいいですね",rd:"Kawaii desu ne",vi:"Dễ thương nhỉ",correct:false,"comment":"Đúng nhưng quá bình thường！ Gal nói「きゃわすぎ！！ぴえん」"},{text:"そう思いません",rd:"Sou omoimasen",vi:"Tôi không nghĩ vậy",correct:false,"comment":"Phủ nhận trang trọng！"},{text:"特に思いません",rd:"Toku ni omoimasen",vi:"Tôi không đặc biệt nghĩ gì",correct:false,"comment":"「特に〜」trang trọng！"}]},
+      {level:"N4",from:{avatar:"💁",name:"Gyaru Yui"},msg:"今日の服、どう思う？🥺💕",msgVi:"Bộ đồ hôm nay, cậu thấy sao？🥺💕",hint:"Yui hỏi ý kiến về outfit. Bạn khen！",type:"reply",choices:[{text:"やばい！！かわすぎ！！絶対似合ってる💕",rd:"Yabai!! Kawasugii!! Zettai niau teru",vi:"Ghê！！Cute quá！！Chắc chắn hợp lắm💕",correct:true,"comment":"「やばい」+「かわすぎ」+「似合ってる」= khen kiểu gal！💕✨"},{text:"服は普通です",rd:"Fuku wa futsuu desu",vi:"Quần áo bình thường thôi",correct:false,"comment":"「普通」khi bạn đang hỏi khen！"},{text:"きれいな服ですね",rd:"Kirei na fuku desu ne",vi:"Quần áo đẹp nhỉ",correct:false,"comment":"Trang trọng quá！ Gal nói「えぐ！！やばかわ！！」"},{text:"考えます",rd:"Kangaemasu",vi:"Tôi sẽ suy nghĩ",correct:false,"comment":"「考えます」khi bạn hỏi khen！？😂"}]}
+    ]
+  },
+  gal_love:{
+    id:"gal_love",emoji:"💖",label:"ギャル恋愛",
+    labelVi:"Tình yêu kiểu Gal",group:"gal",
+    groupLabel:"💅 ギャル編",jlptLevel:"N4",targetTotal:50,
+    color:"linear-gradient(135deg,#FF1493,#C71585)",
+    questions:[
+      {level:"N4",from:{avatar:"💁",name:"Gyaru Yui"},msg:"まじで好きすぎて辛い😭💕",msgVi:"Siêu thích mà khổ quá😭💕",hint:"Yui tâm sự về người cô ấy thích.",type:"reply",choices:[{text:"ぴえん🥺誰！？まじで教えてよ！",rd:"Pien dare!? Maji de oshiete yo!",vi:"Pien🥺Ai vậy！？Nói tớ nghe đi！",correct:true,"comment":"「ぴえん」+「まじで教えて」= phản ứng bạn gal hoàn hảo！💕"},{text:"そうですか",rd:"Sou desu ka",vi:"Vậy à",correct:false,"comment":"Lạnh lùng！ Bạn gal phải hào hứng hơn！"},{text:"仕方ありません",rd:"Shikata arimasen",vi:"Biết làm sao được",correct:false,"comment":"Lạnh lùng！ Không phải gal！"},{text:"頑張ってください",rd:"Ganbatte kudasai",vi:"Hãy cố gắng",correct:false,"comment":"Quá trang trọng！ Gal nói「がんばえ〜！！」"}]},
+      {level:"N4",from:{avatar:"💁",name:"Gyaru Yui"},msg:"今日、彼からLINE来てきゅんした🥺💕",msgVi:"Hôm nay anh ấy nhắn và tim em tan🥺💕",hint:"Yui khoe được người thích nhắn tin.",type:"reply",choices:[{text:"え！！きゅんきゅんじゃん！！何て来たの！？",rd:"E!! Kyunkyun jan!! Nante kita no!?",vi:"Ồi！！Tim tan không！！Anh nhắn gì？！",correct:true,"comment":"「きゅんきゅんじゃん」= Tim tan！ Hỏi thêm！ Bạn gal phải biết！💕"},{text:"そうですか、よかったですね",rd:"Sou desu ka, yokatta desu ne",vi:"Vậy à, tốt quá nhỉ",correct:false,"comment":"Quá trang trọng！ Gal không nói vậy！😂"},{text:"報告ありがとう",rd:"Houkoku arigatou",vi:"Cảm ơn vì đã báo cáo",correct:false,"comment":"「報告」nghe như công việc！😂"},{text:"わかりました",rd:"Wakarimashita",vi:"Tôi hiểu rồi",correct:false,"comment":"「わかりました」với chuyện tình！？😂"}]},
+      {level:"N4",from:{avatar:"💁",name:"Gyaru Yui"},msg:"彼、もしかして私のこと好きかも…どう思う？🥺",msgVi:"Anh ấy biết đâu thích tớ... Cậu nghĩ sao？🥺",hint:"Yui hỏi ý kiến về người cô ấy thích có thích lại không.",type:"reply",choices:[{text:"絶対好きだよ！！早く告っちゃいな！！",rd:"Zettai suki dayo!! Hayaku kocchaina!!",vi:"Chắc chắn thích rồi！！Đi tỏ tình mau đi！！",correct:true,"comment":"Cổ vũ nhiệt tình！「告る」= tỏ tình（gal word）！✨"},{text:"わかりません",rd:"Wakarimasen",vi:"Tôi không biết",correct:false,"comment":"「わかりません」！ Vô tâm！😢"},{text:"確認が必要です",rd:"Kakunin ga hitsuyou desu",vi:"Cần xác nhận",correct:false,"comment":"Quá trang trọng！ Không phải gal！😂"},{text:"気にしないで",rd:"Ki ni shinaide",vi:"Đừng để ý",correct:false,"comment":"Không phù hợp！"}]},
+      {level:"N4",from:{avatar:"💁",name:"Gyaru Yui"},msg:"ケンカしちゃった😭彼に謝りたいけどどうすれば",msgVi:"Cãi nhau rồi😭Muốn xin lỗi nhưng phải làm sao",hint:"Yui cãi nhau với người yêu và muốn xin lỗi.",type:"reply",choices:[{text:"正直に気持ち伝えればいいじゃん！勇気だよ！",rd:"Shoujiki ni kimochi tsutaereba ii jan! Yuuki da yo!",vi:"Nói thẳng cảm xúc là được！ Cần can đảm！",correct:true,"comment":"「正直に気持ちを伝える」+ khuyến khích！ Style gal！💕"},{text:"関係ありません",rd:"Kankei arimasen",vi:"Không liên quan",correct:false,"comment":"「関係ない」！😢"},{text:"別れた方がいい",rd:"Wakareta hou ga ii",vi:"Nên chia tay",correct:false,"comment":"Nói「別れて」mà không biết tình huống！"},{text:"考えます",rd:"Kangaemasu",vi:"Tôi sẽ suy nghĩ",correct:false,"comment":"「考えます」với bạn！？😂"}]},
+      {level:"N3",from:{avatar:"💁",name:"Gyaru Yui"},msg:"まじ神対応すぎて惚れちゃった笑",msgVi:"Anh ấy đối xử siêu tốt, tim tan rồi",hint:"Yui hào hứng kể về người cô ấy thích.",type:"reply",choices:[{text:"えぐ！！それはきゅんするわ！！推せる！！",rd:"Egu!! Sore wa kyun suru wa!! Ose ru!!",vi:"Trời ơi！！Cái đó tim tan phải！！Ủng hộ！！",correct:true,"comment":"「えぐ」+「きゅん」+「推せる」= gal speech đỉnh！✨💕"},{text:"そうですか",rd:"Sou desu ka",vi:"Vậy à",correct:false,"comment":"Lạnh lùng！😢"},{text:"普通のことです",rd:"Futsuu no koto desu",vi:"Chuyện bình thường thôi",correct:false,"comment":"「普通」！ Dội nước lạnh！"},{text:"わかりました",rd:"Wakarimashita",vi:"Tôi hiểu rồi",correct:false,"comment":"「わかりました」！？😂"}]}
+    ]
+  }
 };
 
 
@@ -12029,26 +11900,59 @@ function renderLineModeMain(container){
   if(!container) return;
   var cats=Object.values(LINE_MODE_DATA);
   var LEVEL_BADGE={N5:'🟢 N5',N4:'🟡 N4',N3:'🔴 N3',N2:'🟠 N2',N1:'🔵 N1'};
+
+  // グループ定義（表示順・見出し）
+  var GROUPS=[
+    {id:'lover', icon:'💑', label:'恋人系', labelVi:'Tình yêu', bg:'linear-gradient(135deg,#FF6B9D22,#FF6B9D11)', border:'#FF6B9D'},
+    {id:'friends',icon:'👫', label:'友達系', labelVi:'Bạn bè',  bg:'linear-gradient(135deg,#10B98122,#10B98111)', border:'#10B981'},
+    {id:'travel', icon:'✈️', label:'旅行編', labelVi:'Du lịch',  bg:'linear-gradient(135deg,#06B6D422,#06B6D411)', border:'#06B6D4'},
+    {id:'work',   icon:'💼', label:'仕事系', labelVi:'Công việc',bg:'linear-gradient(135deg,#1565C022,#1565C011)', border:'#1565C0'},
+    {id:'gal',    icon:'💅', label:'ギャル編',labelVi:'Phong cách Gal',bg:'linear-gradient(135deg,#FF1493 22,#FF149311)', border:'#FF1493'},
+  ];
+
   var html='<div style="padding:12px 14px">'
-    +'<div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">'
+    +'<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">'
     +'<span style="font-size:24px">💬</span>'
     +'<div><div style="font-size:18px;font-weight:900;color:#222">'+(LANG==='ja'?'LINE先生':'LINE Sensei')+'</div>'
-    +'<div style="font-size:12px;color:#888">'+(LANG==='ja'?'日本人とのLINEを練習しよう！':'Luyện nhắn tin LINE với người Nhật！')+'</div></div></div>'
-    +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px">';
-  cats.forEach(function(cat){
-    var count=cat.questions.length;
-    var target=cat.targetTotal||count;
-    var levelBadge=LEVEL_BADGE[cat.jlptLevel]||'';
-    html+='<div onclick="startLineModeCategory(\''+cat.id+'\')" style="background:'+cat.color
-      +';border-radius:18px;padding:16px 14px;cursor:pointer;touch-action:manipulation;'
-      +'-webkit-tap-highlight-color:transparent;box-shadow:0 4px 12px rgba(0,0,0,.15);position:relative">'
-      +(levelBadge?'<div style="position:absolute;top:10px;right:10px;background:rgba(255,255,255,.9);border-radius:10px;padding:2px 7px;font-size:10px;font-weight:800;color:#333">'+levelBadge+'</div>':'')
-      +'<div style="font-size:28px;margin-bottom:8px">'+cat.emoji+'</div>'
-      +'<div style="font-size:14px;font-weight:900;color:#fff;margin-bottom:3px">'+(LANG==='ja'?cat.label:cat.labelVi)+'</div>'
-      +'<div style="font-size:10px;color:rgba(255,255,255,.85);font-weight:700">'+count+' / '+target+' '+(LANG==='ja'?'問':'câu')+'</div>'
-      +'</div>';
+    +'<div style="font-size:12px;color:#888">'+(LANG==='ja'?'日本人とのLINEを練習しよう！':'Luyện nhắn tin LINE với người Nhật！')+'</div></div></div>';
+
+  GROUPS.forEach(function(group){
+    var groupCats=cats.filter(function(c){return c.group===group.id;});
+    if(!groupCats.length) return;
+
+    html+='<div style="margin-bottom:20px">'
+      +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;'
+      +'background:'+group.bg+';border-left:4px solid '+group.border+';border-radius:0 10px 10px 0;padding:8px 12px">'
+      +'<span style="font-size:18px">'+group.icon+'</span>'
+      +'<span style="font-size:14px;font-weight:900;color:#1a1a2e">'
+      +(LANG==='ja'?group.label:group.labelVi)+'</span>'
+      +'</div>'
+      +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">';
+
+    groupCats.forEach(function(cat){
+      var count=cat.questions.length;
+      var target=cat.targetTotal||count;
+      var levelBadge=LEVEL_BADGE[cat.jlptLevel]||'';
+      html+='<div onclick="startLineModeCategory(\''+cat.id+'\')" '
+        +'style="background:'+cat.color
+        +';border-radius:18px;padding:14px 12px;cursor:pointer;touch-action:manipulation;'
+        +'-webkit-tap-highlight-color:transparent;box-shadow:0 4px 14px rgba(0,0,0,.18);'
+        +'position:relative;min-height:110px;display:flex;flex-direction:column;justify-content:space-between">'
+        +(levelBadge?'<div style="position:absolute;top:8px;right:8px;background:rgba(255,255,255,.92);'
+          +'border-radius:8px;padding:2px 6px;font-size:9px;font-weight:800;color:#333">'+levelBadge+'</div>':'')
+        +'<div>'
+        +'<div style="font-size:26px;margin-bottom:6px">'+cat.emoji+'</div>'
+        +'<div style="font-size:13px;font-weight:900;color:#fff;line-height:1.3">'+(LANG==='ja'?cat.label:cat.labelVi)+'</div>'
+        +'</div>'
+        +'<div style="font-size:10px;color:rgba(255,255,255,.85);font-weight:700;margin-top:6px">'
+        +count+' '+(LANG==='ja'?'問':'câu')+'</div>'
+        +'</div>';
+    });
+
+    html+='</div></div>';
   });
-  html+='</div></div>';
+
+  html+='</div>';
   container.innerHTML=html;
 }
 
