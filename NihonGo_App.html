@@ -2380,6 +2380,7 @@ img{loading:lazy;}
     </div>
 
     <button onclick="logoutFirebase()" style="width:100%;padding:13px;border-radius:12px;background:var(--gray-l);color:var(--gray);font-size:14px;font-weight:700;margin-bottom:8px" data-vi="Đăng xuất" data-ja="ログアウト">Đăng xuất</button>
+    <button onclick="showDeleteAccountConfirm()" style="width:100%;padding:13px;border-radius:12px;background:#FEF2F2;color:#DC2626;font-size:14px;font-weight:700;border:1.5px solid #FECACA" data-vi="Xóa tài khoản" data-ja="アカウントを削除">Xóa tài khoản</button>
   </div>
 </div>
 
@@ -10723,6 +10724,46 @@ window.saveWord=function(w){
   // デイリーミッション：単語を保存
   if(typeof trackMissionSaveWord==='function') trackMissionSaveWord();
 };
+
+/* アカウント削除確認モーダル */
+function showDeleteAccountConfirm(){
+  if(!currentUser){ showToast(L('Vui lòng đăng nhập','ログインしてください')); return; }
+  const ov=$('modalOv'),box=$('modalBox');ov.style.display='flex';
+  box.innerHTML=`<div class="modal-handle"></div>
+  <div style="text-align:center;margin-bottom:20px">
+    <div style="font-size:48px;margin-bottom:10px">⚠️</div>
+    <div class="modal-title" style="text-align:center">${L('Xóa tài khoản vĩnh viễn?','アカウントを完全に削除しますか？')}</div>
+    <div style="font-size:13px;color:var(--tan);margin-bottom:20px;line-height:1.6">${L('Hành động này không thể hoàn tác. Toàn bộ dữ liệu học tập, tiến độ, và thông tin tài khoản của bạn sẽ bị xóa vĩnh viễn khỏi hệ thống.','この操作は取り消せません。学習データ・進捗・アカウント情報がすべてシステムから完全に削除されます。')}</div>
+  </div>
+  <button onclick="deleteAccountFirebase()" style="width:100%;padding:14px;border-radius:12px;background:#DC2626;color:#fff;font-size:15px;font-weight:800;cursor:pointer;margin-bottom:10px;border:none;touch-action:manipulation">🗑️ ${L('Xóa vĩnh viễn','完全に削除する')}</button>
+  <button onclick="closeModal()" style="width:100%;padding:11px;border-radius:12px;background:var(--gray-l);color:var(--gray);font-size:14px;font-weight:700;border:none;cursor:pointer">${L('Hủy','キャンセル')}</button>`;
+}
+
+/* アカウント削除実行（Firestoreドキュメント削除 → Firebase Authユーザー削除） */
+function deleteAccountFirebase(){
+  if(!currentUser||!fbAuth||!fbAuth.currentUser){ showToast(L('Lỗi: chưa đăng nhập','エラー：ログインしていません')); return; }
+  var uid=currentUser.uid;
+  showToast(L('Đang xóa tài khoản...','削除中...'));
+  fbDb.collection('users').doc(uid).delete().catch(function(e){
+    console.error('Firestore delete error:', e);
+  }).then(function(){
+    return fbAuth.currentUser.delete();
+  }).then(function(){
+    currentUser=null;
+    closeModal();
+    showToast(L('Đã xóa tài khoản thành công','アカウントを削除しました'), 3000);
+    updateNavForUser(null);
+    showPage('home');
+  }).catch(function(e){
+    console.error('Delete account error:', e);
+    if(e && e.code==='auth/requires-recent-login'){
+      closeModal();
+      showToast(L('Vì lý do bảo mật, vui lòng đăng xuất, đăng nhập lại, rồi thử xóa tài khoản lần nữa.','セキュリティのため、一度ログアウトして再度ログインしてから、もう一度削除をお試しください。'), 5000);
+    } else {
+      showToast('エラー: '+(e&&e.message?e.message:'unknown'));
+    }
+  });
+}
 
 /* Logout */
 function logoutFirebase(){
