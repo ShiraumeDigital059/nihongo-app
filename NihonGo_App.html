@@ -4900,7 +4900,8 @@ const WORK_GUIDE_CONTENT=[
 /* ════ PREMIUM STATE ════ */
 // isPremium: Firestoreのユーザードキュメントにpremium:trueがあれば有料
 let isPremiumUser = false;
-const ADMIN_UID = 'Ekmaj6OsYvXbZbBaJL5C7tKA8KM2';
+const ADMIN_UIDS = ['fyEwydEwoJQzns1bBsKqOfDzRCs2', '7IhTZn8jvDN5nTp9w8YvNvaOGmc2'];
+function isAdminUid(uid){ return !!uid && ADMIN_UIDS.indexOf(uid)>=0; }
 
 async function unifyAccountByEmail(){
   if(!fbDb||!currentUser){ isPremiumUser=false; return false; }
@@ -5230,7 +5231,7 @@ function showPage(id){
   const nsb=$('navSearchBtn');if(nsb){nsb.style.background=id==='search'?'var(--red-pale)':'';;if(nsb.querySelector('svg'))nsb.querySelector('svg').setAttribute('stroke',id==='search'?'var(--red)':'var(--tan)');}
   if(id==='board')renderBoard();
   if(id==='notifications') renderNotifications();
-  if(id==='admin'){ if(currentUser&&currentUser.uid===ADMIN_UID) loadAdminData(); else showPage('home'); }
+  if(id==='admin'){ if(currentUser&&isAdminUid(currentUser.uid)) loadAdminData(); else showPage('home'); }
   if(id==='special'&&typeof renderSpecialPage==='function')renderSpecialPage();
   if(id==='guide')renderGuide();
   if(id==='workguide')renderWorkGuide();
@@ -7579,7 +7580,7 @@ function logLearningActivity(label, category, level){
   }).catch(function(e){ console.log('learning log error:', e); });
 
   // 管理者分析用：カテゴリ・レベル別の構造化ログ（先生のアクティビティは記録しない）
-  if(category && currentUser.uid!==ADMIN_UID){
+  if(category && !isAdminUid(currentUser.uid)){
     fbDb.collection('analytics_events').add({
       userId: currentUser.uid,
       category: category,
@@ -13976,15 +13977,15 @@ function checkNotifBadge(){
 function checkAdminMode(){
   if(!currentUser) return;
   var wrap=document.getElementById('adminBtnWrap');
-  if(wrap) wrap.style.display=currentUser.uid===ADMIN_UID?'block':'none';
+  if(wrap) wrap.style.display=isAdminUid(currentUser.uid)?'block':'none';
 }
 
 function loadAdminData(){
-  if(!fbDb||!currentUser||currentUser.uid!==ADMIN_UID) return;
+  if(!fbDb||!currentUser||!isAdminUid(currentUser.uid)) return;
 
   // ユーザー一覧を取得（統計・ユーザータブ・Premiumタブで共有）
   fbDb.collection('users').get().then(function(snap){
-    var allUsers=snap.docs.map(function(d){return {id:d.id,data:d.data()};}).filter(function(u){return u.id!==ADMIN_UID;});
+    var allUsers=snap.docs.map(function(d){return {id:d.id,data:d.data()};}).filter(function(u){return !isAdminUid(u.id);});
     var totalUsers=allUsers.length;
     var premiumUsers=allUsers.filter(function(u){return u.data.premium===true;});
     var premiumCount=premiumUsers.length;
@@ -14129,12 +14130,12 @@ function loadAdminAnalytics(){
     ]).then(function(results){
       var typeCounts={};
       results[0].forEach(function(doc){
-        if(doc.data().userId===ADMIN_UID) return;
+        if(isAdminUid(doc.data().userId)) return;
         var t=doc.data().featureType||'unknown';
         typeCounts[t]=(typeCounts[t]||0)+1;
       });
       results[1].forEach(function(doc){
-        if(doc.data().userId===ADMIN_UID) return;
+        if(isAdminUid(doc.data().userId)) return;
         var c=doc.data().category||'unknown';
         typeCounts[c]=(typeCounts[c]||0)+1;
       });
@@ -14166,7 +14167,7 @@ function loadAdminAnalytics(){
     fbDb.collection('analytics_events').limit(3000).get().then(function(snap){
       var levelCounts={N5:0,N4:0,N3:0,N2:0,N1:0};
       snap.forEach(function(doc){
-        if(doc.data().userId===ADMIN_UID) return;
+        if(isAdminUid(doc.data().userId)) return;
         var lv=doc.data().level;
         if(lv&&levelCounts.hasOwnProperty(lv)) levelCounts[lv]++;
       });
@@ -14204,7 +14205,7 @@ function loadAdminAnalytics(){
       var dateSessions={};
       snap.forEach(function(doc){
         var d=doc.data();
-        if(d.userId===ADMIN_UID) return;
+        if(isAdminUid(d.userId)) return;
         userSessions[d.userId]=(userSessions[d.userId]||0)+1;
         if(d.dateStr) dateSessions[d.dateStr]=(dateSessions[d.dateStr]||new Set()).add(d.userId);
       });
@@ -14302,8 +14303,8 @@ function renderAdminUserList(allUsers){
 
 /* ユーザー削除（Firestoreドキュメント削除。確認ダイアログ必須） */
 function adminDeleteUser(uid, name){
-  if(!currentUser||currentUser.uid!==ADMIN_UID) return;
-  if(uid===ADMIN_UID){ showToast('先生アカウントは削除できません'); return; }
+  if(!currentUser||!isAdminUid(currentUser.uid)) return;
+  if(isAdminUid(uid)){ showToast('先生アカウントは削除できません'); return; }
   if(!confirm((name||'このユーザー')+' を削除しますか？\nこの操作は取り消せません。')) return;
   fbDb.collection('users').doc(uid).delete().then(function(){
     showToast('🗑️ ユーザーを削除しました');
@@ -14574,7 +14575,7 @@ function switchNotifySubTab(tab){
 
 /* ─── アンケート配信 ─── */
 function sendAdminSurvey(){
-  if(!currentUser||currentUser.uid!==ADMIN_UID) return;
+  if(!currentUser||!isAdminUid(currentUser.uid)) return;
   var title=document.getElementById('surveyTitle').value.trim();
   var q1=document.getElementById('surveyQ1').value.trim();
   var q2=document.getElementById('surveyQ2').value.trim();
@@ -14650,7 +14651,7 @@ function loadAdminSurveyList(){
 }
 
 function toggleSurveyActive(docId, newVal){
-  if(!fbDb||!currentUser||currentUser.uid!==ADMIN_UID) return;
+  if(!fbDb||!currentUser||!isAdminUid(currentUser.uid)) return;
   fbDb.collection('surveys').doc(docId).update({active:newVal}).then(function(){
     showToast(newVal?'▶ アンケートを再配信しました':'⏸ アンケートを停止しました');
     loadAdminSurveyList();
@@ -14658,7 +14659,7 @@ function toggleSurveyActive(docId, newVal){
 }
 
 function sendAdminNotif(){
-  if(!currentUser||currentUser.uid!==ADMIN_UID) return;
+  if(!currentUser||!isAdminUid(currentUser.uid)) return;
   var title=document.getElementById('adminNotifTitle').value.trim();
   var body=document.getElementById('adminNotifBody').value.trim();
   var type=document.getElementById('adminNotifType').value;
@@ -14694,7 +14695,7 @@ function sendAdminNotif(){
 function adminDeletePost(el){
   var postId=typeof el==='string'?el:el.getAttribute('data-pid');
   if(!postId) return;
-  if(!currentUser||currentUser.uid!==ADMIN_UID) return;
+  if(!currentUser||!isAdminUid(currentUser.uid)) return;
   if(!confirm('この投稿を削除しますか？')) return;
   if(fbDb){
     fbDb.collection('nreal_posts').doc(postId).delete().then(function(){
@@ -14964,7 +14965,7 @@ function renderRanking(){
     var curMonth = getCurrentMonthStr();
     var users=[];
     snap.forEach(function(doc){
-      if(doc.id===ADMIN_UID) return; // 先生はランキングに含めない
+      if(isAdminUid(doc.id)) return; // 先生はランキングに含めない
       var d=doc.data();
       // 今月のXPでない（月が変わって以降ログインしていない）場合は0として扱う
       var mXp = (d.monthlyXpMonth===curMonth) ? (d.monthlyXp||0) : 0;
@@ -15410,7 +15411,7 @@ window.renderRanking = function(){
     var curMonth = getCurrentMonthStr();
     var users = [];
     snap.forEach(function(doc){
-      if(typeof ADMIN_UID !== 'undefined' && doc.id === ADMIN_UID) return;
+      if(typeof ADMIN_UIDS !== 'undefined' && isAdminUid(doc.id)) return;
       var d = doc.data();
       var mXp = (d.monthlyXpMonth === curMonth) ? (d.monthlyXp||0) : 0;
       users.push({
@@ -15505,7 +15506,7 @@ function fetchMyMonthlyRankForWelcome(cb){
     var curMonth = getCurrentMonthStr();
     var users = [];
     snap.forEach(function(doc){
-      if(typeof ADMIN_UID !== 'undefined' && doc.id === ADMIN_UID) return;
+      if(typeof ADMIN_UIDS !== 'undefined' && isAdminUid(doc.id)) return;
       var d = doc.data();
       users.push({ id: doc.id, xp: (d.monthlyXpMonth === curMonth) ? (d.monthlyXp||0) : 0 });
     });
@@ -16135,7 +16136,7 @@ function _renderAdminSearchResults(q){
 
 /* Premium付与/解除（管理者のみ） */
 function adminSetPremium(uid, grant, name){
-  if(!currentUser || currentUser.uid !== ADMIN_UID) return;
+  if(!currentUser || !isAdminUid(currentUser.uid)) return;
   var msg = grant
     ? '「'+name+'」にPremiumを付与しますか？'
     : '「'+name+'」のPremiumを解除しますか？\n※Stripeで課金中のユーザーの場合、解約はStripe側で別途必要です';
@@ -16587,7 +16588,7 @@ window._applyPremiumUI = function(){
     window._userPlan = 'free';
   }
   // 管理者は常にfull
-  if(typeof currentUser !== 'undefined' && currentUser && currentUser.uid === ADMIN_UID){
+  if(typeof currentUser !== 'undefined' && currentUser && isAdminUid(currentUser.uid)){
     window._userPlan = 'full';
   }
   _applyPlanUI();
@@ -16783,7 +16784,7 @@ function showAddZoomModal(editId){
 function editZoomSession(id){ showAddZoomModal(id); }
 
 function saveZoomSession(editId){
-  if(!fbDb || !currentUser || currentUser.uid !== ADMIN_UID) return;
+  if(!fbDb || !currentUser || !isAdminUid(currentUser.uid)) return;
   var data = {
     title: document.getElementById('zoomTitle').value.trim(),
     emoji: document.getElementById('zoomEmoji').value.trim() || '🎥',
@@ -16827,7 +16828,7 @@ function deleteZoomSession(id){
 <!-- ═══════════ 管理者は常時Premium扱い ═══════════ -->
 <script>
 function _enforceAdminPremium(){
-  if(typeof currentUser !== 'undefined' && currentUser && currentUser.uid === ADMIN_UID && !isPremiumUser){
+  if(typeof currentUser !== 'undefined' && currentUser && isAdminUid(currentUser.uid) && !isPremiumUser){
     isPremiumUser = true;
     try{ localStorage.setItem('ng_premium_cache','true'); }catch(e){}
   }
@@ -16856,7 +16857,7 @@ window._applyPremiumUI = function(){
     if(typeof fbAuth !== 'undefined' && fbAuth){
       clearInterval(t);
       fbAuth.onAuthStateChanged(function(u){
-        if(u && u.uid === ADMIN_UID){ isPremiumUser = true; }
+        if(u && isAdminUid(u.uid)){ isPremiumUser = true; }
       });
     } else if(tries > 20){ clearInterval(t); }
   }, 500);
