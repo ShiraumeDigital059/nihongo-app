@@ -14370,9 +14370,7 @@ function renderAdminUserList(allUsers){
       +'<div style="font-size:11px;color:#9CA3AF">'+(d.email||'-')+'</div>'
       +'<div style="font-size:10px;color:#D1D5DB">📅登録: '+regStr+'　🕒最終: '+loginStr+'</div>'
       +'</div>'
-      +'<button onclick="adminTogglePremium(this)" data-uid="'+u.id+'" data-prem="'+(isPrem?'1':'0')+'" style="flex-shrink:0;border:none;border-radius:10px;padding:7px 11px;font-size:11px;font-weight:800;cursor:pointer;touch-action:manipulation;background:'+(isPrem?'#FEF3C7':'#F3F4F6')+';color:'+(isPrem?'#F59E0B':'#9CA3AF')+'">'
-      +(isPrem?'⭐ Premium':'無料 → 付与')
-      +'</button>'
+      +adminPlanButtonsHTML(u.id, isPrem, d.premiumPlan)
       +'<button onclick="adminDeleteUser(\''+u.id+'\',\''+(d.name||'').replace(/'/g,"\\'")+'\')" style="flex-shrink:0;border:none;border-radius:10px;padding:7px 9px;font-size:13px;cursor:pointer;touch-action:manipulation;background:#FEE2E2;color:#DC2626;margin-left:6px">🗑️</button>'
       +'</div>'
       +'<button onclick="toggleUserLearningHistory(this,\''+u.id+'\')" data-open="0" style="margin-top:6px;width:100%;text-align:left;border:none;background:#F9FAFB;border-radius:8px;padding:6px 10px;font-size:11px;color:#6B7280;cursor:pointer">📚 学習履歴を見る ▾</button>'
@@ -14513,25 +14511,56 @@ function toggleUserLearningHistory(btn, uid){
   });
 }
 
-/* プレミアム手動付与/解除 */
-function adminTogglePremium(el){
-  var uid=el.getAttribute('data-uid');
-  var isPrem=el.getAttribute('data-prem')==='1';
-  if(!uid||!fbDb) return;
-
-  var newVal=!isPrem;
-  var msg=newVal?'このユーザーにPremiumを付与しますか？':'このユーザーのPremiumを解除しますか？';
-  if(!confirm(msg)) return;
-
-  var updateData={premium:newVal};
-  if(newVal){
-    updateData.premiumSince=new Date().toISOString();
-    updateData.plan='manual_admin';
-    updateData.premiumPlan='take'; // 管理者が手動付与する場合はTAKE相当をデフォルトに
+/* プラン付与ボタン群のHTML生成（未付与時：UME/TAKE/MATSU選択ボタン／付与済み：現在プラン表示＋解除ボタン） */
+var ADMIN_PLAN_DEFS=[
+  {key:'ume',  label:'🌸UME',  bg:'#E8F5E9', color:'#2E7D32'},
+  {key:'take', label:'🎋TAKE', bg:'#FEF3C7', color:'#F59E0B'},
+  {key:'matsu',label:'🎍MATSU',bg:'#F3E5F5', color:'#6A1B9A'}
+];
+function adminPlanButtonsHTML(uid, isPrem, premiumPlan){
+  if(isPrem){
+    var cur=ADMIN_PLAN_DEFS.find(function(p){return p.key===premiumPlan;})||ADMIN_PLAN_DEFS[1];
+    return '<div style="display:flex;align-items:center;gap:5px;flex-shrink:0">'
+      +'<span style="border-radius:10px;padding:7px 10px;font-size:11px;font-weight:800;background:'+cur.bg+';color:'+cur.color+'">'+cur.label+'</span>'
+      +'<button onclick="adminRevokePremium(\''+uid+'\')" style="border:none;border-radius:10px;padding:7px 9px;font-size:11px;font-weight:700;cursor:pointer;touch-action:manipulation;background:#F3F4F6;color:#9CA3AF">解除</button>'
+      +'</div>';
   }
+  return '<div style="display:flex;align-items:center;gap:4px;flex-shrink:0">'
+    +ADMIN_PLAN_DEFS.map(function(p){
+      return '<button onclick="adminGrantPremium(\''+uid+'\',\''+p.key+'\')" style="border:none;border-radius:10px;padding:6px 8px;font-size:10px;font-weight:800;cursor:pointer;touch-action:manipulation;background:#F3F4F6;color:#6B7280">'+p.label+'</button>';
+    }).join('')
+    +'</div>';
+}
+
+/* プラン指定で手動付与 */
+function adminGrantPremium(uid, plan){
+  if(!uid||!fbDb) return;
+  var def=ADMIN_PLAN_DEFS.find(function(p){return p.key===plan;});
+  var label=def?def.label:plan;
+  if(!confirm('このユーザーに '+label+' を付与しますか？')) return;
+
+  var updateData={
+    premium:true,
+    premiumSince:new Date().toISOString(),
+    plan:'manual_admin',
+    premiumPlan:plan
+  };
 
   fbDb.collection('users').doc(uid).set(updateData,{merge:true}).then(function(){
-    showToast(newVal?'⭐ Premiumを付与しました':'Premiumを解除しました');
+    showToast('⭐ '+label+' を付与しました');
+    loadAdminData();
+  }).catch(function(e){
+    showToast('エラー: '+e.message);
+  });
+}
+
+/* プレミアム解除 */
+function adminRevokePremium(uid){
+  if(!uid||!fbDb) return;
+  if(!confirm('このユーザーのPremiumを解除しますか？')) return;
+
+  fbDb.collection('users').doc(uid).set({premium:false},{merge:true}).then(function(){
+    showToast('Premiumを解除しました');
     loadAdminData();
   }).catch(function(e){
     showToast('エラー: '+e.message);
