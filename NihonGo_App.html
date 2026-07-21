@@ -3095,6 +3095,14 @@ img{loading:lazy;}
   <div class="modal" id="modalBox"></div>
 </div>
 <script>
+/* ════ NATIVE APP DETECTION（他コードより先に定義） ════ */
+const IS_NATIVE_APP = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform()) || window.location.protocol === 'capacitor:';
+const VERCEL_API_URL = IS_NATIVE_APP
+  ? 'https://nihongo-app-orcin.vercel.app'
+  : (window.location.hostname === 'localhost'
+    ? 'http://localhost:3000'
+    : window.location.origin);
+
 /* ════ DATA ════ */
 const HIRAGANA=[{c:"あ",r:"a"},{c:"い",r:"i"},{c:"う",r:"u"},{c:"え",r:"e"},{c:"お",r:"o"},{c:"か",r:"ka"},{c:"き",r:"ki"},{c:"く",r:"ku"},{c:"け",r:"ke"},{c:"こ",r:"ko"},{c:"さ",r:"sa"},{c:"し",r:"shi"},{c:"す",r:"su"},{c:"せ",r:"se"},{c:"そ",r:"so"},{c:"た",r:"ta"},{c:"ち",r:"chi"},{c:"つ",r:"tsu"},{c:"て",r:"te"},{c:"と",r:"to"},{c:"な",r:"na"},{c:"に",r:"ni"},{c:"ぬ",r:"nu"},{c:"ね",r:"ne"},{c:"の",r:"no"},{c:"は",r:"ha"},{c:"ひ",r:"hi"},{c:"ふ",r:"fu"},{c:"へ",r:"he"},{c:"ほ",r:"ho"},{c:"ま",r:"ma"},{c:"み",r:"mi"},{c:"む",r:"mu"},{c:"め",r:"me"},{c:"も",r:"mo"},{c:"や",r:"ya"},{c:"ゆ",r:"yu"},{c:"よ",r:"yo"},{c:"ら",r:"ra"},{c:"り",r:"ri"},{c:"る",r:"ru"},{c:"れ",r:"re"},{c:"ろ",r:"ro"},{c:"わ",r:"wa"},{c:"を",r:"wo"},{c:"ん",r:"n"}];
 const KATAKANA=[{c:"ア",r:"a"},{c:"イ",r:"i"},{c:"ウ",r:"u"},{c:"エ",r:"e"},{c:"オ",r:"o"},{c:"カ",r:"ka"},{c:"キ",r:"ki"},{c:"ク",r:"ku"},{c:"ケ",r:"ke"},{c:"コ",r:"ko"},{c:"サ",r:"sa"},{c:"シ",r:"shi"},{c:"ス",r:"su"},{c:"セ",r:"se"},{c:"ソ",r:"so"},{c:"タ",r:"ta"},{c:"チ",r:"chi"},{c:"ツ",r:"tsu"},{c:"テ",r:"te"},{c:"ト",r:"to"},{c:"ナ",r:"na"},{c:"ニ",r:"ni"},{c:"ヌ",r:"nu"},{c:"ネ",r:"ne"},{c:"ノ",r:"no"},{c:"ハ",r:"ha"},{c:"ヒ",r:"hi"},{c:"フ",r:"fu"},{c:"ヘ",r:"he"},{c:"ホ",r:"ho"},{c:"マ",r:"ma"},{c:"ミ",r:"mi"},{c:"ム",r:"mu"},{c:"メ",r:"me"},{c:"モ",r:"mo"},{c:"ヤ",r:"ya"},{c:"ユ",r:"yu"},{c:"ヨ",r:"yo"},{c:"ラ",r:"ra"},{c:"リ",r:"ri"},{c:"ル",r:"ru"},{c:"レ",r:"re"},{c:"ロ",r:"ro"},{c:"ワ",r:"wa"},{c:"ヲ",r:"wo"},{c:"ン",r:"n"}];
@@ -8556,13 +8564,7 @@ function showForgotPassword(){
 
 
 /* ════ STRIPE CHECKOUT ════ */
-// Vercel Functions のベースURL（デプロイ後に変更）
-const IS_NATIVE_APP = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform()) || window.location.protocol === 'capacitor:';
-const VERCEL_API_URL = IS_NATIVE_APP
-  ? 'https://nihongo-app-orcin.vercel.app'
-  : (window.location.hostname === 'localhost'
-    ? 'http://localhost:3000'
-    : window.location.origin);
+// (IS_NATIVE_APP / VERCEL_API_URL はファイル先頭で定義済み)
 
 var PLAN_INFO={
   ume:  { label:'UME',   cardId:'planUme',   color:'var(--border)', selColor:'#2E7D32', selBg:'#E8F5E9',
