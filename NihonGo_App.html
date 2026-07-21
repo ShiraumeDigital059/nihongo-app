@@ -6817,7 +6817,11 @@ function refreshProfilePage(){
   }
   if(currentUser){
     if(emailEl)emailEl.textContent=currentUser.email||'';
-    if(memberEl)memberEl.textContent=isPremiumUser?'⭐ Premium':'Miễn phí';
+    if(memberEl){
+      var _profPlan=(typeof getUserPlan==='function')?getUserPlan():(isPremiumUser?'take':'free');
+      var _profPlanLabel={ume:'🌸 UME',take:'🎋 TAKE',matsu:'🎍 MATSU'}[_profPlan];
+      memberEl.textContent=_profPlanLabel || (isPremiumUser?'⭐ Premium':L('Miễn phí','無料会員'));
+    }
   }
   
   // Build ranking section
